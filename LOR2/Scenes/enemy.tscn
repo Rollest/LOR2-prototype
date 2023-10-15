@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4hewx1rcvg8b"]
+
+[ext_resource type="Script" path="res://Scripts/Unit.gd" id="1_mu4mv"]
+[ext_resource type="Texture2D" uid="uid://chll1nr1v4mei" path="res://Assets/enemy.png" id="2_ih4ww"]
+[ext_resource type="Texture2D" uid="uid://cxrtc4dm4nbgu" path="res://Assets/Без имени.png" id="3_df2jx"]
+[ext_resource type="Script" path="res://Scripts/Slot.gd" id="4_ahq8e"]
+
+[node name="enemy" type="Node3D"]
+transform = Transform3D(0.199395, 0, 0, 0, 0.199395, 0, 0, 0, 0.722807, 0, 0, 0)
+top_level = true
+script = ExtResource("1_mu4mv")
+
+[node name="enemy" type="Sprite3D" parent="."]
+transparent = false
+texture = ExtResource("2_ih4ww")
+
+[node name="Slot" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.27, 0, 0, 0, 1, 0, 3.17535, 0.0542597)
+texture = ExtResource("3_df2jx")
+script = ExtResource("4_ahq8e")
+
+[node name="Speed" type="Label3D" parent="Slot"]
+transform = Transform3D(9.12307, 0, 0, 0, 9.12307, 0, 0, 0, 1, 0.0802354, 0, 0.0600853)
+modulate = Color(0, 0, 0, 1)
+text = "8"
+font_size = 64

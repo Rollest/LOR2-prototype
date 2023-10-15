@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://bv4dys5ufh6x"]
+
+[ext_resource type="Texture2D" uid="uid://bfg7x5trq773l" path="res://Assets/white.png" id="1_mjgay"]
+[ext_resource type="PackedScene" uid="uid://bvk5gskkh4qyh" path="res://Scenes/unit.tscn" id="2_wvpmb"]
+[ext_resource type="Script" path="res://Scripts/GameDirector.gd" id="3_1a71y"]
+[ext_resource type="PackedScene" uid="uid://b4hewx1rcvg8b" path="res://Scenes/enemy.tscn" id="3_lfina"]
+[ext_resource type="PackedScene" uid="uid://cmiwe2wpr1awi" path="res://Scenes/card.tscn" id="5_uie0m"]
+[ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Cards/Card1.tres" id="6_ug7nl"]
+[ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Cards/card2.tres" id="7_ulx04"]
+[ext_resource type="PackedScene" uid="uid://cghm8gmsnndgy" path="res://Scenes/gui.tscn" id="8_gm0w0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_icjog"]
+size = Vector3(1, 0.01, 1)
+
+[node name="root" type="Node3D"]
+
+[node name="stage" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0502977, -0.5, -0.00100708)
+disable_mode = 1
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+shape = SubResource("BoxShape3D_icjog")
+
+[node name="Sprite3D" type="Sprite3D" parent="stage"]
+transform = Transform3D(3.01992e-07, 4, -1.74846e-07, 0, -1.74846e-07, -4, -4, 3.01992e-07, -1.32005e-14, 0, 0, 0)
+texture = ExtResource("1_mjgay")
+
+[node name="Unit" parent="." node_paths=PackedStringArray("slots") instance=ExtResource("2_wvpmb")]
+transform = Transform3D(0.199395, 0, 0, 0, 0.199395, 0, 0, 0, 0.722807, -1.70801, 0.26274, -0.0329418)
+top_level = true
+hp = 10
+maxHP = 10
+sp = 10
+maxSP = 10
+speed = Array[int]([3, 6])
+isSelected = true
+slots = [NodePath("SLOT")]
+
+[node name="SLOT" parent="Unit" index="1" node_paths=PackedStringArray("card", "target")]
+card = NodePath("../../Card1")
+target = NodePath("../../enemy")
+
+[node name="enemy" parent="." node_paths=PackedStringArray("slots") instance=ExtResource("3_lfina")]
+transform = Transform3D(0.199395, 0, 0, 0, 0.199395, 0, 0, 0, 0.722807, 1.48485, 0.247312, 0.0454743)
+hp = 10
+maxHP = 10
+sp = 10
+maxSP = 10
+speed = Array[int]([2, 5])
+slots = [NodePath("SLOT")]
+
+[node name="SLOT" parent="enemy" index="1" node_paths=PackedStringArray("card", "source", "target")]
+card = NodePath("../../Card2")
+source = NodePath("..")
+target = NodePath("../../Unit")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00240517, 0.618194, 3.61887)
+top_level = true
+current = true
+fov = 100.0
+
+[node name="GameDirector" type="Node" parent="." node_paths=PackedStringArray("scene")]
+script = ExtResource("3_1a71y")
+scene = NodePath("..")
+
+[node name="Card1" parent="." instance=ExtResource("5_uie0m")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -7.06387, -0.400001, 3.79067)
+visible = false
+cardConfig = ExtResource("6_ug7nl")
+
+[node name="Card2" parent="." instance=ExtResource("5_uie0m")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -7.77026, -0.118287, 4.16973)
+visible = false
+cardConfig = ExtResource("7_ulx04")
+
+[node name="GUI" parent="." instance=ExtResource("8_gm0w0")]
+follow_viewport_enabled = true
+
+[connection signal="next_turn" from="GUI" to="GameDirector" method="_on_gui_next_turn"]
+
+[editable path="Unit"]
+[editable path="enemy"]
