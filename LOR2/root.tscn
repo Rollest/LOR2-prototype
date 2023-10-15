@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv4dys5ufh6x"]
+
+[ext_resource type="Texture2D" uid="uid://btd2cpchlyudh" path="res://icon.svg" id="1_phtns"]
+[ext_resource type="PackedScene" uid="uid://bvk5gskkh4qyh" path="res://unit.tscn" id="2_748lg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_icjog"]
+size = Vector3(0.730161, 0.0508629, 2.03359)
+
+[node name="root" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+disable_mode = 1
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_icjog")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(4.5, -6.99382e-07, 3.82137e-15, 0, 3.49691e-07, 1, 3.93403e-07, 8, -4.37114e-08, 0.0525112, -0.0123439, 0.00746775)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_phtns")
+
+[node name="UNIT" parent="." instance=ExtResource("2_748lg")]
+transform = Transform3D(0.199395, 0, 0, 0, 0.199395, 0, 0, 0, 0.722807, -1.70801, 0.0351853, -0.0329418)
+hp = null
+sp = null
+speed = null
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.629362, 3.75764)
+fov = 90.0
