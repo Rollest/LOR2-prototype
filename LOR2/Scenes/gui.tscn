@@ -12,3 +12,5 @@ offset_bottom = 140.0
 action_mode = 0
 text = "turn"
 script = ExtResource("2_pn3ae")
+
+[connection signal="pressed" from="TurnButton" to="." method="_on_turn_button_pressed"]

@@ -14,7 +14,7 @@ class_name Slot
 var RNG=RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	text=get_node("SPEED")
+	text=get_node("Speed")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,26 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1697465402
+::res://Assets/::1697393643
+card_bg.png::CompressedTexture2D::4065567938700502126::1697393536::1697393643::1::::<><>::
+enemy.png::CompressedTexture2D::5287586455984809592::1697393536::1697393643::1::::<><>::
+goodguy.png::CompressedTexture2D::909384769513966567::1697393536::1697393643::1::::<><>::
+icon.svg::CompressedTexture2D::3727845567743975181::1697393536::1697393643::1::::<><>::
+white.png::CompressedTexture2D::2751736791282828579::1697393536::1697393643::1::::<><>::
+Без имени.png::CompressedTexture2D::6423437915726394332::1697393536::1697393643::1::::<><>::
+::res://Cards/::1697393536
+Card1.tres::Resource/Resource::8754462785447038051::1697393536::0::1::::<><>::res://Scripts/CardConfig.gd
+card2.tres::Resource/Resource::8386983295847535201::1697393536::0::1::::<><>::res://Scripts/CardConfig.gd
+::res://Scenes/::1697403330
+card.tscn::PackedScene::5632966882912973492::1697393536::0::1::::<><>::res://Scripts/Card.gd<>uid://bx6nksk2mqtd3
+enemy.tscn::PackedScene::4436631197889308643::1697393536::0::1::::<><>::res://Scripts/Unit.gd<>uid://chll1nr1v4mei
+gui.tscn::PackedScene::5209212943118352488::1697393536::0::1::::<><>::res://Scripts/GUI.gd<>res://Scenes/TurnButton.gd
+root.tscn::PackedScene::115308216402107897::1697403330::0::1::::<><>::uid://bfg7x5trq773l::::res://Assets/white.png<>uid://bvk5gskkh4qyh::::res://Scenes/unit.tscn<>res://Scripts/GameDirector.gd<>uid://b4hewx1rcvg8b::::res://Scenes/enemy.tscn<>uid://cmiwe2wpr1awi::::res://Scenes/card.tscn<>uid://dwyyyt3dohhrn::::res://Cards/Card1.tres<>uid://drqynikbv6dsj::::res://Cards/card2.tres<>uid://cghm8gmsnndgy::::res://Scenes/gui.tscn
+TurnButton.gd::GDScript::-1::1697393536::0::1::::<>Button<>::
+unit.tscn::PackedScene::3882863363512016655::1697393536::0::1::::<><>::res://Scripts/Unit.gd<>uid://m7ro1bm4ca7h
+::res://Scripts/::1697402701
+Card.gd::GDScript::-1::1697393536::0::1::::Card<>Node<>::
+CardConfig.gd::GDScript::-1::1697393536::0::1::::CardConfig<>Resource<>::
+GameDirector.gd::GDScript::-1::1697402701::0::1::::GameDirector<>Node<>::
+GUI.gd::GDScript::-1::1697401451::0::1::::<>CanvasLayer<>::
+Slot.gd::GDScript::-1::1697394568::0::1::::Slot<>Node3D<>::
+Unit.gd::GDScript::-1::1697393536::0::1::::Unit<>Node3D<>::

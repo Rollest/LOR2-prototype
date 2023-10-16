@@ -1,0 +1,5 @@
+res://Scenes/root.tscn
+res://Scripts/GameDirector.gd
+res://Scenes/TurnButton.gd
+res://Scenes/gui.tscn
+res://Scripts/GUI.gd

@@ -7,6 +7,7 @@ class_name GameDirector
 @export var cards:Array[Card]
 @export var scene:Node
 
+
 var RNG=RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,7 +26,8 @@ func Turn():
 	var tmp
 	tmp=find_objects_of_type(Slot)
 	for item in tmp:
-		slots.append(item)
+		if(item not in slots):
+			slots.append(item)
 		
 	for item in slots:
 		if (!item.target):
@@ -33,19 +35,21 @@ func Turn():
 			
 	slots.sort_custom(speedComparison)
 	for slot in slots:
-		slot.target.source.hp-=AttackDmg(slot.card)
+		slot.target.hp-=AttackDmg(slot.card)
+		print(slot.target.hp)
 	
 	var tmp2
 	tmp2=find_objects_of_type(Slot)
 	for item in tmp2:
-		item.reset_speed(item.source.speedRange)
+		item.reset_speed(item.source.speed)
 	
 
 func AttackDmg(card:Card)->int:
-	var res = card.cardConfig.Base
-	for i in range (0,card.cardConfig.Count):
+	var res = card.cardConfig.base
+	for i in range (0,card.cardConfig.count):
 		if (RNG.randi_range(0,1)==1):
-			res+=card.cardConfig.Power
+			res+=card.cardConfig.power
+	#print(res)
 	return res
 
 func get_all_children(node)->Array:
@@ -71,6 +75,8 @@ func speedComparison(a, b):
 	if a.speed>b.speed:
 		return true
 	return false
+
+
 
 func _on_gui_next_turn():
 	print("button pressed")

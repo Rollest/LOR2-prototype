@@ -41,9 +41,14 @@ sp = 10
 maxSP = 10
 speed = Array[int]([3, 6])
 isSelected = true
-slots = [NodePath("SLOT")]
+slots = [null]
 
-[node name="SLOT" parent="Unit" index="1" node_paths=PackedStringArray("card", "target")]
+[node name="UnitSprite" parent="Unit" index="0"]
+layers = 2
+transparent = true
+alpha_cut = 1
+
+[node name="Slot" parent="Unit" index="1" node_paths=PackedStringArray("card", "target")]
 card = NodePath("../../Card1")
 target = NodePath("../../enemy")
 
@@ -54,9 +59,14 @@ maxHP = 10
 sp = 10
 maxSP = 10
 speed = Array[int]([2, 5])
-slots = [NodePath("SLOT")]
+slots = [null]
 
-[node name="SLOT" parent="enemy" index="1" node_paths=PackedStringArray("card", "source", "target")]
+[node name="enemy" parent="enemy" index="0"]
+layers = 2
+transparent = true
+alpha_cut = 1
+
+[node name="Slot" parent="enemy" index="1" node_paths=PackedStringArray("card", "source", "target")]
 card = NodePath("../../Card2")
 source = NodePath("..")
 target = NodePath("../../Unit")
@@ -66,6 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00240517, 0.618194, 3.6188
 top_level = true
 current = true
 fov = 100.0
+far = 122.46
 
 [node name="GameDirector" type="Node" parent="." node_paths=PackedStringArray("scene")]
 script = ExtResource("3_1a71y")
@@ -82,7 +93,6 @@ visible = false
 cardConfig = ExtResource("7_ulx04")
 
 [node name="GUI" parent="." instance=ExtResource("8_gm0w0")]
-follow_viewport_enabled = true
 
 [connection signal="next_turn" from="GUI" to="GameDirector" method="_on_gui_next_turn"]
 
