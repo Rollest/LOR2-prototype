@@ -1,5 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1697465402
+::res://::1697558614
+card2d.tscn::PackedScene::2441796888340887256::1697561785::0::1::::<><>::res://Scripts/Card.gd<>uid://bx6nksk2mqtd3::::res://Assets/card_bg.png
 ::res://Assets/::1697393643
 card_bg.png::CompressedTexture2D::4065567938700502126::1697393536::1697393643::1::::<><>::
 enemy.png::CompressedTexture2D::5287586455984809592::1697393536::1697393643::1::::<><>::
@@ -10,17 +11,19 @@ white.png::CompressedTexture2D::2751736791282828579::1697393536::1697393643::1::
 ::res://Cards/::1697393536
 Card1.tres::Resource/Resource::8754462785447038051::1697393536::0::1::::<><>::res://Scripts/CardConfig.gd
 card2.tres::Resource/Resource::8386983295847535201::1697393536::0::1::::<><>::res://Scripts/CardConfig.gd
-::res://Scenes/::1697403330
-card.tscn::PackedScene::5632966882912973492::1697393536::0::1::::<><>::res://Scripts/Card.gd<>uid://bx6nksk2mqtd3
-enemy.tscn::PackedScene::4436631197889308643::1697393536::0::1::::<><>::res://Scripts/Unit.gd<>uid://chll1nr1v4mei
-gui.tscn::PackedScene::5209212943118352488::1697393536::0::1::::<><>::res://Scripts/GUI.gd<>res://Scenes/TurnButton.gd
-root.tscn::PackedScene::115308216402107897::1697403330::0::1::::<><>::uid://bfg7x5trq773l::::res://Assets/white.png<>uid://bvk5gskkh4qyh::::res://Scenes/unit.tscn<>res://Scripts/GameDirector.gd<>uid://b4hewx1rcvg8b::::res://Scenes/enemy.tscn<>uid://cmiwe2wpr1awi::::res://Scenes/card.tscn<>uid://dwyyyt3dohhrn::::res://Cards/Card1.tres<>uid://drqynikbv6dsj::::res://Cards/card2.tres<>uid://cghm8gmsnndgy::::res://Scenes/gui.tscn
-TurnButton.gd::GDScript::-1::1697393536::0::1::::<>Button<>::
-unit.tscn::PackedScene::3882863363512016655::1697393536::0::1::::<><>::res://Scripts/Unit.gd<>uid://m7ro1bm4ca7h
-::res://Scripts/::1697402701
-Card.gd::GDScript::-1::1697393536::0::1::::Card<>Node<>::
+::res://Scenes/::1697560483
+card.tscn::PackedScene::5632966882912973492::1697561608::0::1::::<><>::res://Scripts/Card.gd<>uid://bx6nksk2mqtd3::::res://Assets/card_bg.png
+enemy.tscn::PackedScene::4436631197889308643::1697554328::0::1::::<><>::res://Scripts/Unit.gd<>uid://chll1nr1v4mei::::res://Assets/enemy.png<>uid://cxrtc4dm4nbgu::::res://Assets/Без имени.png<>res://Scripts/Slot.gd
+enemy_2d.tscn::PackedScene::7922520322235976696::1697560596::0::1::::<><>::res://Scripts/Unit.gd<>uid://chll1nr1v4mei::::res://Assets/enemy.png<>res://Scripts/Slot.gd
+gui.tscn::PackedScene::5209212943118352488::1697554328::0::1::::<><>::res://Scripts/GUI.gd<>res://Scenes/TurnButton.gd
+root.tscn::PackedScene::115308216402107897::1697561518::0::1::::<><>::uid://bfg7x5trq773l::::res://Assets/white.png<>uid://bvk5gskkh4qyh::::res://Scenes/unit.tscn<>res://Scripts/GameDirector.gd<>uid://b4hewx1rcvg8b::::res://Scenes/enemy.tscn<>uid://cmiwe2wpr1awi::::res://Scenes/card.tscn<>uid://dwyyyt3dohhrn::::res://Cards/Card1.tres<>uid://drqynikbv6dsj::::res://Cards/card2.tres<>uid://cghm8gmsnndgy::::res://Scenes/gui.tscn<>uid://diy7kumo6udta::::res://Scenes/unit_2d.tscn<>uid://dk4y0ts7w33rg::::res://Scenes/enemy_2d.tscn
+TurnButton.gd::GDScript::-1::1697466310::0::1::::<>Button<>::
+unit.tscn::PackedScene::3882863363512016655::1697560048::0::1::::<><>::res://Scripts/Unit.gd<>uid://m7ro1bm4ca7h::::res://Assets/goodguy.png<>uid://cxrtc4dm4nbgu::::res://Assets/Без имени.png<>res://Scripts/Slot.gd
+unit_2d.tscn::PackedScene::7772279737671541090::1697560425::0::1::::<><>::uid://m7ro1bm4ca7h::::res://Assets/goodguy.png<>res://Scripts/Unit.gd<>res://Scripts/Slot.gd
+::res://Scripts/::1697560015
+Card.gd::GDScript::-1::1697561434::0::1::::Card<>Node2D<>::
 CardConfig.gd::GDScript::-1::1697393536::0::1::::CardConfig<>Resource<>::
-GameDirector.gd::GDScript::-1::1697402701::0::1::::GameDirector<>Node<>::
-GUI.gd::GDScript::-1::1697401451::0::1::::<>CanvasLayer<>::
-Slot.gd::GDScript::-1::1697394568::0::1::::Slot<>Node3D<>::
-Unit.gd::GDScript::-1::1697393536::0::1::::Unit<>Node3D<>::
+GameDirector.gd::GDScript::-1::1697466479::0::1::::GameDirector<>Node<>::
+GUI.gd::GDScript::-1::1697466530::0::1::::<>CanvasLayer<>::
+Slot.gd::GDScript::-1::1697560015::0::1::::Slot<>Node2D<>::
+Unit.gd::GDScript::-1::1697559793::0::1::::Unit<>Node2D<>::

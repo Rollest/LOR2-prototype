@@ -4,11 +4,14 @@
 [ext_resource type="Script" path="res://Scenes/TurnButton.gd" id="2_pn3ae"]
 
 [node name="GUI" type="CanvasLayer"]
+follow_viewport_enabled = true
 script = ExtResource("1_71ya4")
 
 [node name="TurnButton" type="Button" parent="."]
 offset_right = 198.0
 offset_bottom = 140.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 action_mode = 0
 text = "turn"
 script = ExtResource("2_pn3ae")

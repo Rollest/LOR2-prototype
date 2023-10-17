@@ -1,20 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmiwe2wpr1awi"]
+[gd_scene load_steps=4 format=3 uid="uid://ba13bj6s0nseq"]
 
-[ext_resource type="Script" path="res://Scripts/Card.gd" id="1_rr2ur"]
-[ext_resource type="Texture2D" uid="uid://bx6nksk2mqtd3" path="res://Assets/card_bg.png" id="2_fvxfw"]
+[ext_resource type="Script" path="res://Scripts/Card.gd" id="1_10ehx"]
+[ext_resource type="Texture2D" uid="uid://bx6nksk2mqtd3" path="res://Assets/card_bg.png" id="2_fqicu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4usx"]
 
-[node name="Card" type="Node3D" node_paths=PackedStringArray("countText", "powerText", "baseText")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-script = ExtResource("1_rr2ur")
-countText = NodePath("")
-powerText = NodePath("")
-baseText = NodePath("")
+[node name="Card" type="Node2D" node_paths=PackedStringArray("countText", "powerText", "baseText")]
+script = ExtResource("1_10ehx")
+countText = NodePath("Sprite3D/Count")
+powerText = NodePath("Sprite3D/Power")
+baseText = NodePath("Sprite3D/Base")
 
 [node name="Sprite3D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_fvxfw")
+texture = ExtResource("2_fqicu")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Sprite3D"]
 

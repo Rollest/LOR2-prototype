@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk4y0ts7w33rg"]
+
+[ext_resource type="Script" path="res://Scripts/Unit.gd" id="1_2jwvh"]
+[ext_resource type="Texture2D" uid="uid://chll1nr1v4mei" path="res://Assets/enemy.png" id="2_oarrp"]
+[ext_resource type="Script" path="res://Scripts/Slot.gd" id="3_8me0g"]
+[ext_resource type="Texture2D" uid="uid://bfg7x5trq773l" path="res://Assets/white.png" id="3_srsv8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dih22"]
+
+[node name="Enemy2D" type="Node2D" node_paths=PackedStringArray("healthBar")]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_2jwvh")
+healthBar = NodePath("Sprite2D/TextureProgressBar")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_oarrp")
+flip_h = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Sprite2D"]
+disable_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/CharacterBody2D"]
+scale = Vector2(9.84, 24.48)
+shape = SubResource("RectangleShape2D_dih22")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Sprite2D"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -269.735
+offset_top = -386.0
+offset_right = 230.265
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.04)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 38.0
+texture_progress = ExtResource("3_srsv8")
+tint_under = Color(0.337255, 0.803922, 1, 1)
+tint_progress = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="HP" type="Label" parent="Sprite2D/TextureProgressBar"]
+layout_mode = 0
+offset_left = 152.45
+offset_top = -200.0
+offset_right = 192.45
+offset_bottom = -174.0
+scale = Vector2(4.1822, 33.0784)
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot" type="Node2D" parent="." node_paths=PackedStringArray("source")]
+position = Vector2(0, -280)
+scale = Vector2(4.26, 4.26)
+script = ExtResource("3_8me0g")
+source = NodePath("..")
+
+[node name="Speed" type="Label" parent="Slot"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 20.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

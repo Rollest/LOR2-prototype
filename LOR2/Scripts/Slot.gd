@@ -1,8 +1,8 @@
-extends Node3D
+extends Node2D
 
 class_name Slot
 	
-@export var text:Label3D
+@export var text:Label
 @export var speed:int
 
 @export var isSelected:bool

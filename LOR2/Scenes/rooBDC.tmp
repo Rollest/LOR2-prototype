@@ -11,10 +11,9 @@
 [node name="root" type="Node3D"]
 
 [node name="Unit2D" parent="." node_paths=PackedStringArray("slots") instance=ExtResource("9_meili")]
-position = Vector2(278, 285)
-scale = Vector2(0.4, 0.4)
-hp = 100
-maxHP = 100
+position = Vector2(-165, 0)
+hp = 10
+maxHP = 10
 sp = 10
 maxSP = 10
 speed = Array[int]([3, 6])
@@ -28,10 +27,9 @@ card = NodePath("../../Card1")
 target = NodePath("../../Enemy2D")
 
 [node name="Enemy2D" parent="." node_paths=PackedStringArray("slots") instance=ExtResource("10_d5xgn")]
-position = Vector2(757, 285)
-scale = Vector2(0.4, 0.4)
-hp = 100
-maxHP = 100
+position = Vector2(175, 0)
+hp = 10
+maxHP = 10
 sp = 10
 maxSP = 10
 speed = Array[int]([3, 5])
@@ -43,25 +41,20 @@ card = NodePath("../../Card2")
 target = NodePath("../../Unit2D")
 
 [node name="Card1" parent="." instance=ExtResource("10_7u201")]
-position = Vector2(418, 511)
-scale = Vector2(1.25, 1.25)
+position = Vector2(-118, 183)
 cardConfig = ExtResource("6_ug7nl")
 
 [node name="Card2" parent="." instance=ExtResource("10_7u201")]
-position = Vector2(601, 511)
-scale = Vector2(1.25, 1.25)
+position = Vector2(0, 183)
 cardConfig = ExtResource("7_ulx04")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
 
 [node name="GameDirector" type="Node2D" parent="." node_paths=PackedStringArray("scene")]
 script = ExtResource("3_1a71y")
 scene = NodePath("..")
 
 [node name="GUI" parent="." instance=ExtResource("8_gm0w0")]
-
-[connection signal="next_turn" from="GUI" to="GameDirector" method="_on_gui_next_turn"]
 
 [editable path="Unit2D"]
 [editable path="Enemy2D"]
