@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv4dys5ufh6x"]
+[gd_scene load_steps=9 format=3 uid="uid://bv4dys5ufh6x"]
 
 [ext_resource type="Script" path="res://Scripts/GameDirector.gd" id="3_1a71y"]
 [ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Cards/Card1.tres" id="6_ug7nl"]
@@ -6,11 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cghm8gmsnndgy" path="res://Scenes/gui.tscn" id="8_gm0w0"]
 [ext_resource type="Script" path="res://Scripts/RayCast.gd" id="8_hdsgx"]
 [ext_resource type="PackedScene" uid="uid://diy7kumo6udta" path="res://Scenes/unit_2d.tscn" id="9_meili"]
-[ext_resource type="Texture2D" uid="uid://bfg7x5trq773l" path="res://Assets/white.png" id="9_w7743"]
 [ext_resource type="PackedScene" uid="uid://ba13bj6s0nseq" path="res://Scenes/card2d.tscn" id="10_7u201"]
 [ext_resource type="PackedScene" uid="uid://dk4y0ts7w33rg" path="res://Scenes/enemy_2d.tscn" id="10_d5xgn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei2tc"]
 
 [node name="root" type="Node3D"]
 
@@ -26,6 +23,7 @@ isSelected = true
 
 [node name="Slot" parent="Unit2D" index="1" node_paths=PackedStringArray("card", "target")]
 speed = 1
+isSelected = true
 card = NodePath("../../Card1")
 target = NodePath("../../Enemy2D")
 
@@ -63,22 +61,9 @@ scene = NodePath("..")
 [node name="GUI" parent="." instance=ExtResource("8_gm0w0")]
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-modulate = Color(0, 0.945098, 0, 1)
 position = Vector2(411, 132)
 target_position = Vector2(0, 0)
-hit_from_inside = true
-collide_with_areas = true
 script = ExtResource("8_hdsgx")
-
-[node name="Sprite2D" type="Sprite2D" parent="RayCast2D"]
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("9_w7743")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(-213, -171)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_ei2tc")
 
 [connection signal="next_turn" from="GUI" to="GameDirector" method="_on_gui_next_turn"]
 

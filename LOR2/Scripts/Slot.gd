@@ -5,11 +5,10 @@ class_name Slot
 @export var text:Label
 @export var speed:int
 
-@export var isSelected:bool
-
 @export var card:Card
 @export var source:Unit
 @export var target:Unit
+
 
 var RNG=RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.

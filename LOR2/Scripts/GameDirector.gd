@@ -78,6 +78,12 @@ func speedComparison(a, b):
 
 
 
+
+
+
+
+
+
 func _on_gui_next_turn():
 	print("button pressed")
 	Turn()
