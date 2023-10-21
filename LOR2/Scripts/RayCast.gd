@@ -22,6 +22,7 @@ func _input(event):
 		position = cursor_pos
 		force_raycast_update()
 		collider = get_collider()
+		#print(collider)
 		if (collider == null): collider = get_node("../CharacterBody2D")
 		if (prevCollider == null): prevCollider = get_node("../CharacterBody2D")
 		if (collider != prevCollider):

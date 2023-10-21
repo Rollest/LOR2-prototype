@@ -17,10 +17,10 @@ healthBar = NodePath("Sprite2D/TextureProgressBar")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7oce7")
 
-[node name="UnitBody2D" type="CharacterBody2D" parent="Sprite2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Sprite2D"]
 disable_mode = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/UnitBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/CharacterBody2D"]
 scale = Vector2(9.84, 24.48)
 shape = SubResource("RectangleShape2D_dih22")
 

@@ -2,19 +2,47 @@ extends Node
 
 class_name GameDirector
 
+signal selectedUnit(id,event_type)
+
+
 @export var units:Array[Unit]
 @export var slots:Array[Slot]
 @export var cards:Array[Card]
 @export var scene:Node
+var rayCast2D: RayCast2D
+var changedSelection: bool = false
+var pressBodyId
+var selectBodyId
 
 
 var RNG=RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rayCast2D = get_node("../RayCast2D")
+	rayCast2D.selected.connect(_listener_selected)
+	rayCast2D.unselected.connect(_listener_unselected)
 	var tmp
 	tmp=find_objects_of_type(Slot)
 	for item in tmp:
 		item.reset_speed(item.source.speed)
+
+
+
+func _listener_selected(id,type):
+	#print(id,"  ",cardBody2D.get_instance_id())
+	if(id != pressBodyId):
+		if(type == "motion"): 
+			selectBodyId = id
+			pass
+		elif(type == "press"):
+			pressBodyId = id
+func _listener_unselected(id,type):
+	#print(id,"  ",cardBody2D.get_instance_id())
+	if(id == pressBodyId):
+		emit_signal("selectedUnit",id,type)
+
+
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -75,13 +103,6 @@ func speedComparison(a, b):
 	if a.speed>b.speed:
 		return true
 	return false
-
-
-
-
-
-
-
 
 
 func _on_gui_next_turn():

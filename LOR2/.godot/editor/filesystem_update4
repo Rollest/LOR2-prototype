@@ -4,5 +4,6 @@ res://Scenes/gui.tscn
 res://Scenes/unit_2d.tscn
 res://Scenes/enemy_2d.tscn
 res://Scenes/card2d.tscn
-res://Scripts/RayCast.gd
+res://Scripts/GameDirector.gd
 res://Scripts/Unit.gd
+res://Scripts/RayCast.gd

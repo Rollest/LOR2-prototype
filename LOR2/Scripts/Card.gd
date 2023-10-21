@@ -9,6 +9,7 @@ var isMouseOn: bool = false
 var isMouseOnPress: bool = false
 var anotherNodeIsMoving:bool = false
 var baseScale:Vector2
+var startPos: Vector2
 var rayCast2D: RayCast2D
 var cardBody2D:CharacterBody2D
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +20,7 @@ func _ready():
 	baseScale = transform.get_scale()
 	cardBody2D = get_node("Sprite3D/CardCharachterBody2D")
 	rayCast2D = get_node("../RayCast2D")
-	print(rayCast2D)
+	startPos = position
 	rayCast2D.selected.connect(_listener_selected)
 	rayCast2D.unselected.connect(_listener_unselected)
 
@@ -30,8 +31,8 @@ func _process(delta):
 	#print(isMouseOnPress)
 	if (isMouseOn):
 		scale = baseScale * 1.5
-		if(isMouseOnPress):
-			position = get_viewport().get_mouse_position()
+		#if(isMouseOnPress):
+			#position = get_viewport().get_mouse_position()
 	else:
 		if (transform.get_scale()!=baseScale): scale = baseScale
 	
@@ -50,7 +51,7 @@ func _listener_selected(id,type):
 func _listener_unselected(id,type):
 	#print(id,"  ",cardBody2D.get_instance_id())
 	if(id == cardBody2D.get_instance_id()):
-		if(type == "motion" && !isMouseOnPress): 
+		if(type == "motion"):# && !isMouseOnPress): 
 			_mouse_off()
 		elif(type == "press"):
 			_mouse_on_unpressed()
@@ -75,4 +76,5 @@ func _mouse_on_pressed():
 func _mouse_on_unpressed():
 	#isMouseOn = true
 	isMouseOnPress = false
+	position = startPos
 	#print("mouse_on_unpress")
