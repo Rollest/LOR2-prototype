@@ -7,12 +7,12 @@ signal selectedUnit(id,event_type)
 
 @export var units:Array[Unit]
 @export var slots:Array[Slot]
-@export var cards:Array[Card]
+@export var cards:Array[CardConfig]
 @export var scene:Node
 var rayCast2D: RayCast2D
 var changedSelection: bool = false
 var pressBodyId
-var selectBodyId
+var selectedBody
 
 
 var RNG=RandomNumberGenerator.new()
@@ -32,13 +32,17 @@ func _listener_selected(id,type):
 	#print(id,"  ",cardBody2D.get_instance_id())
 	if(id != pressBodyId):
 		if(type == "motion"): 
-			selectBodyId = id
+			#selectBodyId = id
 			pass
 		elif(type == "press"):
 			pressBodyId = id
 func _listener_unselected(id,type):
 	#print(id,"  ",cardBody2D.get_instance_id())
-	if(id == pressBodyId):
+	if(id == pressBodyId && type == "press"):
+		if (selectedBody != null && selectedBody.to_string().contains("Slot")):
+			pass #check how to get other nodes from charbody2d refference
+		selectedBody = pressBodyId
+		
 		emit_signal("selectedUnit",id,type)
 
 
@@ -63,6 +67,7 @@ func Turn():
 			
 	slots.sort_custom(speedComparison)
 	for slot in slots:
+		#print(slot.card, "SLOT _______________________________________________________________")
 		slot.target.hp-=AttackDmg(slot.card)
 		print(slot.target.hp)
 	
@@ -72,11 +77,11 @@ func Turn():
 		item.reset_speed(item.source.speed)
 	
 
-func AttackDmg(card:Card)->int:
-	var res = card.cardConfig.base
-	for i in range (0,card.cardConfig.count):
+func AttackDmg(card:CardConfig)->int:
+	var res = card.base
+	for i in range (0,card.count):
 		if (RNG.randi_range(0,1)==1):
-			res+=card.cardConfig.power
+			res+=card.power
 	#print(res)
 	return res
 

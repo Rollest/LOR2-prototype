@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4usx"]
 
-[node name="Card" type="Node2D" node_paths=PackedStringArray("countText", "powerText", "baseText")]
+[node name="Card" type="CharacterBody2D" node_paths=PackedStringArray("countText", "powerText", "baseText")]
 script = ExtResource("1_10ehx")
 countText = NodePath("Sprite3D/Count")
 powerText = NodePath("Sprite3D/Power")
@@ -14,12 +14,6 @@ baseText = NodePath("Sprite3D/Base")
 [node name="Sprite3D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_fqicu")
-
-[node name="CardCharachterBody2D" type="CharacterBody2D" parent="Sprite3D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite3D/CardCharachterBody2D"]
-scale = Vector2(19.96, 32.6)
-shape = SubResource("RectangleShape2D_q4usx")
 
 [node name="Count" type="Label" parent="Sprite3D"]
 modulate = Color(1, 0, 0, 1)
@@ -47,3 +41,7 @@ offset_right = 106.0
 offset_bottom = -117.0
 scale = Vector2(2, 2)
 text = "123"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4.99, 8.15)
+shape = SubResource("RectangleShape2D_q4usx")

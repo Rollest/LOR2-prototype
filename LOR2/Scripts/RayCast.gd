@@ -26,9 +26,11 @@ func _input(event):
 		if (collider == null): collider = get_node("../CharacterBody2D")
 		if (prevCollider == null): prevCollider = get_node("../CharacterBody2D")
 		if (collider != prevCollider):
-			emit_signal("unselected", prevCollider.get_instance_id(),"motion")
+			emit_signal("unselected", prevCollider,"motion")
 		elif (collider != null):
-			emit_signal("selected", collider.get_instance_id(),"motion")
+			emit_signal("selected", collider,"motion")
+			#print(collider)
+			#print(collider.get_script())
 			
 	if (event is InputEventMouseButton):
 		var cursor_pos = get_viewport().get_mouse_position()
@@ -38,9 +40,9 @@ func _input(event):
 		if (collider == null): collider = get_node("../CharacterBody2D")
 		if (prevCollider == null): prevCollider = get_node("../CharacterBody2D")
 		if (event.is_pressed()==true && event.button_index == 1):
-			emit_signal("selected", collider.get_instance_id(),"press")
+			emit_signal("selected", collider,"press")
 		elif (collider != null && event.is_pressed()==false):
-			emit_signal("unselected", collider.get_instance_id(),"press")
+			emit_signal("unselected", collider,"press")
 
 	prevCollider = collider
 	

@@ -11,14 +11,12 @@ var anotherNodeIsMoving:bool = false
 var baseScale:Vector2
 var startPos: Vector2
 var rayCast2D: RayCast2D
-var cardBody2D:CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	countText.text = str(cardConfig.count)
 	powerText.text = str(cardConfig.power)
 	baseText.text = str(cardConfig.base)
 	baseScale = transform.get_scale()
-	cardBody2D = get_node("Sprite3D/CardCharachterBody2D")
 	rayCast2D = get_node("../RayCast2D")
 	startPos = position
 	rayCast2D.selected.connect(_listener_selected)
@@ -40,22 +38,22 @@ func _process(delta):
 
 
 func _listener_selected(id,type):
-	#print(id,"  ",cardBody2D.get_instance_id())
-	if(id == cardBody2D.get_instance_id() && !anotherNodeIsMoving):
+	#print(id,"  ",get_instance_id())
+	if(id == self && !anotherNodeIsMoving):
 		if(type == "motion"): 
 			_mouse_on()
 		elif(type == "press"):
 			_mouse_on_pressed()
-	elif(id != cardBody2D.get_instance_id() && type == "press"):
+	elif(id != self && type == "press"):
 		anotherNodeIsMoving = true
 func _listener_unselected(id,type):
-	#print(id,"  ",cardBody2D.get_instance_id())
-	if(id == cardBody2D.get_instance_id()):
+	#print(id,"  ",get_instance_id())
+	if(id == self):
 		if(type == "motion"):# && !isMouseOnPress): 
 			_mouse_off()
 		elif(type == "press"):
 			_mouse_on_unpressed()
-	elif(id != cardBody2D.get_instance_id() && type == "press"):
+	elif(id != self && type == "press"):
 		anotherNodeIsMoving = false
 
 

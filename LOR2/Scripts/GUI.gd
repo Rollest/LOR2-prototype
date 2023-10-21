@@ -7,7 +7,7 @@ signal next_turn
 
 func _on_turn_button_pressed():
 	emit_signal("next_turn")
-	print("aaaa")
+	#print("aaaa")
 
 #func _process(delta):
 	#mouse raycasting

@@ -39,20 +39,20 @@ func _process(delta):
 	
 	
 func _listener_selected(id,type):
-	print(id,"  ",get_instance_id(), "  ", type)
-	if(id == get_instance_id()):
+	#print(id,"  ",get_instance_id(), "  ", type)
+	if(id == self):
 		if(type == "motion"): 
 			_mouse_on()
 		elif(type == "press"):
 			_mouse_on_pressed()
-	elif(id != get_instance_id()):
+	elif(id != self):
 		if(type == "motion"): 
 			_mouse_off()
 		elif(type == "press"):
 			_mouse_on_unpressed()
 func _listener_unselected(id,type):
 	#print(id,"  ",cardBody2D.get_instance_id())
-	if(id == get_instance_id()):
+	if(id == self):
 		if(type == "motion"): 
 			_mouse_off()
 		elif(type == "press"):
@@ -62,23 +62,23 @@ func _listener_unselected(id,type):
 		
 func _mouse_on():
 	isMouseOn = true
-	print("mouse_on")
+	#print("mouse_on")
 	
 func _mouse_off():
 	isMouseOn = false
-	print("mouse_off")
+	#print("mouse_off")
 
 func _mouse_on_pressed():
 	#isMouseOn = true
 	isMouseSelected = true
 	scale = baseScale * 1.5 
-	print("mouse_on_press")
+	#print("mouse_on_press")
 
 func _mouse_on_unpressed():
 	#isMouseOn = true
 	scale = baseScale
 	isMouseSelected = false
-	print("mouse_on_unpress")
+	#print("mouse_on_unpress")
 	
 func _on_hp_updated():
 	pass

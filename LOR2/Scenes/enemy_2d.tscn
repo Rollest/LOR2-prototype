@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://Scripts/Slot.gd" id="3_8me0g"]
 [ext_resource type="Texture2D" uid="uid://bfg7x5trq773l" path="res://Assets/white.png" id="3_srsv8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqnxo"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dih22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdrdj"]
 
 [node name="Enemy2D" type="CharacterBody2D" node_paths=PackedStringArray("healthBar", "slots")]
 scale = Vector2(0.25, 0.25)
@@ -17,36 +17,7 @@ maxHP = 100
 sp = 100
 maxSP = 100
 healthBar = NodePath("CollisionShape2D/Sprite2D/TextureProgressBar")
-slots = [NodePath("Slot")]
-
-[node name="Slot" type="CharacterBody2D" parent="." node_paths=PackedStringArray("text", "source")]
-position = Vector2(0, -280)
-scale = Vector2(4.26, 4.26)
-script = ExtResource("3_8me0g")
-text = NodePath("Speed")
-source = NodePath("..")
-
-[node name="Speed" type="Label" parent="Slot"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -25.3521
-offset_right = 20.0
-offset_bottom = 0.647888
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-text = "123"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot"]
-position = Vector2(0, -12.3521)
-scale = Vector2(1.6397, 1.6397)
-shape = SubResource("RectangleShape2D_jqnxo")
+slots = [null]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(9.84, 24.48)
@@ -91,3 +62,39 @@ scale = Vector2(4.1822, 33.0784)
 text = "123"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Slot" type="CharacterBody2D" parent="." node_paths=PackedStringArray("text", "source")]
+position = Vector2(0, -280)
+scale = Vector2(4.26, 4.26)
+script = ExtResource("3_8me0g")
+text = NodePath("Speed")
+source = NodePath("..")
+
+[node name="Speed" type="Label" parent="Slot"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.3521
+offset_right = 20.0
+offset_bottom = 0.647888
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot"]
+position = Vector2(0, -12.3521)
+scale = Vector2(1.6397, 1.6397)
+shape = SubResource("RectangleShape2D_kdrdj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Slot"]
+position = Vector2(-9.53674e-07, -12.2065)
+scale = Vector2(0.0638498, 0.0638498)
+texture = ExtResource("3_srsv8")

@@ -23,6 +23,8 @@ text = NodePath("Speed")
 source = NodePath("..")
 
 [node name="Speed" type="Label" parent="Slot"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -43,6 +45,11 @@ vertical_alignment = 1
 position = Vector2(0, -12.3521)
 scale = Vector2(1.6397, 1.6397)
 shape = SubResource("RectangleShape2D_rcxrk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Slot"]
+position = Vector2(-9.53674e-07, -12.2065)
+scale = Vector2(0.0638498, 0.0638498)
+texture = ExtResource("3_u8rja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(9.84, 24.48)

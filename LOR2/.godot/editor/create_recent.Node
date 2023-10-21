@@ -1,5 +1,6 @@
-CharacterBody2D
+Node
 Sprite2D
+CharacterBody2D
 Node2D
 Marker2D
 Line2D
