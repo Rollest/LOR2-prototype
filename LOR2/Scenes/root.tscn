@@ -24,21 +24,17 @@ maxSP = 10
 speed = Array[int]([3, 6])
 isSelected = true
 
-[node name="Slot" parent="Unit2D" index="0" node_paths=PackedStringArray("target")]
+[node name="Slot" parent="Unit2D" index="0"]
 speed = 1
-card = ExtResource("6_ug7nl")
-target = NodePath("../../Enemy2D")
 
-[node name="Enemy2D" parent="." node_paths=PackedStringArray("slots") instance=ExtResource("10_d5xgn")]
+[node name="Enemy2D" parent="." instance=ExtResource("10_d5xgn")]
 position = Vector2(757, 285)
 scale = Vector2(0.4, 0.4)
 sp = 10
 maxSP = 10
 speed = Array[int]([3, 5])
-slots = [NodePath("Slot")]
 
-[node name="Slot" parent="Enemy2D" index="1" node_paths=PackedStringArray("target")]
-speed = 2
+[node name="EnemySlot" parent="Enemy2D" index="1" node_paths=PackedStringArray("target")]
 card = ExtResource("7_ulx04")
 target = NodePath("../../Unit2D")
 

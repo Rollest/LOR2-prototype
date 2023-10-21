@@ -21,6 +21,7 @@ func _ready():
 	rayCast2D = get_node("../RayCast2D")
 	rayCast2D.selected.connect(_listener_selected)
 	rayCast2D.unselected.connect(_listener_unselected)
+	selectedBody = get_node("../CharacterBody2D")
 	var tmp
 	tmp=find_objects_of_type(Slot)
 	for item in tmp:
@@ -39,10 +40,16 @@ func _listener_selected(id,type):
 func _listener_unselected(id,type):
 	#print(id,"  ",cardBody2D.get_instance_id())
 	if(id == pressBodyId && type == "press"):
-		if (selectedBody != null && selectedBody.to_string().contains("Slot")):
-			pass #check how to get other nodes from charbody2d refference
-		selectedBody = pressBodyId
-		
+		if (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("Card")):
+			print(instance_from_id(selectedBody.get_instance_id()).card)
+			instance_from_id(selectedBody.get_instance_id()).change_card(instance_from_id(pressBodyId.get_instance_id()))
+			print(instance_from_id(selectedBody.get_instance_id()).card)
+		elif (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("EnemySlot")):
+			print(instance_from_id(selectedBody.get_instance_id()).target)
+			instance_from_id(selectedBody.get_instance_id()).target = instance_from_id(pressBodyId.get_instance_id()).get_parent()
+			print(instance_from_id(selectedBody.get_instance_id()).target)
+		else:
+			selectedBody = pressBodyId
 		emit_signal("selectedUnit",id,type)
 
 

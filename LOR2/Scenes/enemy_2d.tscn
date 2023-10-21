@@ -17,7 +17,7 @@ maxHP = 100
 sp = 100
 maxSP = 100
 healthBar = NodePath("CollisionShape2D/Sprite2D/TextureProgressBar")
-slots = [null]
+slots = [NodePath("EnemySlot")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(9.84, 24.48)
@@ -63,14 +63,14 @@ text = "123"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slot" type="CharacterBody2D" parent="." node_paths=PackedStringArray("text", "source")]
+[node name="EnemySlot" type="CharacterBody2D" parent="." node_paths=PackedStringArray("text", "source")]
 position = Vector2(0, -280)
 scale = Vector2(4.26, 4.26)
 script = ExtResource("3_8me0g")
 text = NodePath("Speed")
 source = NodePath("..")
 
-[node name="Speed" type="Label" parent="Slot"]
+[node name="Speed" type="Label" parent="EnemySlot"]
 modulate = Color(0, 0, 0, 1)
 z_index = 1
 anchors_preset = 8
@@ -89,12 +89,12 @@ text = "123"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySlot"]
 position = Vector2(0, -12.3521)
 scale = Vector2(1.6397, 1.6397)
 shape = SubResource("RectangleShape2D_kdrdj")
 
-[node name="Sprite2D" type="Sprite2D" parent="Slot"]
+[node name="Sprite2D" type="Sprite2D" parent="EnemySlot"]
 position = Vector2(-9.53674e-07, -12.2065)
 scale = Vector2(0.0638498, 0.0638498)
 texture = ExtResource("3_srsv8")
