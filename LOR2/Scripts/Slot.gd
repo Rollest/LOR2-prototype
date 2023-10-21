@@ -5,7 +5,7 @@ class_name Slot
 @export var text:Label
 @export var speed:int
 
-@export var card:Card
+@export var card:CardConfig
 @export var source:Unit
 @export var target:Unit
 
@@ -25,6 +25,6 @@ func reset_speed(range:Array[int]):
 	speed=RNG.randi_range(range[0],range[1])
 	
 func change_card(newcard:Card):
-	card=newcard
+	card=newcard.cardConfig
 	
 

@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name Unit
+class_name Ally
 @export var hp:int
 @export var maxHP:int
 @export var sp:int
@@ -72,13 +72,13 @@ func _mouse_on_pressed():
 	#isMouseOn = true
 	isMouseSelected = true
 	scale = baseScale * 1.5 
-	print("mouse_on_press")
+	#print("mouse_on_press")
 
 func _mouse_on_unpressed():
 	#isMouseOn = true
 	scale = baseScale
 	isMouseSelected = false
-	print("mouse_on_unpress")
+	#print("mouse_on_unpress")
 	
 func _on_hp_updated():
 	pass

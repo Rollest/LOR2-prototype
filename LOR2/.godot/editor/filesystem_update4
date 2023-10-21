@@ -1,9 +1,9 @@
 res://Scenes/root.tscn
-res://Scripts/Card.gd
 res://Scenes/gui.tscn
 res://Scenes/unit_2d.tscn
 res://Scenes/enemy_2d.tscn
 res://Scenes/card2d.tscn
-res://Scripts/GameDirector.gd
+res://Scripts/Ally.gd
+res://Scripts/Enemy.gd
 res://Scripts/Unit.gd
-res://Scripts/RayCast.gd
+res://Scripts/Slot.gd
