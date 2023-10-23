@@ -9,11 +9,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dih22"]
 
-[node name="Unit2D" type="CharacterBody2D" node_paths=PackedStringArray("healthBar", "slots")]
+[node name="Unit2D" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_xbs36")
-healthBar = NodePath("CollisionShape2D/Sprite2D/TextureProgressBar")
-slots = [NodePath("Slot")]
 
 [node name="Slot" type="CharacterBody2D" parent="." node_paths=PackedStringArray("text", "source")]
 position = Vector2(0, -280)

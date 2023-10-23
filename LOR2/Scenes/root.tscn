@@ -14,18 +14,21 @@
 
 [node name="root" type="Node3D"]
 
-[node name="Unit2D" parent="." instance=ExtResource("9_meili")]
+[node name="Unit2D" parent="." node_paths=PackedStringArray("healthBar") instance=ExtResource("9_meili")]
 position = Vector2(278, 285)
 scale = Vector2(0.4, 0.4)
 hp = 100
 maxHP = 100
 sp = 10
 maxSP = 10
+healthBar = NodePath("CollisionShape2D/Sprite2D/TextureProgressBar")
 speed = Array[int]([3, 6])
 isSelected = true
 
-[node name="Slot" parent="Unit2D" index="0"]
+[node name="Slot" parent="Unit2D" index="0" node_paths=PackedStringArray("target")]
 speed = 1
+card = ExtResource("6_ug7nl")
+target = NodePath("../../Enemy2D")
 
 [node name="Enemy2D" parent="." instance=ExtResource("10_d5xgn")]
 position = Vector2(757, 285)
@@ -70,26 +73,6 @@ shape = SubResource("RectangleShape2D_ei2tc")
 position = Vector2(416, 511)
 scale = Vector2(1.25, 1.25)
 cardConfig = ExtResource("6_ug7nl")
-
-[node name="RUSSIA" type="Node2D" parent="."]
-visible = false
-
-[node name="Sprite2D" type="Sprite2D" parent="RUSSIA"]
-position = Vector2(579, 0)
-scale = Vector2(2.338, 1)
-texture = ExtResource("9_w7743")
-
-[node name="Sprite2D2" type="Sprite2D" parent="RUSSIA"]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(579, 557)
-scale = Vector2(2.338, 1)
-texture = ExtResource("9_w7743")
-
-[node name="Sprite2D3" type="Sprite2D" parent="RUSSIA"]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(579, 320)
-scale = Vector2(2.338, 0.56)
-texture = ExtResource("9_w7743")
 
 [node name="GameDirector" type="Node" parent="." node_paths=PackedStringArray("scene")]
 script = ExtResource("3_1a71y")

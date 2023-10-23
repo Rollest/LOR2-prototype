@@ -73,16 +73,54 @@ func Turn():
 			slots.erase(item)
 			
 	slots.sort_custom(speedComparison)
-	for slot in slots:
-		#print(slot.card, "SLOT _______________________________________________________________")
-		slot.target.hp-=AttackDmg(slot.card)
-		print(slot.target.hp)
+	
+	
+	while true:
+		var flag=false;
+		for i in range(0,slots.size()):   # clash detection
+			for j in range(i+1,slots.size()):
+				
+				if (slots[i].target==slots[j].source && slots[j].target==slots[i].source):
+					Clash(slots[i],slots[j])
+					slots.remove_at(j)
+					slots.remove_at(i)
+					flag=true;
+					break
+			break
+		if flag==false:   # onesided damage at the end
+			for slot in slots:
+				slot.target.hp-=AttackDmg(slot.card)
+				print(slot.target.hp)
+			break
+		
 	
 	var tmp2
 	tmp2=find_objects_of_type(Slot)
 	for item in tmp2:
 		item.reset_speed(item.source.speed)
-	
+
+func Clash(slot1:Slot,slot2:Slot):
+	print("clash "+str(slot1)+" "+str(slot2)) ############create card buffers to modify during clash
+	var first = CardConfig.new()
+	first.setvalues(slot1.card.count,slot1.card.power,slot1.card.base)
+	var second = CardConfig.new()
+	second.setvalues(slot2.card.count,slot2.card.power,slot2.card.base)
+
+	while (first.count>0 && second.count>0):  #######calculate clash results
+		var a = AttackDmg(first)
+		var b = AttackDmg(second)
+		print("inclash "+str(first.count) +" "+ str(a)+" "+str(second.count) +" "+ str(b))
+		if a>b: 
+			second.count-=1
+		if b>a: 
+			first.count-=1
+	if first.count>0: 
+		slot1.target.hp-=AttackDmg(first)
+	else: 
+		slot2.target.hp-=AttackDmg(second)
+
+	print(slot1.target.hp)
+	print(slot2.target.hp)
 
 func AttackDmg(card:CardConfig)->int:
 	var res = card.base
