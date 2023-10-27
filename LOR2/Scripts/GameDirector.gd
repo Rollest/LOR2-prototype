@@ -8,6 +8,7 @@ signal selectedUnit(id,event_type)
 @export var units:Array[Unit]
 @export var slots:Array[Slot]
 @export var cards:Array[CardConfig]
+@export var cardContainer:Node
 @export var scene:Node
 var rayCast2D: RayCast2D
 var changedSelection: bool = false
@@ -50,6 +51,10 @@ func _listener_unselected(id,type):
 			print(instance_from_id(selectedBody.get_instance_id()).target)
 		else:
 			selectedBody = pressBodyId
+
+			if(selectedBody.has_method("get_type") && selectedBody.get_type()=="Unit"): 
+				cardContainer.display_cards(selectedBody.stats.hand)
+			#if(selectedBody.to_string.contains()=="Unit" || selectedBody.to_string().contains("Enemy")): cardContainer.display_cards(selectedBody.stats.hand)
 		emit_signal("selectedUnit",id,type)
 
 
@@ -62,6 +67,7 @@ func _process(delta):
 
 func Turn():
 	print("new turn")
+	
 	var tmp
 	tmp=find_objects_of_type(Slot)
 	for item in tmp:
@@ -115,12 +121,12 @@ func Clash(slot1:Slot,slot2:Slot):
 		if b>a: 
 			first.count-=1
 	if first.count>0: 
-		slot1.target.hp-=AttackDmg(first)
+		slot1.target.stats.hp-=AttackDmg(first)
 	else: 
-		slot2.target.hp-=AttackDmg(second)
+		slot2.target.stats.hp-=AttackDmg(second)
 
-	print(slot1.target.hp)
-	print(slot2.target.hp)
+	print(slot1.target.stats.hp)
+	print(slot2.target.stats.hp)
 
 func AttackDmg(card:CardConfig)->int:
 	var res = card.base

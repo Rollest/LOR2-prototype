@@ -17,7 +17,7 @@ func _ready():
 	powerText.text = str(cardConfig.power)
 	baseText.text = str(cardConfig.base)
 	baseScale = transform.get_scale()
-	rayCast2D = get_node("../RayCast2D")
+	rayCast2D =get_parent().get_parent().get_node("./RayCast2D")
 	startPos = position
 	rayCast2D.selected.connect(_listener_selected)
 	rayCast2D.unselected.connect(_listener_unselected)

@@ -1,8 +1,14 @@
 res://Scenes/root.tscn
+res://Resourses/Cards/Card1.tres
+res://Resourses/Units/player1.tres
+res://Resourses/Units/enemy1.tres
 res://Scenes/gui.tscn
 res://Scenes/unit_2d.tscn
 res://Scenes/enemy_2d.tscn
 res://Scenes/card2d.tscn
 res://Scripts/GameDirector.gd
-res://Scripts/CardConfig.gd
-res://Scripts/Effect.gd
+res://Scripts/Ally.gd
+res://Scripts/CardContainer.gd
+res://Scripts/Card.gd
+res://Scripts/Unit.gd
+res://Scripts/Slot.gd

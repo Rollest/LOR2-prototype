@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitConfig" load_steps=3 format=3 uid="uid://dbrvne50pub0"]
+
+[ext_resource type="Script" path="res://Scripts/UnitConfig.gd" id="1_k5iic"]
+[ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/card2.tres" id="1_s3f6w"]
+
+[resource]
+script = ExtResource("1_k5iic")
+hp = 100
+maxHP = 100
+sp = 100
+maxSP = 100
+speed = Array[int]([3, 6])
+deck = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_s3f6w"), ExtResource("1_s3f6w")])
+hand = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_s3f6w")])
+mana = 3
+status = Array[Resource("res://Scripts/Keyword.gd")]([])

@@ -27,4 +27,3 @@ func reset_speed(range:Array[int]):
 func change_card(newcard:Card):
 	card=newcard.cardConfig
 	
-

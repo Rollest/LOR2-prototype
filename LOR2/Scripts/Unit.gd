@@ -1,10 +1,8 @@
 extends Node2D
 
 class_name Unit
-@export var hp:int
-@export var maxHP:int
-@export var sp:int
-@export var maxSP:int
+
+@export var stats:UnitConfig
 @export var healthBar:TextureProgressBar
 var hpText:Label
 @export var speed:Array[int]
@@ -32,8 +30,8 @@ func _ready():
 
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	healthBar.value = float(hp)/float(maxHP)*100
-	hpText.text = str(hp)
+	healthBar.value = float(stats.hp)/float(stats.maxHP)*100
+	hpText.text = str(stats.hp)
 	pass
 	
 	
@@ -82,3 +80,6 @@ func _mouse_on_unpressed():
 	
 func _on_hp_updated():
 	pass
+
+func get_type():
+	return "Unit"

@@ -12,10 +12,6 @@
 [node name="Enemy2D" type="CharacterBody2D" node_paths=PackedStringArray("healthBar", "slots")]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_ri8mc")
-hp = 100
-maxHP = 100
-sp = 100
-maxSP = 100
 healthBar = NodePath("CollisionShape2D/Sprite2D/TextureProgressBar")
 slots = [NodePath("EnemySlot")]
 
