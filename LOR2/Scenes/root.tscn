@@ -8,39 +8,37 @@
 [ext_resource type="PackedScene" uid="uid://diy7kumo6udta" path="res://Scenes/unit_2d.tscn" id="9_meili"]
 [ext_resource type="Texture2D" uid="uid://bfg7x5trq773l" path="res://Assets/white.png" id="9_w7743"]
 [ext_resource type="PackedScene" uid="uid://ba13bj6s0nseq" path="res://Scenes/card2d.tscn" id="10_7u201"]
-[ext_resource type="PackedScene" uid="uid://dk4y0ts7w33rg" path="res://Scenes/enemy_2d.tscn" id="10_d5xgn"]
+[ext_resource type="PackedScene" uid="uid://cow0hcch73mmw" path="res://Scenes/enemy_2d.tscn" id="10_d5xgn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei2tc"]
 
 [node name="root" type="Node3D"]
 
-[node name="Unit2D" parent="." instance=ExtResource("9_meili")]
+[node name="Unit2D" parent="." node_paths=PackedStringArray("healthBar") instance=ExtResource("9_meili")]
 position = Vector2(278, 285)
 scale = Vector2(0.4, 0.4)
 hp = 100
 maxHP = 100
 sp = 10
 maxSP = 10
+healthBar = NodePath("CollisionShape2D/Sprite2D/TextureProgressBar")
 speed = Array[int]([3, 6])
 isSelected = true
 
-[node name="Slot" parent="Unit2D" index="1" node_paths=PackedStringArray("card", "target")]
+[node name="Slot" parent="Unit2D" index="0" node_paths=PackedStringArray("target")]
 speed = 1
-card = NodePath("../../Card3")
+card = ExtResource("6_ug7nl")
 target = NodePath("../../Enemy2D")
 
 [node name="Enemy2D" parent="." instance=ExtResource("10_d5xgn")]
 position = Vector2(757, 285)
 scale = Vector2(0.4, 0.4)
-hp = 100
-maxHP = 100
 sp = 10
 maxSP = 10
 speed = Array[int]([3, 5])
 
-[node name="Slot" parent="Enemy2D" index="1" node_paths=PackedStringArray("card", "target")]
-speed = 2
-card = NodePath("../../Card2")
+[node name="EnemySlot" parent="Enemy2D" index="1" node_paths=PackedStringArray("target")]
+card = ExtResource("7_ulx04")
 target = NodePath("../../Unit2D")
 
 [node name="Card2" parent="." instance=ExtResource("10_7u201")]
@@ -50,10 +48,6 @@ cardConfig = ExtResource("7_ulx04")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-
-[node name="GameDirector" type="Node2D" parent="." node_paths=PackedStringArray("scene")]
-script = ExtResource("3_1a71y")
-scene = NodePath("..")
 
 [node name="GUI" parent="." instance=ExtResource("8_gm0w0")]
 
@@ -76,29 +70,13 @@ position = Vector2(-213, -171)
 shape = SubResource("RectangleShape2D_ei2tc")
 
 [node name="Card3" parent="." instance=ExtResource("10_7u201")]
-position = Vector2(411, 511)
+position = Vector2(416, 511)
 scale = Vector2(1.25, 1.25)
 cardConfig = ExtResource("6_ug7nl")
 
-[node name="RUSSIA" type="Node2D" parent="."]
-visible = false
-
-[node name="Sprite2D" type="Sprite2D" parent="RUSSIA"]
-position = Vector2(579, 0)
-scale = Vector2(2.338, 1)
-texture = ExtResource("9_w7743")
-
-[node name="Sprite2D2" type="Sprite2D" parent="RUSSIA"]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(579, 557)
-scale = Vector2(2.338, 1)
-texture = ExtResource("9_w7743")
-
-[node name="Sprite2D3" type="Sprite2D" parent="RUSSIA"]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(579, 320)
-scale = Vector2(2.338, 0.56)
-texture = ExtResource("9_w7743")
+[node name="GameDirector" type="Node" parent="." node_paths=PackedStringArray("scene")]
+script = ExtResource("3_1a71y")
+scene = NodePath("..")
 
 [connection signal="next_turn" from="GUI" to="GameDirector" method="_on_gui_next_turn"]
 
