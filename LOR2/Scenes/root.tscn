@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bv4dys5ufh6x"]
+[gd_scene load_steps=15 format=3 uid="uid://bv4dys5ufh6x"]
 
 [ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="2_vtpj6"]
 [ext_resource type="Script" path="res://Scripts/GameDirector.gd" id="3_1a71y"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ba13bj6s0nseq" path="res://Scenes/card2d.tscn" id="10_7u201"]
 [ext_resource type="PackedScene" uid="uid://cow0hcch73mmw" path="res://Scenes/enemy_2d.tscn" id="10_d5xgn"]
 [ext_resource type="Script" path="res://Scripts/CardContainer.gd" id="12_hlh61"]
+[ext_resource type="Script" path="res://Scripts/Arcs.gd" id="13_52blp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei2tc"]
 
@@ -88,6 +89,10 @@ visible = false
 position = Vector2(416, 511)
 scale = Vector2(1.25, 1.25)
 cardConfig = ExtResource("6_ug7nl")
+
+[node name="ARCS" type="Node2D" parent="." node_paths=PackedStringArray("raycast")]
+script = ExtResource("13_52blp")
+raycast = NodePath("../RayCast2D")
 
 [connection signal="next_turn" from="GUI" to="GameDirector" method="_on_gui_next_turn"]
 
