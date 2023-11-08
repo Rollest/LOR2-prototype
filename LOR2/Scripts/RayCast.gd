@@ -23,8 +23,8 @@ func _input(event):
 		force_raycast_update()
 		collider = get_collider()
 		#print(collider)
-		if (collider == null): collider = get_node("../CharacterBody2D")
-		if (prevCollider == null): prevCollider = get_node("../CharacterBody2D")
+		if (collider == null): collider = get_node("../Pustishka")
+		if (prevCollider == null): prevCollider = get_node("../Pustishka")
 		if (collider != prevCollider):
 			emit_signal("unselected", prevCollider,"motion")
 		elif (collider != null):
@@ -37,8 +37,8 @@ func _input(event):
 		position = cursor_pos
 		force_raycast_update()
 		collider = get_collider()
-		if (collider == null): collider = get_node("../CharacterBody2D")
-		if (prevCollider == null): prevCollider = get_node("../CharacterBody2D")
+		if (collider == null): collider = get_node("../Pustishka")
+		if (prevCollider == null): prevCollider = get_node("../Pustishka")
 		if (event.is_pressed()==true && event.button_index == 1):
 			emit_signal("selected", collider,"press")
 		elif (collider != null && event.is_pressed()==false):

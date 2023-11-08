@@ -3,11 +3,11 @@ extends Node2D
 class_name Unit
 
 @export var stats:UnitConfig
-@export var healthBar:TextureProgressBar
+var healthBar:TextureProgressBar
 var hpText:Label
 @export var speed:Array[int]
-@export var isSelected:bool
-@export var slots:Array[Slot]
+var isSelected:bool
+var slots:Array[Slot]
 var gameDirector: GameDirector
 var isMouseOn: bool = false
 var isMouseSelected: bool = false
@@ -20,10 +20,15 @@ func add_slot(slot):
 
 	# Called when the node enters the scene tree for the first time.
 func _ready():
+	for slot in find_children("Slot"):
+		#slot.source = self
+		add_slot(slot)
+	healthBar = get_node("CollisionShape2D/Sprite2D/TextureProgressBar")
 	baseScale = transform.get_scale()
 	hpText=healthBar.get_node("HP")
 	gameDirector = get_node("../GameDirector")
 	gameDirector.selectedUnit.connect(_listener_selected)
+	gameDirector.unselect.connect(_listener_unselected)
 	#gameDirector.unselected.connect(_listener_unselected)
 	#tween.tween_property(healthBar,"value",hp,0.4)
 
@@ -50,7 +55,7 @@ func _listener_selected(id,type):
 			_mouse_on_unpressed()
 func _listener_unselected(id,type):
 	#print(id,"  ",cardBody2D.get_instance_id())
-	if(id == self):
+	if(id == self || type == "all"):
 		if(type == "motion"): 
 			_mouse_off()
 		elif(type == "press"):

@@ -13,12 +13,10 @@
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_xbs36")
 
-[node name="Slot" type="CharacterBody2D" parent="." node_paths=PackedStringArray("text", "source")]
+[node name="Slot" type="CharacterBody2D" parent="."]
 position = Vector2(0, -280)
 scale = Vector2(4.26, 4.26)
 script = ExtResource("3_i6gb8")
-text = NodePath("Speed")
-source = NodePath("..")
 
 [node name="Speed" type="Label" parent="Slot"]
 modulate = Color(0, 0, 0, 1)

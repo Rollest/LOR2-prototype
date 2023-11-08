@@ -18,27 +18,28 @@
 
 [node name="root" type="Node3D"]
 
-[node name="Unit2D" parent="." instance=ExtResource("9_meili")]
-position = Vector2(278, 259)
+[node name="Unit2D" parent="." node_paths=PackedStringArray("healthBar", "slots") instance=ExtResource("9_meili")]
+position = Vector2(278, 285)
 scale = Vector2(0.4, 0.4)
 stats = ExtResource("2_vtpj6")
+healthBar = NodePath("CollisionShape2D/Sprite2D/TextureProgressBar")
 speed = Array[int]([3, 6])
+isSelected = true
+slots = [NodePath("Slot")]
 
-[node name="Slot" parent="Unit2D" index="0" node_paths=PackedStringArray("source", "target")]
+[node name="Slot" parent="Unit2D" index="0" node_paths=PackedStringArray("target")]
 speed = 1
 card = ExtResource("6_ug7nl")
-source = NodePath("..")
 target = NodePath("../../Enemy2D")
 
 [node name="Enemy2D" parent="." instance=ExtResource("10_d5xgn")]
-position = Vector2(801, 259)
+position = Vector2(757, 285)
 scale = Vector2(0.4, 0.4)
 stats = ExtResource("5_8ldfk")
 speed = Array[int]([3, 5])
 
-[node name="EnemySlot" parent="Enemy2D" index="1" node_paths=PackedStringArray("source", "target")]
+[node name="EnemySlot" parent="Enemy2D" index="1" node_paths=PackedStringArray("target")]
 card = ExtResource("7_ulx04")
-source = NodePath("..")
 target = NodePath("../../Unit2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -93,31 +94,7 @@ cardConfig = ExtResource("6_ug7nl")
 script = ExtResource("13_52blp")
 raycast = NodePath("../RayCast2D")
 
-[node name="Unit2D2" parent="." instance=ExtResource("9_meili")]
-position = Vector2(440, 348)
-scale = Vector2(0.4, 0.4)
-stats = ExtResource("2_vtpj6")
-speed = Array[int]([3, 6])
-
-[node name="Slot" parent="Unit2D2" index="0" node_paths=PackedStringArray("source")]
-speed = 1
-card = ExtResource("6_ug7nl")
-source = NodePath("..")
-
-[node name="Enemy2D2" parent="." instance=ExtResource("10_d5xgn")]
-position = Vector2(650, 348)
-scale = Vector2(0.4, 0.4)
-stats = ExtResource("5_8ldfk")
-speed = Array[int]([3, 5])
-
-[node name="EnemySlot" parent="Enemy2D2" index="1" node_paths=PackedStringArray("source", "target")]
-card = ExtResource("6_ug7nl")
-source = NodePath("..")
-target = NodePath("../../Unit2D2")
-
 [connection signal="next_turn" from="GUI" to="GameDirector" method="_on_gui_next_turn"]
 
 [editable path="Unit2D"]
 [editable path="Enemy2D"]
-[editable path="Unit2D2"]
-[editable path="Enemy2D2"]

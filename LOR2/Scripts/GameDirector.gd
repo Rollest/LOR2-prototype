@@ -3,6 +3,7 @@ extends Node
 class_name GameDirector
 
 signal selectedUnit(id,event_type)
+signal unselect(id,event_type)
 
 
 @export var units:Array[Unit]
@@ -11,6 +12,7 @@ signal selectedUnit(id,event_type)
 @export var cardContainer:Node
 @export var scene:Node
 var rayCast2D: RayCast2D
+var arcs: Arcs
 var changedSelection: bool = false
 var pressBodyId
 var selectedBody
@@ -19,13 +21,17 @@ var selectedBody
 var RNG=RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	arcs = get_node("../ARCS")
 	rayCast2D = get_node("../RayCast2D")
 	rayCast2D.selected.connect(_listener_selected)
 	rayCast2D.unselected.connect(_listener_unselected)
-	selectedBody = get_node("../CharacterBody2D")
+	selectedBody = get_node("../Pustishka")
 	var tmp
 	tmp=find_objects_of_type(Slot)
 	for item in tmp:
+		print(item)
+		print(item.source)
+		print("---------------------------------------------")
 		item.reset_speed(item.source.speed)
 
 
@@ -38,22 +44,43 @@ func _listener_selected(id,type):
 			pass
 		elif(type == "press"):
 			pressBodyId = id
+			pass
 func _listener_unselected(id,type):
 	#print(id,"  ",cardBody2D.get_instance_id())
 	if(id == pressBodyId && type == "press"):
 		if (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("Card")):
 			print(instance_from_id(selectedBody.get_instance_id()).card)
-			instance_from_id(selectedBody.get_instance_id()).change_card(instance_from_id(pressBodyId.get_instance_id()))
+			var slot = instance_from_id(selectedBody.get_instance_id())
+			slot.change_card(instance_from_id(pressBodyId.get_instance_id()))
+			#slot.selected()
 			print(instance_from_id(selectedBody.get_instance_id()).card)
+			pass
 		elif (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("EnemySlot")):
 			print(instance_from_id(selectedBody.get_instance_id()).target)
-			instance_from_id(selectedBody.get_instance_id()).target = instance_from_id(pressBodyId.get_instance_id()).get_parent()
+			var enemy_slot = instance_from_id(pressBodyId.get_instance_id())
+			enemy_slot.selected()
+			#arcs.list_to.append(instance_from_id(pressBodyId.get_instance_id()).global_position)
+			instance_from_id(selectedBody.get_instance_id()).change_target(instance_from_id(pressBodyId.get_instance_id()).get_parent())
 			print(instance_from_id(selectedBody.get_instance_id()).target)
+			pass
 		else:
+			if(selectedBody.has_method("unselect")):
+				selectedBody.unselect()
+				pass
+			
 			selectedBody = pressBodyId
-
-			if(selectedBody.has_method("get_type") && selectedBody.get_type()=="Unit"): 
+			
+			if(selectedBody.to_string().contains("Pustishka")):
+				emit_signal("unselect",id,"all")
+				cardContainer.unselect()
+				print("unselect")
+				pass
+			if(selectedBody.has_method("selected")):
+				selectedBody.selected()
+				pass
+			elif(selectedBody.has_method("get_type") && selectedBody.get_type()=="Unit"): 
 				cardContainer.display_cards(selectedBody.stats.hand)
+				pass
 			#if(selectedBody.to_string.contains()=="Unit" || selectedBody.to_string().contains("Enemy")): cardContainer.display_cards(selectedBody.stats.hand)
 		emit_signal("selectedUnit",id,type)
 

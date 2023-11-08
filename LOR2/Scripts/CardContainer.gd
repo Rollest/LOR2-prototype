@@ -34,5 +34,8 @@ func display_cards(cards:Array[CardConfig]):
 
 			scene.add_child(new_node)
 			c+=1
+	pass
 
+func unselect():
+	delete_children(self)
 	pass
