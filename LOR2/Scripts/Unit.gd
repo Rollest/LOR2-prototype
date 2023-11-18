@@ -2,10 +2,19 @@ extends Node2D
 
 class_name Unit
 
-@export var stats:UnitConfig
+@export var basestats:UnitConfig
+var hp:int
+var maxHP:int
+var sp:int
+var maxSP:int
+var speed:Array[int]
+var deck:Array[CardConfig]
+var hand:Array[CardConfig]
+var mana:int
+var status:Array[Keyword]
+
 var healthBar:TextureProgressBar
 var hpText:Label
-@export var speed:Array[int]
 var isSelected:bool
 var slots:Array[Slot]
 var gameDirector: GameDirector
@@ -20,6 +29,17 @@ func add_slot(slot):
 
 	# Called when the node enters the scene tree for the first time.
 func _ready():
+	hp= basestats.hp
+	maxHP=basestats.maxHP
+	sp=basestats.sp
+	maxSP=basestats.maxSP
+	speed=basestats.speed
+	deck=basestats.deck
+	hand=basestats.hand
+	mana=basestats.mana
+	status=basestats.status
+	
+	
 	for slot in find_children("Slot"):
 		#slot.source = self
 		add_slot(slot)
@@ -35,8 +55,8 @@ func _ready():
 
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	healthBar.value = float(stats.hp)/float(stats.maxHP)*100
-	hpText.text = str(stats.hp)
+	healthBar.value = float(hp)/float(maxHP)*100
+	hpText.text = str(hp)
 	pass
 	
 	

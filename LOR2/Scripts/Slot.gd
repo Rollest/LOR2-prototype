@@ -31,6 +31,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	text.text=str(speed)
+	source=get_parent()
 	pass
 
 func reset_speed(range:Array[int]):

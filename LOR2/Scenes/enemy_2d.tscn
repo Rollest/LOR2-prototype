@@ -12,6 +12,7 @@
 [node name="Enemy2D" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_ri8mc")
+speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(9.84, 24.48)

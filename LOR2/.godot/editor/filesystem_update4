@@ -2,10 +2,9 @@ res://Scenes/root.tscn
 res://Resourses/Cards/Card1.tres
 res://Resourses/Units/player1.tres
 res://Resourses/Units/enemy1.tres
-res://Scripts/Arcs.gd
 res://Scenes/gui.tscn
 res://Scenes/unit_2d.tscn
 res://Scenes/enemy_2d.tscn
 res://Scenes/card2d.tscn
-res://Scripts/Slot.gd
-res://Scripts/Enemy.gd
+res://Scripts/GameDirector.gd
+res://Scripts/Unit.gd

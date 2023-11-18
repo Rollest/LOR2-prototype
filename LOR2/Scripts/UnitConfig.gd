@@ -11,3 +11,13 @@ class_name UnitConfig
 @export var mana:int
 @export var status:Array[Keyword]
 
+func new(base: UnitConfig):
+	hp= base.hp
+	maxHP=base.maxHP
+	sp=base.sp
+	maxSP=base.maxSP
+	speed=base.speed
+	deck=base.deck
+	hand=base.hand
+	mana=base.mana
+	status=base.status

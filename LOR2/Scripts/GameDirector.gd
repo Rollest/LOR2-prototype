@@ -79,7 +79,7 @@ func _listener_unselected(id,type):
 				selectedBody.selected()
 				pass
 			elif(selectedBody.has_method("get_type") && selectedBody.get_type()=="Unit"): 
-				cardContainer.display_cards(selectedBody.stats.hand)
+				cardContainer.display_cards(selectedBody.hand)
 				pass
 			#if(selectedBody.to_string.contains()=="Unit" || selectedBody.to_string().contains("Enemy")): cardContainer.display_cards(selectedBody.stats.hand)
 		emit_signal("selectedUnit",id,type)
@@ -102,7 +102,7 @@ func Turn():
 			slots.append(item)
 		
 	for item in slots:
-		if (!item.target):
+		if (!item.target || !item.source):
 			slots.erase(item)
 			
 	slots.sort_custom(speedComparison)
@@ -148,12 +148,12 @@ func Clash(slot1:Slot,slot2:Slot):
 		if b>a: 
 			first.count-=1
 	if first.count>0: 
-		slot1.target.stats.hp-=AttackDmg(first)
+		slot1.target.hp-=AttackDmg(first)
 	else: 
-		slot2.target.stats.hp-=AttackDmg(second)
+		slot2.target.hp-=AttackDmg(second)
 
-	print(slot1.target.stats.hp)
-	print(slot2.target.stats.hp)
+	print(slot1.target.hp)
+	print(slot2.target.hp)
 
 func AttackDmg(card:CardConfig)->int:
 	var res = card.base

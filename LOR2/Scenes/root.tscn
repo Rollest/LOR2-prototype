@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="2_vtpj6"]
 [ext_resource type="Script" path="res://Scripts/GameDirector.gd" id="3_1a71y"]
-[ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/enemy1.tres" id="5_8ldfk"]
+[ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/enemy1.tres" id="5_ol3o3"]
 [ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="6_ug7nl"]
 [ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/card2.tres" id="7_ulx04"]
 [ext_resource type="PackedScene" uid="uid://cghm8gmsnndgy" path="res://Scenes/gui.tscn" id="8_gm0w0"]
@@ -21,7 +21,7 @@
 [node name="Unit2D" parent="." instance=ExtResource("9_meili")]
 position = Vector2(278, 259)
 scale = Vector2(0.4, 0.4)
-stats = ExtResource("2_vtpj6")
+basestats = ExtResource("2_vtpj6")
 speed = Array[int]([3, 6])
 
 [node name="Slot" parent="Unit2D" index="0" node_paths=PackedStringArray("source", "target")]
@@ -33,7 +33,7 @@ target = NodePath("../../Enemy2D")
 [node name="Enemy2D" parent="." instance=ExtResource("10_d5xgn")]
 position = Vector2(801, 259)
 scale = Vector2(0.4, 0.4)
-stats = ExtResource("5_8ldfk")
+basestats = ExtResource("5_ol3o3")
 speed = Array[int]([3, 5])
 
 [node name="EnemySlot" parent="Enemy2D" index="1" node_paths=PackedStringArray("source", "target")]
@@ -96,18 +96,19 @@ raycast = NodePath("../RayCast2D")
 [node name="Unit2D2" parent="." instance=ExtResource("9_meili")]
 position = Vector2(440, 348)
 scale = Vector2(0.4, 0.4)
-stats = ExtResource("2_vtpj6")
+basestats = ExtResource("2_vtpj6")
 speed = Array[int]([3, 6])
 
-[node name="Slot" parent="Unit2D2" index="0" node_paths=PackedStringArray("source")]
+[node name="Slot" parent="Unit2D2" index="0" node_paths=PackedStringArray("source", "target")]
 speed = 1
 card = ExtResource("6_ug7nl")
 source = NodePath("..")
+target = NodePath("..")
 
 [node name="Enemy2D2" parent="." instance=ExtResource("10_d5xgn")]
 position = Vector2(650, 348)
 scale = Vector2(0.4, 0.4)
-stats = ExtResource("5_8ldfk")
+basestats = ExtResource("5_ol3o3")
 speed = Array[int]([3, 5])
 
 [node name="EnemySlot" parent="Enemy2D2" index="1" node_paths=PackedStringArray("source", "target")]
