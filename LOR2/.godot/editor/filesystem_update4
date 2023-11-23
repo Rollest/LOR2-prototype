@@ -6,5 +6,6 @@ res://Scenes/gui.tscn
 res://Scenes/unit_2d.tscn
 res://Scenes/enemy_2d.tscn
 res://Scenes/card2d.tscn
-res://Scripts/GameDirector.gd
 res://Scripts/Unit.gd
+res://Resourses/Units/player2.tres
+res://Resourses/Units/enemy2.tres

@@ -27,7 +27,7 @@ func _ready():
 	rayCast2D.unselected.connect(_listener_unselected)
 	selectedBody = get_node("../Pustishka")
 	var tmp
-	tmp=find_objects_of_type(Slot)
+	tmp=find_objects_of_type("Slot")
 	for item in tmp:
 		print(item)
 		print(item.source)
@@ -95,8 +95,15 @@ func _process(delta):
 func Turn():
 	print("new turn")
 	
+	var units
+	units=find_objects_of_type("Unit")
+	for item in units:
+		print(item.name)
+		item.draw_card()
+	
+	
 	var tmp
-	tmp=find_objects_of_type(Slot)
+	tmp=find_objects_of_type("Slot")
 	for item in tmp:
 		if(item not in slots):
 			slots.append(item)
@@ -128,7 +135,7 @@ func Turn():
 		
 	
 	var tmp2
-	tmp2=find_objects_of_type(Slot)
+	tmp2=find_objects_of_type("Slot")
 	for item in tmp2:
 		item.reset_speed(item.source.speed)
 
@@ -178,8 +185,12 @@ func find_objects_of_type(type)->Array:
 	var res:Array
 	tmp=get_all_children(scene)
 	for i in tmp:
-		if (i is Slot):
-			res.append(i)
+		if (type == "Slot"):
+			if (i is Slot):
+				res.append(i)
+		if (type == "Unit"):
+			if (i is Unit):
+				res.append(i)
 	return res
 	
 func speedComparison(a, b):

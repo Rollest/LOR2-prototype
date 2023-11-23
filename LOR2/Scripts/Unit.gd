@@ -3,6 +3,7 @@ extends Node2D
 class_name Unit
 
 @export var basestats:UnitConfig
+var stats:UnitConfig
 var hp:int
 var maxHP:int
 var sp:int
@@ -13,6 +14,8 @@ var hand:Array[CardConfig]
 var mana:int
 var status:Array[Keyword]
 
+var draw_pile:Array[CardConfig]
+
 var healthBar:TextureProgressBar
 var hpText:Label
 var isSelected:bool
@@ -22,23 +25,46 @@ var isMouseOn: bool = false
 var isMouseSelected: bool = false
 
 var baseScale:Vector2
-
+var random:RandomNumberGenerator = RandomNumberGenerator.new()
 
 func add_slot(slot):
 	slots.append(slot)
+	
+func draw_card():
+	print("drawing------------------------------------")
+	if draw_pile.size()>0:
+		var index:int = random.randi_range(0,draw_pile.size()-1)
+		hand.append(draw_pile[index])
+		draw_pile.pop_at(index)
+	else:
+		for card in deck:
+			draw_pile.append(card)
+		var index:int = random.randi_range(0,draw_pile.size()-1)
+		hand.append(draw_pile[index])
+		draw_pile.pop_at(index)
+	print ("draw pile size "+str(draw_pile.size()))
+	print ("deck size"+str(deck.size()))
+	print ("hand size"+str(hand.size()))
+	print ("hand size in config"+str(stats.hand.size()))
+	print ("hand size in base config"+str(basestats.hand.size()))
 
 	# Called when the node enters the scene tree for the first time.
-func _ready():
-	hp= basestats.hp
-	maxHP=basestats.maxHP
-	sp=basestats.sp
-	maxSP=basestats.maxSP
-	speed=basestats.speed
-	deck=basestats.deck
-	hand=basestats.hand
-	mana=basestats.mana
-	status=basestats.status
+func _enter_tree():
+	stats=UnitConfig.new()
+	stats.values(basestats)
+	print(stats)
+	hp= stats.hp
+	maxHP=stats.maxHP
+	sp=stats.sp
+	maxSP=stats.maxSP
+	speed=stats.speed
+	deck=stats.deck
+	hand=stats.hand
+	mana=stats.mana
+	status=stats.status
 	
+	for card in deck:
+		draw_pile.append(card)
 	
 	for slot in find_children("Slot"):
 		#slot.source = self

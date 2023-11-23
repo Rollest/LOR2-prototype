@@ -11,7 +11,7 @@ class_name UnitConfig
 @export var mana:int
 @export var status:Array[Keyword]
 
-func new(base: UnitConfig):
+func values(base: UnitConfig):
 	hp= base.hp
 	maxHP=base.maxHP
 	sp=base.sp

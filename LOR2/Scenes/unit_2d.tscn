@@ -12,7 +12,6 @@
 [node name="Unit2D" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_xbs36")
-speed = null
 
 [node name="Slot" type="CharacterBody2D" parent="."]
 position = Vector2(0, -280)

@@ -24,7 +24,7 @@ func _draw():
 	for i in dict_slot_A_B.values():
 		if(stop):
 			break
-		print(i)
+		#print(i)
 		var width = 2.0
 		var antialiased = true
 		var resolution = 1
