@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CardConfig" load_steps=4 format=3 uid="uid://dwyyyt3dohhrn"]
+
+[ext_resource type="Script" path="res://Scripts/CardConfig.gd" id="1_nyneq"]
+[ext_resource type="Script" path="res://Scripts/Keyword.gd" id="1_q2vr2"]
+
+[sub_resource type="Resource" id="Resource_wqbjk"]
+script = ExtResource("1_q2vr2")
+type = 0
+value = 999
+duration = 2
+trigger = 1
+
+[resource]
+script = ExtResource("1_nyneq")
+count = 5
+power = 10
+base = 4
+keywords = Array[ExtResource("1_q2vr2")]([SubResource("Resource_wqbjk")])

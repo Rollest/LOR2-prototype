@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bv4dys5ufh6x"]
+
+[ext_resource type="Script" path="res://Scripts/GameDirector.gd" id="3_1a71y"]
+[ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Cards/Card1.tres" id="6_ug7nl"]
+[ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Cards/card2.tres" id="7_ulx04"]
+[ext_resource type="PackedScene" uid="uid://cghm8gmsnndgy" path="res://Scenes/gui.tscn" id="8_gm0w0"]
+[ext_resource type="PackedScene" uid="uid://diy7kumo6udta" path="res://Scenes/unit_2d.tscn" id="9_meili"]
+[ext_resource type="PackedScene" uid="uid://ba13bj6s0nseq" path="res://Scenes/card2d.tscn" id="10_7u201"]
+[ext_resource type="PackedScene" uid="uid://dk4y0ts7w33rg" path="res://Scenes/enemy_2d.tscn" id="10_d5xgn"]
+
+[node name="root" type="Node3D"]
+
+[node name="Unit2D" parent="." node_paths=PackedStringArray("slots") instance=ExtResource("9_meili")]
+position = Vector2(-165, 0)
+hp = 10
+maxHP = 10
+sp = 10
+maxSP = 10
+speed = Array[int]([3, 6])
+isSelected = true
+slots = [null]
+
+[node name="Slot" parent="Unit2D" index="1" node_paths=PackedStringArray("card", "target")]
+speed = 1
+isSelected = true
+card = NodePath("../../Card1")
+target = NodePath("../../Enemy2D")
+
+[node name="Enemy2D" parent="." node_paths=PackedStringArray("slots") instance=ExtResource("10_d5xgn")]
+position = Vector2(175, 0)
+hp = 10
+maxHP = 10
+sp = 10
+maxSP = 10
+speed = Array[int]([3, 5])
+slots = [null]
+
+[node name="Slot" parent="Enemy2D" index="1" node_paths=PackedStringArray("card", "target")]
+speed = 2
+card = NodePath("../../Card2")
+target = NodePath("../../Unit2D")
+
+[node name="Card1" parent="." instance=ExtResource("10_7u201")]
+position = Vector2(-118, 183)
+cardConfig = ExtResource("6_ug7nl")
+
+[node name="Card2" parent="." instance=ExtResource("10_7u201")]
+position = Vector2(0, 183)
+cardConfig = ExtResource("7_ulx04")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GameDirector" type="Node2D" parent="." node_paths=PackedStringArray("scene")]
+script = ExtResource("3_1a71y")
+scene = NodePath("..")
+
+[node name="GUI" parent="." instance=ExtResource("8_gm0w0")]
+
+[editable path="Unit2D"]
+[editable path="Enemy2D"]

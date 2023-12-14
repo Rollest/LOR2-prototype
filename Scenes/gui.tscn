@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cghm8gmsnndgy"]
+
+[ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_71ya4"]
+
+[node name="GUI" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_71ya4")
+
+[node name="TurnButton" type="Button" parent="."]
+offset_right = 198.0
+offset_bottom = 140.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+text = "turn"
+
+[connection signal="pressed" from="TurnButton" to="." method="_on_turn_button_pressed"]

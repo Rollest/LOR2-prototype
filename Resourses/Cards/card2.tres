@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardConfig" load_steps=2 format=3 uid="uid://drqynikbv6dsj"]
+
+[ext_resource type="Script" path="res://Scripts/CardConfig.gd" id="1_ao856"]
+
+[resource]
+script = ExtResource("1_ao856")
+count = 2
+power = 2
+base = 2
+keywords = Array[Resource("res://Scripts/Keyword.gd")]([])

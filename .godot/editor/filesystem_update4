@@ -1,0 +1,14 @@
+res://Scenes/root.tscn
+res://Resourses/Cards/Card1.tres
+res://Resourses/Cards/card2.tres
+res://Resourses/Units/player1.tres
+res://Resourses/Units/enemy1.tres
+res://Resourses/shaders/outline.gdshader
+res://Resourses/Units/player2.tres
+res://Resourses/Units/enemy2.tres
+res://Scenes/gui.tscn
+res://Scenes/unit_2d.tscn
+res://Scenes/enemy_2d.tscn
+res://Scenes/card2d.tscn
+res://Scenes/effect.tscn
+res://Scenes/card.tscn
