@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dq1d1who1d74p"]
+[gd_scene load_steps=8 format=3 uid="uid://dq1d1who1d74p"]
 
 [ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_71ya4"]
 [ext_resource type="Texture2D" uid="uid://boa762inxl7lj" path="res://Assets/MenuItems/Turn Button.PNG" id="2_0l3nj"]
 [ext_resource type="Script" path="res://Scripts/ShowDeck.gd" id="2_6bnd3"]
 [ext_resource type="PackedScene" uid="uid://bpxgvlds53ht1" path="res://Scenes/deck_display.tscn" id="3_h314s"]
+[ext_resource type="Texture2D" uid="uid://y5qrwx66kf27" path="res://Assets/MenuItems/Deck Button.PNG" id="3_iavmx"]
 [ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="4_u115p"]
 [ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/card2.tres" id="5_y7tqh"]
 
@@ -17,7 +18,7 @@ offset_bottom = 140.0
 scale = Vector2(0.200052, 0.200052)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/font_color = Color(0.871094, 0.734375, 0.433594, 1)
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 291
 action_mode = 0
@@ -30,13 +31,20 @@ visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -198.0
-offset_bottom = 140.0
+offset_left = -387.0
+offset_right = 1553.0
+offset_bottom = 749.0
 grow_horizontal = 0
+scale = Vector2(0.199455, 0.199455)
 size_flags_horizontal = 8
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 226
 action_mode = 0
-text = "show deck"
+text = "Show deck"
+icon = ExtResource("3_iavmx")
+icon_alignment = 1
 script = ExtResource("2_6bnd3")
 
 [node name="DeckDisplay" parent="." instance=ExtResource("3_h314s")]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgt4nus6ng50i"]
 
 [ext_resource type="Texture2D" uid="uid://cmvhfu56jardp" path="res://Assets/Backgrounds/Menus/MainMenuBackground.PNG" id="1_fn8s8"]
-[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_w4rlw"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_fyw6k"]
 [ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="2_sufmp"]
-[ext_resource type="Script" path="res://Scenes/ExitEnsurance.gd" id="3_aavoq"]
+[ext_resource type="Script" path="res://Scripts/ExitEnsurance.gd" id="4_7enwo"]
 [ext_resource type="AudioStream" uid="uid://do6tbtgibuix4" path="res://Assets/Audio/Music/Now-We-Ride(chosic.com).mp3" id="4_53uht"]
 [ext_resource type="AudioStream" uid="uid://cta2lpeqbsodc" path="res://Assets/Audio/wii-keyboard-click-3.mp3" id="5_xoq2v"]
 
@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_w4rlw")
+script = ExtResource("1_fyw6k")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -68,7 +68,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_aavoq")
+script = ExtResource("4_7enwo")
 
 [node name="ColorRect" type="ColorRect" parent="ExitEnsurance"]
 layout_mode = 1

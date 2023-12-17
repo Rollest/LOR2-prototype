@@ -14,16 +14,8 @@ func _process(delta):
 	pass
 
 
-func _on_play_button_pressed():
+
+func _on_play_pressed():
 	click_sound.play()
 	await click_sound.finished
-
-
-func _on_settings_button_pressed():
-	click_sound.play()
-	await click_sound.finished
-
-
-func _on_exit_button_pressed():
-	click_sound.play()
-	await click_sound.finished
+	get_tree().change_scene_to_file("res://Scenes/root.tscn")

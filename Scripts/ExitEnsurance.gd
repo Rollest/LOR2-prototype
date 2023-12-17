@@ -7,6 +7,7 @@ var base_volume: int
 
 func _ready():
 	hide()
+	get_tree().paused = false
 	click_sound = get_parent().get_node("ClickSound")
 	music = get_parent().get_node("Music")
 	base_volume = music.volume_db
