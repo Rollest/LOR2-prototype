@@ -18,9 +18,16 @@ func _ready():
 	powerText.text = str(cardConfig.power)
 	baseText.text = str(cardConfig.base)
 	baseScale = transform.get_scale()
-	rayCast2D =get_parent().get_parent().get_node("./RayCast2D")
+	if (get_parent().get_parent().get_node("./RayCast2D")!=null):
+		rayCast2D =get_parent().get_parent().get_node("./RayCast2D")
+	else: rayCast2D =get_parent().get_parent().get_parent().get_node("./RayCast2D")
+
+	#rayCast2D =get_parent().get_parent().get_node("./RayCast2D")
 	startPos = position
-	gameDirector = get_parent().get_parent().get_node("./GameDirector")
+	if (get_parent().get_parent().get_node("./GameDirector")!=null):
+		gameDirector = get_parent().get_parent().get_node("./GameDirector")
+	else: gameDirector = get_parent().get_parent().get_parent().get_node("./GameDirector")
+
 	gameDirector.selectedUnit.connect(_listener_select)
 	gameDirector.unselect.connect(_listener_unselect)
 	rayCast2D.selected.connect(_listener_selected)

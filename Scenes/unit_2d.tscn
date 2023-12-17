@@ -1,10 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://diy7kumo6udta"]
+[gd_scene load_steps=11 format=3 uid="uid://diy7kumo6udta"]
 
-[ext_resource type="Texture2D" uid="uid://m7ro1bm4ca7h" path="res://Assets/goodguy.png" id="1_7oce7"]
 [ext_resource type="Script" path="res://Scripts/Ally.gd" id="1_xbs36"]
 [ext_resource type="Script" path="res://Scripts/Slot.gd" id="3_i6gb8"]
 [ext_resource type="Texture2D" uid="uid://bfg7x5trq773l" path="res://Assets/white.png" id="3_u8rja"]
 [ext_resource type="Shader" path="res://Resourses/shaders/outline.gdshader" id="4_sibhg"]
+[ext_resource type="Texture2D" uid="uid://cgkuwp0kt4hjj" path="res://Assets/Units/Allies/IMG_0947.PNG" id="5_lxyu6"]
+[ext_resource type="Texture2D" uid="uid://w85o0eygibkq" path="res://Assets/Slots/Slot.PNG" id="6_xtjyf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg2up"]
+size = Vector2(107.429, 78.8685)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfjgm"]
+shader = ExtResource("4_sibhg")
+shader_parameter/width = 13.213
+shader_parameter/outline_color = Color(1, 0.341176, 0.407843, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcxrk"]
 
@@ -13,61 +22,20 @@ shader = ExtResource("4_sibhg")
 shader_parameter/width = 2.111
 shader_parameter/outline_color = null
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dih22"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tfjgm"]
-shader = ExtResource("4_sibhg")
-shader_parameter/width = 2.488
-shader_parameter/outline_color = Color(1, 0.341176, 0.407843, 1)
-
 [node name="Unit2D" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_xbs36")
 
-[node name="Slot" type="CharacterBody2D" parent="."]
-position = Vector2(0, -280)
-scale = Vector2(4.26, 4.26)
-script = ExtResource("3_i6gb8")
-
-[node name="Speed" type="Label" parent="Slot"]
-modulate = Color(0, 0, 0, 1)
-z_index = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -25.3521
-offset_right = 20.0
-offset_bottom = 0.647888
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-text = "123"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot"]
-position = Vector2(0, -12.3521)
-scale = Vector2(1.6397, 1.6397)
-shape = SubResource("RectangleShape2D_rcxrk")
-
-[node name="Sprite2D" type="Sprite2D" parent="Slot"]
-material = SubResource("ShaderMaterial_42q37")
-position = Vector2(-5.78165e-06, -12.2065)
-scale = Vector2(0.0638498, 0.0638499)
-texture = ExtResource("3_u8rja")
-offset = Vector2(0.835, 0)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(9.84, 24.48)
-shape = SubResource("RectangleShape2D_dih22")
+position = Vector2(0, -3.05176e-05)
+scale = Vector2(3.5, 8.343)
+shape = SubResource("RectangleShape2D_pg2up")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 material = SubResource("ShaderMaterial_tfjgm")
-scale = Vector2(0.101626, 0.0408497)
-texture = ExtResource("1_7oce7")
+position = Vector2(1.65427, 0.0771261)
+scale = Vector2(0.0973678, 0.0408497)
+texture = ExtResource("5_lxyu6")
 
 [node name="EasedProgressBar" type="TextureProgressBar" parent="CollisionShape2D/Sprite2D"]
 anchors_preset = 7
@@ -75,13 +43,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -269.735
-offset_top = -386.0
-offset_right = 230.265
-offset_bottom = 114.0
+offset_left = -1268.0
+offset_top = -1024.0
+offset_right = -768.0
+offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.3, 0.04)
+scale = Vector2(1, 0.133)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 value = 43.0
@@ -99,13 +67,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -269.735
-offset_top = -386.0
-offset_right = 230.265
-offset_bottom = 114.0
+offset_left = -1268.0
+offset_top = -1024.0
+offset_right = -768.0
+offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.3, 0.04)
+scale = Vector2(1, 0.133)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 value = 60.0
@@ -155,5 +123,42 @@ theme_override_font_sizes/font_size = 15
 text = "-123"
 vertical_alignment = 1
 
+[node name="Slot" type="CharacterBody2D" parent="."]
+position = Vector2(0, -396)
+scale = Vector2(5, 5)
+script = ExtResource("3_i6gb8")
+
+[node name="Speed" type="Label" parent="Slot"]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.3521
+offset_right = 20.0
+offset_bottom = 0.647888
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.858824, 0.686275, 0.262745, 1)
+theme_override_font_sizes/font_size = 21
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slot"]
+position = Vector2(0, -12.3521)
+scale = Vector2(1.6397, 1.6397)
+shape = SubResource("RectangleShape2D_rcxrk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Slot"]
+material = SubResource("ShaderMaterial_42q37")
+position = Vector2(-5.78165e-06, -12.2065)
+scale = Vector2(0.034, 0.034)
+texture = ExtResource("6_xtjyf")
+offset = Vector2(0.835, 0)
+
 [node name="EffectContainer" type="Node2D" parent="."]
-position = Vector2(0, 380)
+position = Vector2(0, 556)

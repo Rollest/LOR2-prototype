@@ -1,6 +1,3 @@
-[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://besrjkrpnki4h"]
-
-[ext_resource type="FontFile" uid="uid://by3denbs3jcyr" path="res://Resourses/Fonts/ArgPriht.ttf" id="1_yopth"]
+[gd_resource type="FontVariation" format=3 uid="uid://besrjkrpnki4h"]
 
 [resource]
-base_font = ExtResource("1_yopth")

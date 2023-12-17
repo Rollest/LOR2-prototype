@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cghm8gmsnndgy"]
+[gd_scene load_steps=6 format=3 uid="uid://dq1d1who1d74p"]
 
 [ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_71ya4"]
+[ext_resource type="Script" path="res://Scripts/ShowDeck.gd" id="2_6bnd3"]
+[ext_resource type="PackedScene" uid="uid://bpxgvlds53ht1" path="res://Scenes/deck_display.tscn" id="3_h314s"]
+[ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="4_u115p"]
+[ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/card2.tres" id="5_y7tqh"]
 
 [node name="GUI" type="CanvasLayer"]
 follow_viewport_enabled = true
@@ -14,4 +18,39 @@ size_flags_vertical = 4
 action_mode = 0
 text = "turn"
 
+[node name="ShowDeck" type="Button" parent="."]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -198.0
+offset_bottom = 140.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+action_mode = 0
+text = "show deck"
+script = ExtResource("2_6bnd3")
+
+[node name="DeckDisplay" parent="." instance=ExtResource("3_h314s")]
+visible = false
+offset_right = -1.0
+cards = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("4_u115p"), ExtResource("4_u115p"), ExtResource("5_y7tqh")])
+hoffset = 150.0
+voffset = 200.0
+
+[node name="DarkOverlay" type="ColorRect" parent="."]
+visible = false
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.505882)
+
+[connection signal="show_deck" from="." to="ShowDeck" method="_on_gui_show_deck"]
+[connection signal="stop_showing_deck" from="." to="ShowDeck" method="_on_gui_stop_showing_deck"]
+[connection signal="stop_showing_deck" from="." to="DeckDisplay" method="_on_gui_stop_showing_deck"]
 [connection signal="pressed" from="TurnButton" to="." method="_on_turn_button_pressed"]
+[connection signal="pressed" from="ShowDeck" to="." method="_on_show_deck_pressed"]

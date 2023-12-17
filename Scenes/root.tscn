@@ -1,11 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bv4dys5ufh6x"]
+[gd_scene load_steps=23 format=3 uid="uid://bv4dys5ufh6x"]
 
 [ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="2_vtpj6"]
 [ext_resource type="Script" path="res://Scripts/GameDirector.gd" id="3_1a71y"]
 [ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/enemy1.tres" id="5_ol3o3"]
 [ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="6_ug7nl"]
 [ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/card2.tres" id="7_ulx04"]
-[ext_resource type="PackedScene" uid="uid://cghm8gmsnndgy" path="res://Scenes/gui.tscn" id="8_gm0w0"]
+[ext_resource type="PackedScene" uid="uid://dq1d1who1d74p" path="res://Scenes/gui.tscn" id="8_gm0w0"]
 [ext_resource type="Script" path="res://Scripts/RayCast.gd" id="8_hdsgx"]
 [ext_resource type="PackedScene" uid="uid://diy7kumo6udta" path="res://Scenes/unit_2d.tscn" id="9_meili"]
 [ext_resource type="Texture2D" uid="uid://bfg7x5trq773l" path="res://Assets/white.png" id="9_w7743"]
@@ -15,26 +15,28 @@
 [ext_resource type="Script" path="res://Scripts/Arcs.gd" id="13_52blp"]
 [ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/player2.tres" id="14_egxjh"]
 [ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="15_uk84v"]
-[ext_resource type="Script" path="res://Scenes/Menu.gd" id="16_luatk"]
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="16_ifrwr"]
 [ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/IMG_1019.PNG" id="17_1sgf1"]
 [ext_resource type="Texture2D" uid="uid://bpunl21fktg34" path="res://Assets/MenuItems/IMG_1018.PNG" id="18_54lb6"]
+[ext_resource type="FontVariation" uid="uid://besrjkrpnki4h" path="res://Resourses/Fonts/ArgPriht.tres" id="18_ld5rp"]
 [ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="18_ukxrg"]
+[ext_resource type="Texture2D" uid="uid://xjesikls6ib2" path="res://Assets/Backgrounds/Background2.PNG" id="21_wqs8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei2tc"]
 
 [node name="root" type="Node3D"]
 
 [node name="Unit2D" parent="." instance=ExtResource("9_meili")]
-position = Vector2(278, 259)
+position = Vector2(278, 452)
 scale = Vector2(0.4, 0.4)
 basestats = ExtResource("2_vtpj6")
 
-[node name="Slot" parent="Unit2D" index="0" node_paths=PackedStringArray("source")]
+[node name="Slot" parent="Unit2D" index="1" node_paths=PackedStringArray("source")]
 speed = 1
 source = NodePath("..")
 
 [node name="Enemy2D" parent="." instance=ExtResource("10_d5xgn")]
-position = Vector2(801, 259)
+position = Vector2(1585, 452)
 scale = Vector2(0.4, 0.4)
 basestats = ExtResource("5_ol3o3")
 
@@ -57,6 +59,7 @@ collide_with_areas = true
 script = ExtResource("8_hdsgx")
 
 [node name="Sprite2D" type="Sprite2D" parent="RayCast2D"]
+visible = false
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("9_w7743")
 
@@ -97,16 +100,16 @@ script = ExtResource("13_52blp")
 raycast = NodePath("../RayCast2D")
 
 [node name="Unit2D2" parent="." instance=ExtResource("9_meili")]
-position = Vector2(440, 348)
+position = Vector2(525, 674)
 scale = Vector2(0.4, 0.4)
 basestats = ExtResource("14_egxjh")
 
-[node name="Slot" parent="Unit2D2" index="0" node_paths=PackedStringArray("source")]
+[node name="Slot" parent="Unit2D2" index="1" node_paths=PackedStringArray("source")]
 speed = 1
 source = NodePath("..")
 
 [node name="Enemy2D2" parent="." instance=ExtResource("10_d5xgn")]
-position = Vector2(650, 348)
+position = Vector2(1360, 674)
 scale = Vector2(0.4, 0.4)
 basestats = ExtResource("15_uk84v")
 
@@ -127,7 +130,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("16_luatk")
+script = ExtResource("16_ifrwr")
 
 [node name="DarkOverlay" type="ColorRect" parent="CanvasLayer/Menu"]
 layout_mode = 1
@@ -140,12 +143,20 @@ color = Color(0, 0, 0, 0.505882)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Menu"]
 layout_mode = 1
-offset_left = 304.0
-offset_top = -74.0
-offset_right = 3036.0
-offset_bottom = 1974.0
-scale = Vector2(0.2, 0.2)
+anchors_preset = -1
+anchor_left = 0.493359
+anchor_top = 0.497222
+anchor_right = 0.493359
+anchor_bottom = 0.497222
+offset_left = -417.0
+offset_top = -648.0
+offset_right = 2315.0
+offset_bottom = 1400.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.315, 0.315)
 texture = ExtResource("18_54lb6")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Menu/TextureRect"]
 layout_mode = 1
@@ -160,6 +171,7 @@ offset_right = 339.0
 offset_bottom = 102.571
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("18_ld5rp")
 theme_override_font_sizes/font_size = 216
 text = "UNO 2"
 horizontal_alignment = 1
@@ -172,13 +184,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -88.0
-offset_right = 1970.0
-offset_bottom = 1260.0
+offset_left = -230.0
+offset_top = -58.0
+offset_right = 1860.0
+offset_bottom = 1290.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.11, 0.11)
+scale = Vector2(0.215, 0.215)
 alignment = 1
 
 [node name="UnpauseBtn" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
@@ -195,7 +207,18 @@ text = "Выйти"
 icon = ExtResource("17_1sgf1")
 icon_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_wqs8d")
+
 [connection signal="next_turn" from="GUI" to="GameDirector" method="_on_gui_next_turn"]
+[connection signal="selectedUnit" from="GameDirector" to="GUI" method="_on_game_director_selected_unit"]
+[connection signal="unselect" from="GameDirector" to="GUI" method="_on_game_director_unselect"]
 [connection signal="pressed" from="CanvasLayer/Menu/VBoxContainer/UnpauseBtn" to="CanvasLayer/Menu" method="_on_unpause_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/VBoxContainer/Exit" to="CanvasLayer/Menu" method="_on_exit_pressed"]
 

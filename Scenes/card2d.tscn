@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ba13bj6s0nseq"]
 
 [ext_resource type="Script" path="res://Scripts/Card.gd" id="1_10ehx"]
-[ext_resource type="Texture2D" uid="uid://bx6nksk2mqtd3" path="res://Assets/card_bg.png" id="2_fqicu"]
+[ext_resource type="Texture2D" uid="uid://cqw1wma7o3n8u" path="res://Assets/CardsImages/IMG_1024.PNG" id="2_oxy54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4usx"]
 
@@ -12,36 +12,39 @@ powerText = NodePath("Sprite3D/Power")
 baseText = NodePath("Sprite3D/Base")
 
 [node name="Sprite3D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_fqicu")
+scale = Vector2(0.135, 0.135)
+texture = ExtResource("2_oxy54")
 
 [node name="Count" type="Label" parent="Sprite3D"]
 modulate = Color(1, 0, 0, 1)
-offset_left = 74.0
-offset_top = -264.0
-offset_right = 102.0
-offset_bottom = -238.0
+offset_left = -210.526
+offset_top = 494.737
+offset_right = -114.526
+offset_bottom = 574.737
 scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 56
 text = "123"
 
 [node name="Power" type="Label" parent="Sprite3D"]
 modulate = Color(1, 0, 0, 1)
-offset_left = 76.0
-offset_top = -204.0
-offset_right = 104.0
-offset_bottom = -178.0
+offset_left = 10.5263
+offset_top = 494.737
+offset_right = 106.526
+offset_bottom = 574.737
 scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 56
 text = "123"
 
 [node name="Base" type="Label" parent="Sprite3D"]
 modulate = Color(1, 0, 0, 1)
-offset_left = 78.0
-offset_top = -143.0
-offset_right = 106.0
-offset_bottom = -117.0
+offset_left = 242.105
+offset_top = 494.737
+offset_right = 338.105
+offset_bottom = 574.737
 scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 56
 text = "123"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(4.99, 8.15)
+scale = Vector2(7.415, 11.719)
 shape = SubResource("RectangleShape2D_q4usx")

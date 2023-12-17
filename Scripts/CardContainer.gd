@@ -30,14 +30,15 @@ func display_cards(cards:Array[CardConfig]):
 
 			var new_node = newcard.instantiate()
 			new_node.cardConfig=card
-			new_node.position = Vector2(400+(offset*c),550)
+			new_node.position = Vector2(960+(offset*c),950)
 			new_node.name="Card"+str(c)
 
 			print(new_node.name)
-			scene.add_child(new_node)
+			add_child(new_node)
 			c+=1
 	pass
 
 func unselect():
 	delete_children(self)
 	pass
+

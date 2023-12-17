@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://cow0hcch73mmw"]
+[gd_scene load_steps=10 format=3 uid="uid://cow0hcch73mmw"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ri8mc"]
-[ext_resource type="Texture2D" uid="uid://chll1nr1v4mei" path="res://Assets/enemy.png" id="2_oarrp"]
 [ext_resource type="Script" path="res://Scripts/Slot.gd" id="3_8me0g"]
 [ext_resource type="Texture2D" uid="uid://bfg7x5trq773l" path="res://Assets/white.png" id="3_srsv8"]
+[ext_resource type="Texture2D" uid="uid://drh5aaq3yt7pn" path="res://Assets/Units/Enemies/IMG_0953.PNG" id="5_0b20x"]
 [ext_resource type="Shader" path="res://Resourses/shaders/outline.gdshader" id="5_blmjw"]
+[ext_resource type="Texture2D" uid="uid://ceklwrfg5dvko" path="res://Assets/Slots/EnemySlot.PNG" id="6_udto6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dih22"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0pnm"]
+size = Vector2(107.429, 78.8685)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wa5ih"]
 shader = ExtResource("5_blmjw")
@@ -20,14 +22,13 @@ scale = Vector2(0.25, 0.25)
 script = ExtResource("1_ri8mc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(9.84, 24.48)
-shape = SubResource("RectangleShape2D_dih22")
+scale = Vector2(3.5, 8.343)
+shape = SubResource("RectangleShape2D_p0pnm")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 material = SubResource("ShaderMaterial_wa5ih")
-scale = Vector2(0.101626, 0.0408497)
-texture = ExtResource("2_oarrp")
-flip_h = true
+scale = Vector2(0.0948571, 0.0397938)
+texture = ExtResource("5_0b20x")
 
 [node name="EasedProgressBar" type="TextureProgressBar" parent="CollisionShape2D/Sprite2D"]
 anchors_preset = 7
@@ -35,13 +36,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -269.735
-offset_top = -386.0
-offset_right = 230.265
-offset_bottom = 114.0
+offset_left = -1268.0
+offset_top = -1024.0
+offset_right = -768.0
+offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.3, 0.04)
+scale = Vector2(1, 0.133)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 value = 43.0
@@ -59,13 +60,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -269.735
-offset_top = -386.0
-offset_right = 230.265
-offset_bottom = 114.0
+offset_left = -1268.0
+offset_top = -1024.0
+offset_right = -768.0
+offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.3, 0.04)
+scale = Vector2(1, 0.133)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 value = 60.0
@@ -116,12 +117,12 @@ text = "-123"
 vertical_alignment = 1
 
 [node name="EnemySlot" type="CharacterBody2D" parent="."]
-position = Vector2(0, -280)
-scale = Vector2(4.26, 4.26)
+position = Vector2(0, -396)
+scale = Vector2(5, 5)
 script = ExtResource("3_8me0g")
 
 [node name="Speed" type="Label" parent="EnemySlot"]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0.909804, 0, 0.85098, 1)
 z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -135,6 +136,8 @@ offset_bottom = 0.647888
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.847059, 0.458824, 0.878431, 1)
+theme_override_font_sizes/font_size = 21
 text = "123"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -146,8 +149,8 @@ shape = SubResource("RectangleShape2D_kdrdj")
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySlot"]
 position = Vector2(-9.53674e-07, -12.2065)
-scale = Vector2(0.0638498, 0.0638498)
-texture = ExtResource("3_srsv8")
+scale = Vector2(0.034, 0.034)
+texture = ExtResource("6_udto6")
 
 [node name="EffectContainer" type="Node2D" parent="."]
-position = Vector2(0, 384)
+position = Vector2(0, 556)

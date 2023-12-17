@@ -6,9 +6,15 @@ res://Resourses/Units/enemy1.tres
 res://Resourses/shaders/outline.gdshader
 res://Resourses/Units/player2.tres
 res://Resourses/Units/enemy2.tres
-res://Scenes/gui.tscn
 res://Scenes/unit_2d.tscn
 res://Scenes/enemy_2d.tscn
 res://Scenes/card2d.tscn
 res://Scenes/effect.tscn
 res://Scenes/card.tscn
+res://Scenes/CombatMenu.tscn
+res://Scenes/gui.tscn
+res://Scripts/CardContainer.gd
+res://Scripts/GUI.gd
+res://Scripts/Card.gd
+res://Scripts/GameDirector.gd
+res://Scripts/Slot.gd

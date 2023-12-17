@@ -30,7 +30,7 @@ func _set_effect(keyword: Keyword):
 		keyword.KeywordType.POISON:
 			sprite.texture = load("res://Assets/Effects/POIZON.png")
 		keyword.KeywordType.SHRED:
-			sprite.texture = load("res://Assets/Effects/white1.png")
+			sprite.texture = load("res://Assets/Effects/SHRED.png")
 		keyword.KeywordType.FINAL_POWER:
 			sprite.texture = load("res://Assets/Effects/white1.png")
 		keyword.KeywordType.COIN_POWER:

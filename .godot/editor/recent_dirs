@@ -1,8 +1,15 @@
-res://Resourses/Themes
+res://Scenes
 res://Assets/MenuItems
+res://Assets/CardsImages
+res://Assets/Backgrounds
+res://Assets/Slots
+res://Assets/Units/Enemies
+res://Assets/Units/Allies
+res://Assets/UnitsCombatMenu
+res://Assets/Units
+res://Resourses/Themes
 res://Resourses/shaders
 res://Resourses/Fonts
-res://Scenes
 res://Resourses/Units
 res://Scripts
 res://Assets

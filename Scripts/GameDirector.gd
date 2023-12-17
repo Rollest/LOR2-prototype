@@ -59,7 +59,7 @@ func _listener_unselected(id,type):
 			slot.change_card(instance_from_id(pressBodyId.get_instance_id()))
 			print(instance_from_id(selectedBody.get_instance_id()).card)
 			pass
-		elif (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("EnemySlot")):
+		elif (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("EnemySlot") && selectedBody.card != null):
 			print(instance_from_id(selectedBody.get_instance_id()).target)
 			var enemy_slot = instance_from_id(pressBodyId.get_instance_id())
 			enemy_slot.selected()
@@ -82,13 +82,17 @@ func _listener_unselected(id,type):
 			if(selectedBody.has_method("selected")):
 				selectedBody.selected()
 				pass
-			elif(selectedBody.has_method("get_type") && selectedBody.get_type()=="Unit"): 
+			elif(selectedBody.has_method("get_type") && selectedBody.get_type()=="Ally"): 
+				cardContainer.display_cards(selectedBody.hand)
+				pass
+			elif(selectedBody.has_method("get_type") && selectedBody.get_type()=="Enemy"): 
 				cardContainer.display_cards(selectedBody.hand)
 				pass
 			if(selectedBody.has_method("get_type") && selectedBody.get_type()=="Slot"):
 				cardContainer.unselect() 
 				cardContainer.display_cards(selectedBody.source.hand)
 				pass
+			
 		emit_signal("selectedUnit",id,type)
 
 
@@ -106,8 +110,10 @@ func _process(delta):
 	pass
 
 func Turn():
+	print("######################################")
 	print("new turn")
-	
+	print("######################################\n")
+	#setup
 	for unit in units:
 		unit.tempHp = int(unit.hp)
 	
@@ -117,17 +123,7 @@ func Turn():
 		
 		if item.hand.size()<5:
 			item.draw_card()
-			
-		var speedtmp=0
-		for key in FindKeyword(KeywordType.SPEED,item):
-			speedtmp+=key.value
-		for slot in item.slots:
-			slot.speed+=speedtmp
-			slot.text.text=str(slot.speed)
-				
 		
-		
-	#units=CheckForDeadUnits(units)
 	var combat_slots:Array[Slot]=[]
 	for slot in slots:
 		if !(!slot.target||!slot.card):
@@ -135,8 +131,8 @@ func Turn():
 			
 	combat_slots.sort_custom(speedComparison)
 	
-	
-	while true: #combat
+	#combat
+	while true: 
 		var flag=false;
 		for i in range(0,combat_slots.size()-1):   # clash detection
 			for j in range(i+1,combat_slots.size()):
@@ -152,24 +148,20 @@ func Turn():
 			break
 		if flag==false:   # onesided damage at the end
 			for slot in combat_slots:
-				var base=0
-				var coin=0
-				for key in FindKeyword(KeywordType.COIN_POWER,slot.source):
-					coin+=key.value
-				for key in FindKeyword(KeywordType.FINAL_POWER,slot.source):
-					base+=key.value
-				slot.target.hp-=AttackDmg(slot.card,base,coin)
-				for key in slot.card.keywords:
-					slot.target.statuses.append(key.duplicate(true))
-					slot.target._update_effects()
-				Discard(slot)
+				print (str(slot.source)+" attacks "+str(slot.target))
+				if !slot.source.isdead:
+					slot.source.deal_damage(slot.card,slot.target)
+					Discard(slot)
 				print(slot.target.hp)
 			break
+		for unit in units:
+			unit._update_effects()
 		
-	
+	#prepare next turn
 	for item in units:    #status turn down
-		for burn in FindKeyword(KeywordType.BURN,item): #process burns
-			item.hp-=burn.value
+		if FindKeyword(KeywordType.BURN,item)!=null:
+			for burn in FindKeyword(KeywordType.BURN,item): #process burns
+				item.hp-=burn.value
 		
 		print(item," oiuytr")
 		var removethemkeywords:Array[Keyword]
@@ -178,14 +170,12 @@ func Turn():
 			print(i.type," ",i.duration)
 			
 		for keyword in item.statuses: #status decrement
-			#print(keyword.type," asdfgh")
 			if ((keyword.type!=1) and (keyword.type!=2)):
 				keyword.duration-=1
 			if keyword.duration<=0:
 				removethemkeywords.append(keyword)
 		for keyword in removethemkeywords:
 			item.statuses.erase(keyword)
-	
 
 	for item in slots:
 		item.reset_speed(item.source.speed)
@@ -219,6 +209,7 @@ func Discard(slot:Slot):
 
 func Clash(slot1:Slot,slot2:Slot):
 	print("############################")
+	print(str(slot1.source) +" vs "+str(slot2.source))
 	print("clash "+str(slot1)+" "+str(slot2)) ############create card buffers to modify during clash
 
 	var first = slot1.card.duplicate(true)
@@ -227,60 +218,46 @@ func Clash(slot1:Slot,slot2:Slot):
 	#second.setvalues(slot2.card.count,slot2.card.power,slot2.card.base)
 
 	while (first.count>0 && second.count>0):  #######calculate clash results
-		var base1=0
-		var coin1=0
-		for key in FindKeyword(KeywordType.COIN_POWER,slot1.source):
-			coin1+=key.value
-		for key in FindKeyword(KeywordType.FINAL_POWER,slot1.source):
-			base1+=key.value
-			
-		var a = AttackDmg(first,base1,coin1)
+		var total_base_power1=0
+		var total_coin_power1=0
+		var damage1=0
+		if FindKeyword(KeywordType.FINAL_POWER,slot1.source)!=null:
+			for base in FindKeyword(KeywordType.FINAL_POWER,slot1.source):
+				total_base_power1+=base.value
+		if FindKeyword(KeywordType.COIN_POWER,slot1.source)!=null:
+			for coin in FindKeyword(KeywordType.COIN_POWER,slot1.source):
+				total_coin_power1+=coin.value
+		damage1=first.base+total_base_power1
+		for i in range(0,first.count):
+			damage1=damage1+(first.power + total_coin_power1)*RNG.randi_range(0,1)
 		
-		var base2=0
-		var coin2=0
-		for key in FindKeyword(KeywordType.COIN_POWER,slot2.source):
-			coin2+=key.value
-		for key in FindKeyword(KeywordType.FINAL_POWER,slot2.source):
-			base2+=key.value
-		var b = AttackDmg(second,base2,coin2)
-		print("inclash "+str(first.count) +" "+ str(a)+" "+str(second.count) +" "+ str(b))
-		if a>b: 
+		var total_base_power2=0
+		var total_coin_power2=0
+		var damage2=0
+		if FindKeyword(KeywordType.FINAL_POWER,slot2.source)!=null:
+			for base in FindKeyword(KeywordType.FINAL_POWER,slot2.source):
+				total_base_power2+=base.value
+		if FindKeyword(KeywordType.COIN_POWER,slot2.source)!=null:
+			for coin in FindKeyword(KeywordType.COIN_POWER,slot2.source):
+				total_coin_power2+=coin.value
+		damage2=second.base+total_base_power2
+		for i in range(0,second.count):
+			damage2=damage2+(second.power + total_coin_power2)*RNG.randi_range(0,1)
+
+		if damage1>damage2: 
 			second.count-=1
-		if b>a: 
+		if damage2>damage1: 
 			first.count-=1
 	if first.count>0: 
-		var base1=0
-		var coin1=0
-		for key in FindKeyword(KeywordType.COIN_POWER,slot1.source):
-			coin1+=key.value
-		for key in FindKeyword(KeywordType.FINAL_POWER,slot1.source):
-			base1+=key.value
-		slot1.target.hp-=AttackDmg(first,base1,coin1)
-		for keyword in slot1.card.keywords:
-			if first.count>=keyword.trigger:
-				slot1.target.statuses.append(keyword.duplicate())
+		if slot1.target!=null:
+			slot1.source.deal_damage(first,slot1.target)
 	else: 
-		var base2=0
-		var coin2=0
-		for key in FindKeyword(KeywordType.COIN_POWER,slot2.source):
-			coin2+=key.value
-		for key in FindKeyword(KeywordType.FINAL_POWER,slot2.source):
-			base2+=key.value
-		slot2.target.hp-=AttackDmg(second,base2,coin2)
-		for keyword in slot2.card.keywords:
-			if second.count>=keyword.trigger:
-				slot2.target.statuses.append(keyword.duplicate())
+		if slot2.target!=null:
+			slot2.source.deal_damage(second,slot2.target)
 
 	print(slot1.target.hp)
 	print(slot2.target.hp)
 
-func AttackDmg(card:CardConfig,basePOW:int=0,coinPOW:int=0)->int:
-	var res = card.base+basePOW
-	for i in range (0,card.count):
-		if (RNG.randi_range(0,1)==1):
-			res+=card.power+coinPOW
-	#print(res)
-	return res
 
 func CheckForDeadUnits(units:Array[Unit]):
 	var res:Array[Unit]
