@@ -61,7 +61,7 @@ func selected():
 	isSelected = !isSelected
 	print("SELECTED SLOT")
 	if(isSelected):
-		scale = baseScale * 1.5
+		scale = baseScale * 1.2
 		
 	else:
 		scale = baseScale
@@ -70,7 +70,6 @@ func unselect(id = 0, type = " "):
 	isSelected = false
 	print("UNSELECTED SLOT")
 	scale = baseScale
-	card = null
 	if arcs.dict_slot_A_B.has(self) && len(arcs.dict_slot_A_B.get(self))<2:
 		arcs.dict_slot_A_B.erase(self)
 	pass

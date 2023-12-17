@@ -82,7 +82,7 @@ texture_over = ExtResource("3_u8rja")
 texture_progress = ExtResource("3_u8rja")
 tint_under = Color(0.223529, 0.223529, 0.223529, 0)
 tint_over = Color(1, 0.356863, 1, 0)
-tint_progress = Color(0, 1, 0, 1)
+tint_progress = Color(0.843137, 0.764706, 0.254902, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="HP" type="Label" parent="CollisionShape2D/Sprite2D/ProgressBar"]

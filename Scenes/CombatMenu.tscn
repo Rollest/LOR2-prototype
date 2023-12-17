@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bobe7373h128k" path="res://Assets/Effects/white1.png" id="1_hwo81"]
 [ext_resource type="Texture2D" uid="uid://dc477ganvnbm8" path="res://Assets/UnitsCombatMenu/IMG_0949.PNG" id="2_3hfx1"]
 [ext_resource type="Texture2D" uid="uid://cqw1wma7o3n8u" path="res://Assets/CardsImages/IMG_1024.PNG" id="3_ul3h1"]
-[ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/IMG_1019.PNG" id="4_7vulk"]
+[ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="4_xdomq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q88og"]
 load_path = "res://.godot/imported/IMG_0949.PNG-6be20e76314ef99c4f788b3e5e6c3529.ctex"
@@ -36,468 +36,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_hwo81")
 
-[node name="Enemies" type="Control" parent="Menu"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-grow_vertical = 2
-
-[node name="UnitsContainer" type="PanelContainer" parent="Menu/Enemies"]
-layout_mode = 2
-offset_top = 61.0
-offset_right = 700.0
-offset_bottom = 293.0
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Enemies/UnitsContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Enemies/UnitsContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="TextureRect" type="TextureRect" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = SubResource("CompressedTexture2D_q88og")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect2" type="TextureRect" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = SubResource("CompressedTexture2D_q88og")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer/TextureRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect3" type="TextureRect" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = SubResource("CompressedTexture2D_q88og")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer/TextureRect3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect4" type="TextureRect" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = SubResource("CompressedTexture2D_q88og")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer/TextureRect4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect5" type="TextureRect" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = SubResource("CompressedTexture2D_q88og")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer/TextureRect5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="UnitStatsPage" type="Panel" parent="Menu/Enemies"]
-layout_mode = 2
-offset_top = 293.0
-offset_right = 700.0
-offset_bottom = 562.0
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.22
-
-[node name="UnitAvatar" type="TextureRect" parent="Menu/Enemies/UnitStatsPage"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -150.0
-offset_right = 14.0
-offset_bottom = -110.0
-grow_vertical = 2
-scale = Vector2(6.42231, 7.75239)
-texture = ExtResource("2_3hfx1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="PageLabel" type="Label" parent="Menu/Enemies/UnitStatsPage"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 31
-text = "SHREK's PAGE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Stat" type="Label" parent="Menu/Enemies/UnitStatsPage"]
-layout_mode = 0
-offset_left = 296.0
-offset_top = 93.0
-offset_right = 336.0
-offset_bottom = 116.0
-theme_override_font_sizes/font_size = 31
-text = "123"
-
-[node name="Stat2" type="Label" parent="Menu/Enemies/UnitStatsPage"]
-layout_mode = 0
-offset_left = 376.0
-offset_top = 93.0
-offset_right = 430.0
-offset_bottom = 140.0
-theme_override_font_sizes/font_size = 31
-text = "123"
-
-[node name="Stat3" type="Label" parent="Menu/Enemies/UnitStatsPage"]
-layout_mode = 0
-offset_left = 461.0
-offset_top = 93.0
-offset_right = 515.0
-offset_bottom = 140.0
-theme_override_font_sizes/font_size = 31
-text = "123"
-
-[node name="ScrollContainer" type="GridContainer" parent="Menu/Enemies"]
-layout_mode = 2
-offset_top = 562.0
-offset_right = 700.0
-offset_bottom = 1080.0
-grow_vertical = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.39
-
-[node name="PanelContainer" type="PanelContainer" parent="Menu/Enemies/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Enemies/ScrollContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 45
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 45
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="TextureRect" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer"]
-clip_contents = true
-layout_mode = 2
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect2" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect3" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect4" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect5" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer2" type="PanelContainer" parent="Menu/Enemies/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Enemies/ScrollContainer/PanelContainer2"]
-layout_mode = 2
-theme_override_constants/margin_left = 45
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 45
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="TextureRect" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer"]
-clip_contents = true
-layout_mode = 2
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect2" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer/TextureRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect3" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer/TextureRect3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect4" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer/TextureRect4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect5" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer/TextureRect5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer3" type="PanelContainer" parent="Menu/Enemies/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Enemies/ScrollContainer/PanelContainer3"]
-layout_mode = 2
-theme_override_constants/margin_left = 45
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 45
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="TextureRect" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer"]
-clip_contents = true
-layout_mode = 2
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect2" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect3" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect4" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect5" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_ul3h1")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Menu/Enemies"]
-layout_mode = 0
-offset_left = 247.0
-offset_top = 1.0
-offset_right = 422.0
-offset_bottom = 61.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 41
-text = "ENEMIES"
-
 [node name="Allies" type="Control" parent="Menu"]
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -700.0
-offset_right = -700.0
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = 0
 
 [node name="UnitsContainer" type="PanelContainer" parent="Menu/Allies"]
 layout_mode = 0
@@ -945,6 +486,461 @@ theme_override_colors/font_color = Color(0, 0.313726, 0.984314, 1)
 theme_override_font_sizes/font_size = 41
 text = "ALLIES"
 
+[node name="Enemies" type="Control" parent="Menu"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -700.0
+offset_right = -700.0
+grow_horizontal = 0
+
+[node name="UnitsContainer" type="PanelContainer" parent="Menu/Enemies"]
+layout_mode = 2
+offset_top = 61.0
+offset_right = 700.0
+offset_bottom = 293.0
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Enemies/UnitsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Enemies/UnitsContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TextureRect" type="TextureRect" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("CompressedTexture2D_q88og")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("CompressedTexture2D_q88og")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("CompressedTexture2D_q88og")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer/TextureRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("CompressedTexture2D_q88og")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect5" type="TextureRect" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("CompressedTexture2D_q88og")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer/TextureRect5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UnitStatsPage" type="Panel" parent="Menu/Enemies"]
+layout_mode = 2
+offset_top = 293.0
+offset_right = 700.0
+offset_bottom = 562.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.22
+
+[node name="UnitAvatar" type="TextureRect" parent="Menu/Enemies/UnitStatsPage"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -150.0
+offset_right = 14.0
+offset_bottom = -110.0
+grow_vertical = 2
+scale = Vector2(6.42231, 7.75239)
+texture = ExtResource("2_3hfx1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PageLabel" type="Label" parent="Menu/Enemies/UnitStatsPage"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 31
+text = "SHREK's PAGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stat" type="Label" parent="Menu/Enemies/UnitStatsPage"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 93.0
+offset_right = 336.0
+offset_bottom = 116.0
+theme_override_font_sizes/font_size = 31
+text = "123"
+
+[node name="Stat2" type="Label" parent="Menu/Enemies/UnitStatsPage"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 93.0
+offset_right = 430.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 31
+text = "123"
+
+[node name="Stat3" type="Label" parent="Menu/Enemies/UnitStatsPage"]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 93.0
+offset_right = 515.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 31
+text = "123"
+
+[node name="ScrollContainer" type="GridContainer" parent="Menu/Enemies"]
+layout_mode = 2
+offset_top = 562.0
+offset_right = 700.0
+offset_bottom = 1080.0
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.39
+
+[node name="PanelContainer" type="PanelContainer" parent="Menu/Enemies/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Enemies/ScrollContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TextureRect" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect5" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer/MarginContainer/HBoxContainer/TextureRect5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Menu/Enemies/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Enemies/ScrollContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TextureRect" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer/TextureRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect5" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer2/MarginContainer/HBoxContainer/TextureRect5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="Menu/Enemies/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Enemies/ScrollContainer/PanelContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TextureRect" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect5" type="TextureRect" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_ul3h1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="Menu/Enemies/ScrollContainer/PanelContainer3/MarginContainer/HBoxContainer/TextureRect5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Menu/Enemies"]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 1.0
+offset_right = 422.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "ENEMIES"
+
 [node name="Center" type="Control" parent="Menu"]
 anchors_preset = 0
 offset_left = 700.0
@@ -954,12 +950,12 @@ offset_bottom = 40.0
 [node name="TextureButton" type="Button" parent="Menu/Center"]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 9.0
+offset_top = 61.0
 offset_right = 2098.0
-offset_bottom = 681.0
+offset_bottom = 733.0
 scale = Vector2(0.241091, 0.241091)
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 336
 text = "РЕЗНЯ"
-icon = ExtResource("4_7vulk")
+icon = ExtResource("4_xdomq")
 icon_alignment = 1

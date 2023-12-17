@@ -185,8 +185,8 @@ func _enter_tree():
 	damageText = healthBar.get_node("Damage")
 	gameDirector = get_node("../GameDirector")
 	effect_container = get_node("EffectContainer")
-	
-	shader = get_node("CollisionShape2D").get_node("Sprite2D").material
+	shader = preload("res://Resourses/shaders/units_shader.tres").duplicate(true)
+	get_node("CollisionShape2D").get_node("Sprite2D").material = shader
 	gameDirector.selectedUnit.connect(_listener_selected)
 	gameDirector.unselect.connect(_listener_unselected)
 	#gameDirector.unselected.connect(_listener_unselected)
@@ -256,14 +256,14 @@ func _mouse_off():
 func _mouse_on_pressed():
 	#isMouseOn = true
 	isMouseSelected = true
-	#shader.set_shader_parameter("width", 2.4)
-	scale = baseScale * 1.5 
+	shader.set_shader_parameter("width", 13)
+	scale = baseScale * 1.2
 	#print("mouse_on_press")
 
 func _mouse_on_unpressed():
 	#isMouseOn = true
 	scale = baseScale
-	#shader.set_shader_parameter("width", 0.0)
+	shader.set_shader_parameter("width", 0.0)
 	isMouseSelected = false
 	#print("mouse_on_unpress")
 	

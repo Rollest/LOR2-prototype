@@ -1,0 +1,155 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgt4nus6ng50i"]
+
+[ext_resource type="Texture2D" uid="uid://cmvhfu56jardp" path="res://Assets/Backgrounds/Menus/MainMenuBackground.PNG" id="1_fn8s8"]
+[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_w4rlw"]
+[ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="2_sufmp"]
+[ext_resource type="Script" path="res://Scenes/ExitEnsurance.gd" id="3_aavoq"]
+[ext_resource type="AudioStream" uid="uid://do6tbtgibuix4" path="res://Assets/Audio/Music/Now-We-Ride(chosic.com).mp3" id="4_53uht"]
+[ext_resource type="AudioStream" uid="uid://cta2lpeqbsodc" path="res://Assets/Audio/wii-keyboard-click-3.mp3" id="5_xoq2v"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w4rlw")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fn8s8")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 221.0
+offset_top = -172.0
+offset_right = 2311.0
+offset_bottom = 2024.0
+grow_vertical = 2
+scale = Vector2(0.23, 0.23)
+theme_override_constants/separation = 90
+
+[node name="PlayButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 321
+text = "ИГРАТЬ"
+icon = ExtResource("2_sufmp")
+icon_alignment = 1
+
+[node name="SettingsButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 231
+text = "НАСТРОЙКИ"
+icon = ExtResource("2_sufmp")
+icon_alignment = 1
+
+[node name="ExitButton" type="Button" parent="ButtonsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 231
+text = "ВЫЙТИ"
+icon = ExtResource("2_sufmp")
+icon_alignment = 1
+
+[node name="ExitEnsurance" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_aavoq")
+
+[node name="ColorRect" type="ColorRect" parent="ExitEnsurance"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.615686)
+
+[node name="Label" type="Label" parent="ExitEnsurance"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.397917
+anchor_top = 0.29213
+anchor_right = 0.602083
+anchor_bottom = 0.35787
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.921569, 0.286275, 0.239216, 1)
+theme_override_font_sizes/font_size = 76
+text = "Вы уверены?"
+metadata/_edit_use_anchors_ = true
+
+[node name="Yes" type="Button" parent="ExitEnsurance"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = 45.9999
+offset_right = 1670.0
+offset_bottom = 718.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.173914, 0.173914)
+theme_override_colors/font_color = Color(0.917647, 0.286275, 0.239216, 1)
+theme_override_font_sizes/font_size = 316
+text = "Да"
+icon = ExtResource("2_sufmp")
+icon_alignment = 1
+
+[node name="No" type="Button" parent="ExitEnsurance"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 45.9999
+offset_top = 46.0
+offset_right = 2136.0
+offset_bottom = 718.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.173914, 0.173914)
+theme_override_colors/font_color = Color(0.917647, 0.286275, 0.239216, 1)
+theme_override_font_sizes/font_size = 316
+text = "Нет"
+icon = ExtResource("2_sufmp")
+icon_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_53uht")
+volume_db = -6.964
+autoplay = true
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_xoq2v")
+
+[connection signal="pressed" from="ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/ExitButton" to="ExitEnsurance" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="ExitEnsurance/Yes" to="ExitEnsurance" method="_on_yes_pressed"]
+[connection signal="pressed" from="ExitEnsurance/No" to="ExitEnsurance" method="_on_no_pressed"]

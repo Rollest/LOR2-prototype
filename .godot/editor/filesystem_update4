@@ -13,8 +13,9 @@ res://Scenes/effect.tscn
 res://Scenes/card.tscn
 res://Scenes/CombatMenu.tscn
 res://Scenes/gui.tscn
-res://Scripts/CardContainer.gd
-res://Scripts/GUI.gd
-res://Scripts/Card.gd
-res://Scripts/GameDirector.gd
+res://Scripts/Unit.gd
+res://Resourses/shaders/units_shader.tres
 res://Scripts/Slot.gd
+res://Scenes/MainMenu.tscn
+res://Scenes/MainMenu.gd
+res://Scenes/ExitEnsurance.gd

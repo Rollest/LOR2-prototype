@@ -5,4 +5,4 @@
 [resource]
 shader = ExtResource("1_3dr7k")
 shader_parameter/width = null
-shader_parameter/outline_color = null
+shader_parameter/outline_color = Color(1, 0, 0, 1)

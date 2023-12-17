@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dq1d1who1d74p"]
+[gd_scene load_steps=7 format=3 uid="uid://dq1d1who1d74p"]
 
 [ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_71ya4"]
+[ext_resource type="Texture2D" uid="uid://boa762inxl7lj" path="res://Assets/MenuItems/Turn Button.PNG" id="2_0l3nj"]
 [ext_resource type="Script" path="res://Scripts/ShowDeck.gd" id="2_6bnd3"]
 [ext_resource type="PackedScene" uid="uid://bpxgvlds53ht1" path="res://Scenes/deck_display.tscn" id="3_h314s"]
 [ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="4_u115p"]
@@ -13,10 +14,16 @@ script = ExtResource("1_71ya4")
 [node name="TurnButton" type="Button" parent="."]
 offset_right = 198.0
 offset_bottom = 140.0
+scale = Vector2(0.200052, 0.200052)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.871094, 0.734375, 0.433594, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 291
 action_mode = 0
 text = "turn"
+icon = ExtResource("2_0l3nj")
+icon_alignment = 1
 
 [node name="ShowDeck" type="Button" parent="."]
 visible = false

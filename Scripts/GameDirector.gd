@@ -17,6 +17,7 @@ var arcs: Arcs
 var changedSelection: bool = false
 var pressBodyId
 var selectedBody
+var isCardSelected: bool = false
 
 
 var RNG=RandomNumberGenerator.new()
@@ -58,18 +59,21 @@ func _listener_unselected(id,type):
 			var slot = instance_from_id(selectedBody.get_instance_id())
 			slot.change_card(instance_from_id(pressBodyId.get_instance_id()))
 			print(instance_from_id(selectedBody.get_instance_id()).card)
+			isCardSelected = true
 			pass
-		elif (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("EnemySlot") && selectedBody.card != null):
+		elif (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("EnemySlot") && isCardSelected == true):
 			print(instance_from_id(selectedBody.get_instance_id()).target)
 			var enemy_slot = instance_from_id(pressBodyId.get_instance_id())
 			enemy_slot.selected()
 			instance_from_id(selectedBody.get_instance_id()).change_target(instance_from_id(pressBodyId.get_instance_id()).get_parent())
 				
 			print(instance_from_id(selectedBody.get_instance_id()).target)
+			isCardSelected = false
 			pass
 		else:
 			if(selectedBody.has_method("unselect")):
 				selectedBody.unselect()
+				isCardSelected = false
 				pass
 			
 			selectedBody = pressBodyId
@@ -85,12 +89,10 @@ func _listener_unselected(id,type):
 			elif(selectedBody.has_method("get_type") && selectedBody.get_type()=="Ally"): 
 				cardContainer.display_cards(selectedBody.hand)
 				pass
-			elif(selectedBody.has_method("get_type") && selectedBody.get_type()=="Enemy"): 
-				cardContainer.display_cards(selectedBody.hand)
-				pass
 			if(selectedBody.has_method("get_type") && selectedBody.get_type()=="Slot"):
-				cardContainer.unselect() 
-				cardContainer.display_cards(selectedBody.source.hand)
+				cardContainer.unselect()
+				if(selectedBody.source is Ally):
+					cardContainer.display_cards(selectedBody.source.hand)
 				pass
 			
 		emit_signal("selectedUnit",id,type)
