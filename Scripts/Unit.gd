@@ -14,6 +14,8 @@ var deck:Array[CardConfig]
 var hand:Array[CardConfig]
 var mana:int
 var statuses:Array[Keyword]
+var texture: CompressedTexture2D
+var unit_name: String
 
 var isdead:bool
 
@@ -69,28 +71,42 @@ func add_slot(slot):
 	slots.append(slot)
 
 func die():
-	print (str(self)+" is ded")
+	print (str(self)+" is ded ---------------------------------------------------------------------------------------------------")
 	isdead=true
 	hp=0
+	var new_node = preload("res://Scenes/grave.tscn").instantiate()
+	if get_parent() != null:
+		get_parent().add_child(new_node)
+	new_node.global_position = global_position
+	for slot in slots:
+		gameDirector.slots.erase(slot)
+		gameDirector.arcs.dict_slot_A_B.erase(slot)
+	gameDirector.units.erase(self)
+	if get_parent() != null:
+		get_parent().remove_child(self)
+	self.queue_free()
+	
+	#_on_hp_updated()
 
 func take_damage(damage:int):
-	print (str(self)+" took damage")
-	var total_armor:float=0.0
-	var total_shred:int=0
-	if FindKeyword(KeywordType.SHRED)!=null:
-		for shred in FindKeyword(KeywordType.SHRED):
-			total_shred+=shred.value
-			shred.duration-=1
-			if (shred.duration<=0):
-				shred.value=0
-	if FindKeyword(KeywordType.ARMOR)!=null:
-		for armor in FindKeyword(KeywordType.ARMOR):
-			total_armor+=armor.value*0.1
-		
-	hp-=round((1.0-total_armor)*(damage+total_shred))
-	if  hp<=0:
-		hp=0
-		die()
+	if !isdead:
+		print (str(self)+" took damage")
+		var total_armor:float=0.0
+		var total_shred:int=0
+		if FindKeyword(KeywordType.SHRED)!=null:
+			for shred in FindKeyword(KeywordType.SHRED):
+				total_shred+=shred.value
+				shred.duration-=1
+				if (shred.duration<=0):
+					shred.value=0
+		if FindKeyword(KeywordType.ARMOR)!=null:
+			for armor in FindKeyword(KeywordType.ARMOR):
+				total_armor+=armor.value*0.1
+			
+		hp-=round((1.0-total_armor)*(damage+total_shred))
+		if  hp<=0:
+			hp=0
+			die()
 	
 func take_status(base_status:Keyword):
 	var status:Keyword = base_status.duplicate(true)
@@ -105,42 +121,43 @@ func take_status(base_status:Keyword):
 		
 
 func deal_damage(cardStats:CardConfig,target:Unit):
-	print (str(self)+" damaged "+str(target)+" with "+str(cardStats))
-	var card = cardStats.duplicate(true)
-	var total_base_power:int = 0
-	var total_coin_power:int = 0
-	var damage:int = 0
-	#apply status to self on turn start
-	for effect in card.keywords:
-			if effect.trigger == -1:
-				self.take_status(effect)
-	#POISON DAMAGE
-	var poison = FindKeyword(KeywordType.POISON)
-	if poison!=null:
-		hp-=poison.value
-		for status in statuses:
-			if status.type==KeywordType.POISON:
-				status.duration-=1
-	
-	if hp>0:	
-	#combine status effects
-		if FindKeyword(KeywordType.FINAL_POWER)!=null:
-			for base in FindKeyword(KeywordType.FINAL_POWER):
-				total_base_power+=base.value
-		if FindKeyword(KeywordType.COIN_POWER)!=null:
-			for coin in FindKeyword(KeywordType.COIN_POWER):
-				total_coin_power+=coin.value
-	#damage calculations
-		damage=card.base+total_base_power
-		for i in range(0,card.count):
-			damage=damage+(card.power + total_coin_power)*random.randi_range(0,1)
-			target.take_damage(damage)
+	if !isdead:
+		print (str(self)+" damaged "+str(target)+" with "+str(cardStats))
+		var card = cardStats.duplicate(true)
+		var total_base_power:int = 0
+		var total_coin_power:int = 0
+		var damage:int = 0
+		#apply status to self on turn start
+		for effect in card.keywords:
+				if effect.trigger == -1:
+					self.take_status(effect)
+		#POISON DAMAGE
+		var poison = FindKeyword(KeywordType.POISON)
+		if poison!=null:
+			hp-=poison.value
+			for status in statuses:
+				if status.type==KeywordType.POISON:
+					status.duration-=1
 		
-			for effect in card.keywords:
-				if effect.trigger == i+1:
-					target.take_status(effect)
-					
-	else: die()
+		if hp>0:	
+		#combine status effects
+			if FindKeyword(KeywordType.FINAL_POWER)!=null:
+				for base in FindKeyword(KeywordType.FINAL_POWER):
+					total_base_power+=base.value
+			if FindKeyword(KeywordType.COIN_POWER)!=null:
+				for coin in FindKeyword(KeywordType.COIN_POWER):
+					total_coin_power+=coin.value
+		#damage calculations
+			damage=card.base+total_base_power
+			for i in range(0,card.count):
+				damage=damage+(card.power + total_coin_power)*random.randi_range(0,1)
+				target.take_damage(damage)
+			
+				for effect in card.keywords:
+					if effect.trigger == i+1:
+						target.take_status(effect)
+						
+		else: die()
 
 func draw_card():
 	print("drawing------------------------------------")
@@ -169,6 +186,8 @@ func _enter_tree():
 	hand=stats.hand
 	mana=stats.mana
 	statuses=stats.status
+	texture=stats.texture
+	unit_name=stats.unit_name
 	isdead=false
 	
 	
@@ -187,6 +206,7 @@ func _enter_tree():
 	effect_container = get_node("EffectContainer")
 	shader = preload("res://Resourses/shaders/units_shader.tres").duplicate(true)
 	get_node("CollisionShape2D").get_node("Sprite2D").material = shader
+	get_node("CollisionShape2D").get_node("Sprite2D").texture = texture
 	gameDirector.selectedUnit.connect(_listener_selected)
 	gameDirector.unselect.connect(_listener_unselected)
 	#gameDirector.unselected.connect(_listener_unselected)
@@ -198,7 +218,8 @@ func _enter_tree():
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#healthBar.value = float(hp)/float(maxHP)*100
-	#hpText.text = str(hp)
+	if hp <=0:
+		await die()
 	pass
 	
 func FindKeyword(type:KeywordType):

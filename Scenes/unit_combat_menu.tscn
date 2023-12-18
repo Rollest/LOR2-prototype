@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc6y57ol1egh"]
+
+[ext_resource type="Script" path="res://Scripts/unit_combat_menu.gd" id="1_wrs1v"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jk1d5"]
+load_path = "res://.godot/imported/IMG_0949.PNG-6be20e76314ef99c4f788b3e5e6c3529.ctex"
+
+[node name="Texture" type="TextureRect"]
+offset_right = 123.0
+offset_bottom = 212.0
+size_flags_vertical = 3
+texture = SubResource("CompressedTexture2D_jk1d5")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("1_wrs1v")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

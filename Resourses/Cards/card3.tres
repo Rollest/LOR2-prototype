@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardConfig" load_steps=3 format=3 uid="uid://drix5kcxxxt1m"]
+
+[ext_resource type="Script" path="res://Scripts/CardConfig.gd" id="1_legjb"]
+[ext_resource type="Texture2D" uid="uid://ckf26rspr7epa" path="res://Assets/CardsImages/IMG_1026.PNG" id="2_b14g4"]
+
+[resource]
+script = ExtResource("1_legjb")
+count = 2
+power = 2
+base = 2
+texture = ExtResource("2_b14g4")
+keywords = Array[Resource("res://Scripts/Keyword.gd")]([])

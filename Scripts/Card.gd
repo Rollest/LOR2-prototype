@@ -9,15 +9,20 @@ var isMouseOn: bool = false
 var isMouseOnPress: bool = false
 var anotherNodeIsMoving:bool = false
 var baseScale:Vector2
+var baseZ: int
 var startPos: Vector2
 var rayCast2D: RayCast2D
 var gameDirector: GameDirector
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	countText.text = str(cardConfig.count)
 	powerText.text = str(cardConfig.power)
 	baseText.text = str(cardConfig.base)
 	baseScale = transform.get_scale()
+	baseZ = z_index
+	get_node("Sprite3D").texture = cardConfig.texture
 	if (get_parent().get_parent().get_node("./RayCast2D")!=null):
 		rayCast2D =get_parent().get_parent().get_node("./RayCast2D")
 	else: rayCast2D =get_parent().get_parent().get_parent().get_node("./RayCast2D")
@@ -36,42 +41,38 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#print(isMouseOn)
-	#print(isMouseOnPress)
 	if (isMouseOn):
 		scale = baseScale * 1.5
-		#if(isMouseOnPress):
-			#position = get_viewport().get_mouse_position()
+		z_index += 1
 	elif(isMouseOnPress):
 		scale = baseScale * 1.5
+		z_index += 1
 	else:
-		if (transform.get_scale()!=baseScale): scale = baseScale
+		if (transform.get_scale()!=baseScale):
+			scale = baseScale
+			z_index = baseZ
 	
 	
 
 
 func _listener_selected(id,type):
 	#print(id,"  ",get_instance_id())
-	if(id == self):#&& !anotherNodeIsMoving):
+	if(id == self):
 		if(type == "motion"): 
 			_mouse_on()
-		#elif(type == "press"):
-		#	_mouse_on_pressed()
 	elif(id != self && type == "press"):
 		anotherNodeIsMoving = true
 func _listener_unselected(id,type):
 	#print(id,"  ",get_instance_id())
 	if(id == self):
-		if(type == "motion"):# && !isMouseOnPress): 
+		if(type == "motion"):
 			_mouse_off()
-		#elif(type == "press"):
-		#	_mouse_on_unpressed()
 	elif(id != self && type == "press"):
 		anotherNodeIsMoving = false
 		
 func _listener_select(id,type):
 	#print(id,"  ",get_instance_id())
-	if(id == self):#&& !anotherNodeIsMoving):
+	if(id == self):
 		if(type == "press"):
 			_mouse_on_pressed()
 	elif(id != self && type == "press"):
@@ -83,22 +84,16 @@ func _listener_unselect(id = 0, type = " "):
 
 func _mouse_on():
 	isMouseOn = true
-	#print("mouse_on")
 	
 func _mouse_off():
 	isMouseOn = false
-	#print("mouse_off")
 
 func _mouse_on_pressed():
-	#isMouseOn = true
 	isMouseOnPress = !isMouseOnPress
 	print(isMouseOnPress)
-	#print("mouse_on_press")
 
 func _mouse_on_unpressed():
-	#isMouseOn = true
 	isMouseOnPress = false
-	#position = startPos
-	#print("mouse_on_unpress")
+	
 func _get_class():
 	return "Card"

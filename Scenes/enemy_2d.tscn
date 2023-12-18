@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ri8mc"]
 [ext_resource type="Script" path="res://Scripts/Slot.gd" id="3_8me0g"]
+[ext_resource type="Texture2D" uid="uid://cma8gx362nfhf" path="res://Assets/Units/Enemies/IMG_0949.PNG" id="3_nvtqg"]
 [ext_resource type="Texture2D" uid="uid://bfg7x5trq773l" path="res://Assets/white.png" id="3_srsv8"]
-[ext_resource type="Texture2D" uid="uid://drh5aaq3yt7pn" path="res://Assets/Units/Enemies/IMG_0953.PNG" id="5_0b20x"]
 [ext_resource type="Shader" path="res://Resourses/shaders/outline.gdshader" id="5_blmjw"]
 [ext_resource type="Texture2D" uid="uid://ceklwrfg5dvko" path="res://Assets/Slots/EnemySlot.PNG" id="6_udto6"]
 
@@ -28,7 +28,7 @@ shape = SubResource("RectangleShape2D_p0pnm")
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 material = SubResource("ShaderMaterial_wa5ih")
 scale = Vector2(0.0948571, 0.0397938)
-texture = ExtResource("5_0b20x")
+texture = ExtResource("3_nvtqg")
 
 [node name="EasedProgressBar" type="TextureProgressBar" parent="CollisionShape2D/Sprite2D"]
 anchors_preset = 7
@@ -36,9 +36,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -1268.0
+offset_left = -908.464
 offset_top = -1024.0
-offset_right = -768.0
+offset_right = -408.464
 offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -52,7 +52,6 @@ texture_progress = ExtResource("3_srsv8")
 tint_under = Color(0.172549, 0.172549, 0.172549, 1)
 tint_over = Color(1, 0.356863, 1, 0)
 tint_progress = Color(1, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="TextureProgressBar" parent="CollisionShape2D/Sprite2D"]
 anchors_preset = 7
@@ -60,9 +59,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -1268.0
+offset_left = -906.554
 offset_top = -1024.0
-offset_right = -768.0
+offset_right = -406.554
 offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 0

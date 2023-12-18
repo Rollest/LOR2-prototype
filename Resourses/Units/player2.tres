@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="UnitConfig" load_steps=4 format=3 uid="uid://dym6fnykrgmsm"]
+[gd_resource type="Resource" script_class="UnitConfig" load_steps=5 format=3 uid="uid://dym6fnykrgmsm"]
 
 [ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="1_jcwu3"]
 [ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/card2.tres" id="2_lj0p7"]
 [ext_resource type="Script" path="res://Scripts/UnitConfig.gd" id="3_ycf2u"]
+[ext_resource type="Texture2D" uid="uid://cig7fvepotg56" path="res://Assets/Units/Allies/IMG_0948.PNG" id="4_h01rt"]
 
 [resource]
 script = ExtResource("3_ycf2u")
@@ -15,3 +16,5 @@ deck = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_jcwu3"), E
 hand = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_jcwu3")])
 mana = 3
 status = Array[Resource("res://Scripts/Keyword.gd")]([])
+texture = ExtResource("4_h01rt")
+unit_name = "Дровосек"

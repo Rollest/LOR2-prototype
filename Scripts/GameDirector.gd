@@ -105,9 +105,9 @@ func _listener_unselected(id,type):
 func _process(delta):
 	for slot in slots:
 		if arcs.dict_slot_A_B.has(slot) and len(arcs.dict_slot_A_B[slot])>1:
-			if slot.source is Enemy:
+			if slot != null && slot.source is Enemy:
 				slot.evil_change_target(slot.target)
-			elif slot.source is Ally:
+			elif slot != null && slot.source is Ally:
 				slot.change_target(slot.target)
 	pass
 

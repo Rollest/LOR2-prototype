@@ -1,8 +1,16 @@
-[gd_resource type="Resource" script_class="UnitConfig" load_steps=4 format=3 uid="uid://rprxybbjpds2"]
+[gd_resource type="Resource" script_class="UnitConfig" load_steps=12 format=3 uid="uid://rprxybbjpds2"]
 
 [ext_resource type="Script" path="res://Scripts/UnitConfig.gd" id="1_2lalg"]
 [ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="1_mnqj0"]
 [ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/card2.tres" id="2_7l8u3"]
+[ext_resource type="Resource" uid="uid://drix5kcxxxt1m" path="res://Resourses/Cards/card3.tres" id="3_ewkxv"]
+[ext_resource type="Resource" uid="uid://c6sbiaufwmrq2" path="res://Resourses/Cards/card4.tres" id="4_epd8d"]
+[ext_resource type="Texture2D" uid="uid://cgkuwp0kt4hjj" path="res://Assets/Units/Allies/IMG_0947.PNG" id="4_lsrsw"]
+[ext_resource type="Resource" uid="uid://bruj6h0xnus8m" path="res://Resourses/Cards/card5.tres" id="5_67vm8"]
+[ext_resource type="Resource" uid="uid://byn8nu0p45iir" path="res://Resourses/Cards/card6.tres" id="6_eogwq"]
+[ext_resource type="Resource" uid="uid://c4qpjwetbubk8" path="res://Resourses/Cards/card7.tres" id="7_s1eir"]
+[ext_resource type="Resource" uid="uid://n6bwsqssyeoi" path="res://Resourses/Cards/card8.tres" id="8_5qdmo"]
+[ext_resource type="Resource" uid="uid://chdr5ncx7tds0" path="res://Resourses/Cards/card9.tres" id="9_jxa0d"]
 
 [resource]
 script = ExtResource("1_2lalg")
@@ -11,7 +19,9 @@ maxHP = 100
 sp = 100
 maxSP = 100
 speed = Array[int]([4, 7])
-deck = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_mnqj0"), ExtResource("1_mnqj0"), ExtResource("2_7l8u3"), ExtResource("1_mnqj0"), ExtResource("2_7l8u3"), ExtResource("2_7l8u3"), ExtResource("1_mnqj0"), ExtResource("2_7l8u3"), ExtResource("1_mnqj0"), ExtResource("2_7l8u3")])
+deck = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_mnqj0"), ExtResource("2_7l8u3"), ExtResource("3_ewkxv"), ExtResource("4_epd8d"), ExtResource("5_67vm8"), ExtResource("6_eogwq"), ExtResource("7_s1eir"), ExtResource("8_5qdmo"), ExtResource("9_jxa0d"), ExtResource("2_7l8u3")])
 hand = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_mnqj0")])
 mana = 3
 status = Array[Resource("res://Scripts/Keyword.gd")]([])
+texture = ExtResource("4_lsrsw")
+unit_name = "Злодей"

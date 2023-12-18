@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciapukrpvwwr3"]
+
+[ext_resource type="Texture2D" uid="uid://cqw1wma7o3n8u" path="res://Assets/CardsImages/IMG_1024.PNG" id="1_i6u4g"]
+[ext_resource type="Script" path="res://Scripts/card_combat_menu.gd" id="2_x65ya"]
+[ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="3_d45ew"]
+
+[node name="CardTexture" type="TextureRect"]
+clip_contents = true
+offset_right = 97.0
+offset_bottom = 150.0
+texture = ExtResource("1_i6u4g")
+expand_mode = 3
+stretch_mode = 4
+script = ExtResource("2_x65ya")
+cardConfig = ExtResource("3_d45ew")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Count" type="Label" parent="."]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 18.0
+offset_top = 113.0
+offset_right = 58.0
+offset_bottom = 139.0
+theme_override_font_sizes/font_size = 12
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Power" type="Label" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = 38.0
+offset_top = 113.0
+offset_right = 78.0
+offset_bottom = 139.0
+theme_override_font_sizes/font_size = 12
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Base" type="Label" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = 58.0
+offset_top = 113.0
+offset_right = 98.0
+offset_bottom = 139.0
+theme_override_font_sizes/font_size = 12
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

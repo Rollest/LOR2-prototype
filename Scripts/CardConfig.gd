@@ -4,6 +4,7 @@ class_name CardConfig
 @export var count : int
 @export var power : int
 @export var base : int
+@export var texture: CompressedTexture2D
 @export var keywords:Array[Keyword]
 
 func setvalues(Count:int,Power:int,Base:int):

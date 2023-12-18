@@ -1,9 +1,10 @@
-AudioStreamPlayer
-Button
+Sprite2D
 Label
+Button
+Control
+AudioStreamPlayer
 ColorRect
 TextureRect
-Control
 VBoxContainer
 TextureButton
 GridContainer
@@ -19,7 +20,6 @@ HSplitContainer
 VSplitContainer
 CanvasLayer
 TabBar
-Sprite2D
 Node
 Container
 CharacterBody2D

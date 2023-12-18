@@ -12,6 +12,8 @@ func _ready():
 	sprite = get_node("Sprite2D")
 	label = get_node("Label")
 	label.text = str(0)
+	if get_parent() is Card:
+		label.visible = false
 	pass # Replace with function body.
 
 
