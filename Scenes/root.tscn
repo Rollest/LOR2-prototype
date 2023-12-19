@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bv4dys5ufh6x"]
+[gd_scene load_steps=24 format=3 uid="uid://bv4dys5ufh6x"]
 
 [ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="2_vtpj6"]
 [ext_resource type="Script" path="res://Scripts/GameDirector.gd" id="3_1a71y"]
@@ -20,6 +20,7 @@
 [ext_resource type="FontVariation" uid="uid://besrjkrpnki4h" path="res://Resourses/Fonts/ArgPriht.tres" id="18_ld5rp"]
 [ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="18_ukxrg"]
 [ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="20_xr2x8"]
+[ext_resource type="PackedScene" uid="uid://8tkkaws71mr" path="res://Scenes/endgame_menu.tscn" id="21_b6hdc"]
 [ext_resource type="Texture2D" uid="uid://xjesikls6ib2" path="res://Assets/Backgrounds/Background2.PNG" id="21_wqs8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei2tc"]
@@ -206,6 +207,9 @@ theme = ExtResource("18_ukxrg")
 text = "Выйти"
 icon = ExtResource("20_xr2x8")
 icon_alignment = 1
+
+[node name="EndgameMenu" parent="CanvasLayer" instance=ExtResource("21_b6hdc")]
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -2

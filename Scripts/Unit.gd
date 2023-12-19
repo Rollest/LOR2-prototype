@@ -45,14 +45,14 @@ var effect_container: Node2D
 
 
 func _update_effects():
-	print("UPDATED EFFECTS")
+	#print("UPDATED EFFECTS")
 	for n in effect_container.get_children():
 		effect_container.remove_child(n)
 		n.queue_free()
-	print(statuses)
+	#print(statuses)
 	for status in statuses:
-		print(statuses)
-		print("statusessss")
+		#print(statuses)
+		#print("statusessss")
 		if !effect_container.has_node(status.KeywordType.keys()[status.KeywordType.keys().find(status.type)]):
 			var new_effect = preload("res://Scenes/effect.tscn").instantiate()
 			new_effect.name = status.KeywordType.keys()[status.KeywordType.keys().find(status.type)]
@@ -75,7 +75,7 @@ func add_slot(slot):
 	slots.append(slot)
 
 func die():
-	print (str(self)+" is ded ---------------------------------------------------------------------------------------------------")
+	#print (str(self)+" is ded ---------------------------------------------------------------------------------------------------")
 	isdead=true
 	hp=0
 	var new_node = preload("res://Scenes/grave.tscn").instantiate()
@@ -94,7 +94,7 @@ func die():
 
 func take_damage(damage:int):
 	if !isdead:
-		print (str(self)+" took damage")
+		#print (str(self)+" took damage")
 		var total_armor:float=0.0
 		var total_shred:int=0
 		if FindKeyword(KeywordType.SHRED)!=null:
@@ -126,7 +126,7 @@ func take_status(base_status:Keyword):
 
 func deal_damage(cardStats:CardConfig,target:Unit):
 	if !isdead:
-		print (str(self)+" damaged "+str(target)+" with "+str(cardStats))
+		#print (str(self)+" damaged "+str(target)+" with "+str(cardStats))
 		var card = cardStats.duplicate(true)
 		var total_base_power:int = 0
 		var total_coin_power:int = 0
@@ -164,7 +164,7 @@ func deal_damage(cardStats:CardConfig,target:Unit):
 		else: die()
 
 func draw_card():
-	print("drawing------------------------------------")
+	#print("drawing------------------------------------")
 	var draw_num=card_draw
 	var draw_keyword = FindKeyword(KeywordType.DRAW)
 	if draw_keyword!=null:
@@ -186,7 +186,7 @@ func draw_card():
 			draw_pile.pop_at(index)
 	
 func regen_mana():
-	print ("getting mana-----------------------------------")
+	#print ("getting mana-----------------------------------")
 	var mana_num=mana_recovery
 	var mana_keyword = FindKeyword(KeywordType.MANA)
 	if mana_keyword!=null:
@@ -201,7 +201,7 @@ func regen_mana():
 	# Called when the node enters the scene tree for the first time.
 func _enter_tree():
 	stats=basestats.duplicate(true)
-	print(stats)
+	#print(stats)
 	hp= stats.hp
 	tempHp = hp
 	maxHP=stats.maxHP
@@ -240,8 +240,8 @@ func _enter_tree():
 	gameDirector.unselect.connect(_listener_unselected)
 	#gameDirector.unselected.connect(_listener_unselected)
 	#tween.tween_property(healthBar,"value",hp,0.4)
-	print(self)
-	print(slots)
+	#print(self)
+	#print(slots)
 
 
 	# Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -13,6 +13,7 @@ var enemy_cards_rows: Array[Node]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().paused = false
 	click_sound = get_node("ClickSound")
 	allies = get_node("Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer").get_children()
 	enemies = get_node("Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer").get_children()
@@ -34,20 +35,6 @@ func _ready():
 			child.queue_free()
 	ally_stats_page.visible = false
 	enemy_stats_page.visible = false
-	
-	#for card in ally_cards:
-	#	card.selected_card.connect(_listener_ally_card_selected)
-	#	for row in ally_cards_rows:
-	#		if row.get_child_count() < 5:
-	#			row.add_child(card)
-	#			break
-	#for card in enemy_cards:
-	#	card.selected_card.connect(_listener_enemy_card_selected)
-	#	for row in enemy_cards_rows:
-	#		if row.get_child_count() < 5:
-	#			row.add_child(card)
-	#			break
-				
 	
 	for ally in allies:
 		ally.selected_unit.connect(_listener_ally_unit_selected)

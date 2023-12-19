@@ -43,15 +43,21 @@ func change_card(newcard:Card):
 	arcs.dict_slot_A_B[self] = [global_position]
 	pass
 
-func change_target(newTarget:Unit):
-	target = newTarget
+func change_target(newTarget):
+	if newTarget == null:
+		target = null
+	else:
+		target = newTarget
 	if(target != null):
 		arcs.dict_slot_A_B[self] = [global_position, target.get_node("EnemySlot").global_position,false]
 		#print(arcs.dict_slot_A_B)
 	pass
 
-func evil_change_target(newTarget:Unit):
-	target = newTarget
+func evil_change_target(newTarget):
+	if newTarget == null:
+		target = null
+	else:
+		target = newTarget
 	if(target != null):
 		arcs.dict_slot_A_B[self] = [global_position, target.get_node("Slot").global_position,false]
 		#print(arcs.dict_slot_A_B)

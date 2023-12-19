@@ -1,10 +1,13 @@
 extends Control
 
+var endgameMenu: Node
+
 func _ready():
 	hide()
+	endgameMenu = get_node("../EndgameMenu")
 
 func _input(event: InputEvent):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") && endgameMenu.visible == false:
 		var new_pause_state = not get_tree().paused
 		get_tree().paused = new_pause_state
 		visible = new_pause_state

@@ -8,5 +8,6 @@ script = ExtResource("1_25x6t")
 count = 2
 power = 2
 base = 2
+mana = 0
 texture = ExtResource("2_0x1sh")
 keywords = Array[Resource("res://Scripts/Keyword.gd")]([])

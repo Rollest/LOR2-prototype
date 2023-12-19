@@ -12,6 +12,7 @@ signal unselect(id,event_type)
 @export var cards:Array[CardConfig]
 @export var cardContainer:Node
 @export var scene:Node
+var endgameMenu: Node
 var rayCast2D: RayCast2D
 var arcs: Arcs
 var changedSelection: bool = false
@@ -28,12 +29,13 @@ func _ready():
 	rayCast2D.selected.connect(_listener_selected)
 	rayCast2D.unselected.connect(_listener_unselected)
 	selectedBody = get_node("../Pustishka")
+	endgameMenu = get_node("../CanvasLayer/EndgameMenu")
 	var tmp
 	tmp=find_objects_of_type("Slot")
 	for item in tmp:
-		print(item)
-		print(item.source)
-		print("---------------------------------------------")
+		#print(item)
+		#print(item.source)
+		#print("---------------------------------------------")
 		item.reset_speed(item.source.speed)
 	tmp=find_objects_of_type("Unit")
 	for unit in tmp:
@@ -55,19 +57,19 @@ func _listener_selected(id,type):
 func _listener_unselected(id,type):
 	if(id == pressBodyId && type == "press"):
 		if (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("Card") && selectedBody.source.get_type() == "Ally" && selectedBody.source.mana>=pressBodyId.cardConfig.mana):
-			print(instance_from_id(selectedBody.get_instance_id()).card)
+			#print(instance_from_id(selectedBody.get_instance_id()).card)
 			var slot = instance_from_id(selectedBody.get_instance_id())
 			slot.change_card(instance_from_id(pressBodyId.get_instance_id()))
-			print(instance_from_id(selectedBody.get_instance_id()).card)
+			#print(instance_from_id(selectedBody.get_instance_id()).card)
 			isCardSelected = true
 			pass
 		elif (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("EnemySlot") && isCardSelected == true):
-			print(instance_from_id(selectedBody.get_instance_id()).target)
+			#print(instance_from_id(selectedBody.get_instance_id()).target)
 			var enemy_slot = instance_from_id(pressBodyId.get_instance_id())
 			enemy_slot.selected()
 			instance_from_id(selectedBody.get_instance_id()).change_target(instance_from_id(pressBodyId.get_instance_id()).get_parent())
 				
-			print(instance_from_id(selectedBody.get_instance_id()).target)
+			#print(instance_from_id(selectedBody.get_instance_id()).target)
 			isCardSelected = false
 			pass
 		else:
@@ -81,7 +83,7 @@ func _listener_unselected(id,type):
 			if(selectedBody.to_string().contains("Pustishka")):
 				emit_signal("unselect",id,"all")
 				cardContainer.unselect()
-				print("unselect")
+				#print("unselect")
 				pass
 			if(selectedBody.has_method("selected")):
 				selectedBody.selected()
@@ -112,16 +114,17 @@ func _process(delta):
 	pass
 
 func Turn():
-	print("######################################")
-	print("new turn")
-	print("######################################\n")
+	#print("######################################")
+	#print("new turn")
+	#print("######################################\n")
 	#setup
+	CheckForDeadUnits(units)
 	for unit in units:
 		unit.tempHp = int(unit.hp)
 	
 	for item in units:    #card draws
-		print(item.name)
-		print(item.statuses)
+		#print(item.name)
+		#print(item.statuses)
 		
 		if item.hand.size()<5:
 			item.draw_card()
@@ -151,11 +154,11 @@ func Turn():
 			break
 		if flag==false:   # onesided damage at the end
 			for slot in combat_slots:
-				print (str(slot.source)+" attacks "+str(slot.target))
+				#print (str(slot.source)+" attacks "+str(slot.target))
 				if !slot.source.isdead:
 					slot.source.deal_damage(slot.card,slot.target)
 					Discard(slot)
-				print(slot.target.hp)
+				#print(slot.target.hp)
 			break
 		for unit in units:
 			unit._update_effects()
@@ -166,11 +169,11 @@ func Turn():
 			for burn in FindKeyword(KeywordType.BURN,item): #process burns
 				item.hp-=burn.value
 		
-		print(item," oiuytr")
+		#print(item," oiuytr")
 		var removethemkeywords:Array[Keyword]
-		print(item.statuses," poiuytrs")
-		for i in item.statuses:
-			print(i.type," ",i.duration)
+		#print(item.statuses," poiuytrs")
+		#for i in item.statuses:
+			#print(i.type," ",i.duration)
 			
 		for keyword in item.statuses: #status decrement
 			if ((keyword.type!=1) and (keyword.type!=2)):
@@ -196,7 +199,14 @@ func Turn():
 		unit._on_hp_updated()
 		if unit is Enemy:
 			unit._play_random()
-			print("random target set")
+			#print("random target set")
+	
+	CheckForDeadUnits(units)
+	print(units)
+	if len(find_objects_of_type("Ally")) == 0:
+		endgameMenu._lose()
+	if len(find_objects_of_type("Enemy")) == 0:
+		endgameMenu._win()
 
 
 func FindKeyword(type:KeywordType,unit:Unit):
@@ -212,9 +222,9 @@ func Discard(slot:Slot):
 		arcs.dict_slot_A_B.erase(slot)
 
 func Clash(slot1:Slot,slot2:Slot):
-	print("############################")
-	print(str(slot1.source) +" vs "+str(slot2.source))
-	print("clash "+str(slot1)+" "+str(slot2)) ############create card buffers to modify during clash
+	#print("############################")
+	#print(str(slot1.source) +" vs "+str(slot2.source))
+	#print("clash "+str(slot1)+" "+str(slot2)) ############create card buffers to modify during clash
 
 	var first = slot1.card.duplicate(true)
 	#first.setvalues(slot1.card.count,slot1.card.power,slot1.card.base)
@@ -259,8 +269,8 @@ func Clash(slot1:Slot,slot2:Slot):
 		if slot2.target!=null:
 			slot2.source.deal_damage(second,slot2.target)
 
-	print(slot1.target.hp)
-	print(slot2.target.hp)
+	#print(slot1.target.hp)
+	#print(slot2.target.hp)
 
 
 func CheckForDeadUnits(units:Array[Unit]):
@@ -268,7 +278,9 @@ func CheckForDeadUnits(units:Array[Unit]):
 	for unit in units:
 		if unit.hp>0:
 			res.append(unit)
-		else: unit.queue_free()
+		else: 
+			units.erase(unit)
+			unit.die()
 	return res
 
 func get_all_children(node)->Array:
@@ -307,7 +319,7 @@ func speedComparison(a, b):
 
 
 func _on_gui_next_turn():
-	print("button pressed")
+	#print("button pressed")
 	Turn()
 
 

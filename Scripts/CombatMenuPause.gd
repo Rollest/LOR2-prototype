@@ -4,6 +4,7 @@ var click_sound: AudioStreamPlayer
 
 func _ready():
 	hide()
+	get_tree().paused = false
 	click_sound = get_node("../ClickSound")
 	
 
