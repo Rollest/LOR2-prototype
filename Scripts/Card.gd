@@ -4,6 +4,8 @@ class_name Card
 @export var countText:Label
 @export var powerText:Label
 @export var baseText:Label
+@export var keyText:Label
+@export var manaText:Label
 @export var cardConfig : CardConfig
 var isMouseOn: bool = false
 var isMouseOnPress: bool = false
@@ -20,6 +22,14 @@ func _ready():
 	countText.text = str(cardConfig.count)
 	powerText.text = str(cardConfig.power)
 	baseText.text = str(cardConfig.base)
+	manaText.text=str(cardConfig.mana)
+	var text=""
+	for key in cardConfig.keywords:
+		var format_string = "%s - %s %s for %s\n"
+		var actual_string = format_string % [str(key.trigger), str(key.KeywordType.keys()[key.type]),str(key.value),str(key.duration)]
+		text+=actual_string
+	keyText.text=text
+	
 	baseScale = transform.get_scale()
 	baseZ = z_index
 	get_node("Sprite3D").texture = cardConfig.texture

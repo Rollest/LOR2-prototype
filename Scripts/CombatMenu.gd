@@ -73,7 +73,7 @@ func _listener_ally_unit_selected(ally):
 	ally_stats_page.get_node("PageLabel").text = ally.unit_name
 	ally_stats_page.get_node("Stat").text = str(ally.maxHP)
 	ally_stats_page.get_node("Stat2").text = str(ally.maxSP)
-	ally_stats_page.get_node("Stat3").text = str(ally.mana)
+	ally_stats_page.get_node("Stat3").text = str(ally.mana_max)
 	
 	
 	for row in ally_cards_rows:
@@ -104,7 +104,7 @@ func _listener_enemy_unit_selected(enemy):
 	enemy_stats_page.get_node("PageLabel").text = enemy.unit_name
 	enemy_stats_page.get_node("Stat").text = str(enemy.maxHP)
 	enemy_stats_page.get_node("Stat2").text = str(enemy.maxSP)
-	enemy_stats_page.get_node("Stat3").text = str(enemy.mana)
+	enemy_stats_page.get_node("Stat3").text = str(enemy.mana_max)
 	
 	for row in enemy_cards_rows:
 		for child in row.get_children():

@@ -13,7 +13,11 @@ var speed:Array[int]
 var deck:Array[CardConfig]
 var hand:Array[CardConfig]
 var mana:int
+var mana_max:int
+var mana_recovery:int
+var card_draw:int
 var statuses:Array[Keyword]
+
 var texture: CompressedTexture2D
 var unit_name: String
 
@@ -161,16 +165,37 @@ func deal_damage(cardStats:CardConfig,target:Unit):
 
 func draw_card():
 	print("drawing------------------------------------")
-	if draw_pile.size()>0:
-		var index:int = random.randi_range(0,draw_pile.size()-1)
-		hand.append(draw_pile[index])
-		draw_pile.pop_at(index)
-	else:
-		for card in deck:
-			draw_pile.append(card)
-		var index:int = random.randi_range(0,draw_pile.size()-1)
-		hand.append(draw_pile[index])
-		draw_pile.pop_at(index)
+	var draw_num=card_draw
+	var draw_keyword = FindKeyword(KeywordType.DRAW)
+	if draw_keyword!=null:
+		draw_num+=draw_keyword.value
+		draw_keyword.duration-=1
+		if draw_keyword.duration<=0:
+			DeleteKeyword(KeywordType.DRAW)
+	
+	for i in range (0,draw_num)	:
+		if draw_pile.size()>0:
+			var index:int = random.randi_range(0,draw_pile.size()-1)
+			hand.append(draw_pile[index])
+			draw_pile.pop_at(index)
+		else:
+			for card in deck:
+				draw_pile.append(card)
+			var index:int = random.randi_range(0,draw_pile.size()-1)
+			hand.append(draw_pile[index])
+			draw_pile.pop_at(index)
+	
+	print ("getting mana-----------------------------------")
+	var mana_num=mana_recovery
+	var mana_keyword = FindKeyword(KeywordType.MANA)
+	if mana_keyword!=null:
+		mana_num+=draw_keyword.value
+		mana_keyword.duration-=1
+		if mana_keyword.duration<=0:
+			DeleteKeyword(KeywordType.MANA)
+	mana+=mana_num
+	if (mana<0):mana=0
+	if (mana>mana_max):mana=mana_max
 
 	# Called when the node enters the scene tree for the first time.
 func _enter_tree():
@@ -184,7 +209,10 @@ func _enter_tree():
 	speed=stats.speed
 	deck=stats.deck
 	hand=stats.hand
-	mana=stats.mana
+	mana_max=stats.mana_max
+	mana=mana_max
+	mana_recovery=stats.mana_recovery
+	card_draw=stats.card_draw
 	statuses=stats.status
 	texture=stats.texture
 	unit_name=stats.unit_name
@@ -229,6 +257,16 @@ func FindKeyword(type:KeywordType):
 			res = keyword
 	return res
 
+func DeleteKeyword(type:KeywordType):
+	var temp=null
+	for i in range(0,statuses.size()):
+		if statuses[i].type==type:
+			temp=i
+			break
+	if temp!=null:
+		statuses.remove_at(temp)
+			
+
 enum KeywordType{
 	BURN,
 	POISON,
@@ -237,6 +275,8 @@ enum KeywordType{
 	COIN_POWER,
 	ARMOR,
 	SPEED,
+	MANA,
+	DRAW,
 }
 	
 func _listener_selected(id,type):

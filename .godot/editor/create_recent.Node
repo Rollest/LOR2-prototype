@@ -1,5 +1,6 @@
-Sprite2D
 Label
+Sprite2D
+Node2D
 Button
 Control
 AudioStreamPlayer
@@ -15,7 +16,6 @@ ScrollContainer
 HBoxContainer
 CollisionShape2D
 ItemList
-Node2D
 HSplitContainer
 VSplitContainer
 CanvasLayer

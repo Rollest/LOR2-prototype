@@ -71,7 +71,7 @@ func _listener_unselected(id,type):
 			isCardSelected = false
 			pass
 		else:
-			if(selectedBody.has_method("unselect")):
+			if(selectedBody!=null && selectedBody.has_method("unselect")):
 				selectedBody.unselect()
 				isCardSelected = false
 				pass
@@ -317,6 +317,8 @@ enum KeywordType{
 	COIN_POWER,
 	ARMOR,
 	SPEED,
+	MANA,
+	DRAW,
 }
 
 

@@ -41,4 +41,9 @@ func _set_effect(keyword: Keyword):
 			sprite.texture = load("res://Assets/Effects/ARMOR.png")
 		keyword.KeywordType.SPEED:
 			sprite.texture = load("res://Assets/Effects/white1.png")
+		keyword.KeywordType.MANA:
+			sprite.texture = load("res://Assets/Effects/white1.png")
+		keyword.KeywordType.DRAW:
+			sprite.texture = load("res://Assets/Effects/white1.png")
+		
 		

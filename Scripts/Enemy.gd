@@ -17,12 +17,13 @@ func _play_random():
 	for t in targets:
 		print("t ",t)
 	print(slots)
-	for slot in slots:
-		slot.card=hand[randi_range(0,hand.size()-1)]
-		slot.target=targets[randi_range(0,targets.size()-1)]
-		slot.evil_change_target(slot.target)
-		print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-		print(slot.card,"  a  ",slot.target)
+	if targets!=null && targets.size()>0:
+		for slot in slots:
+			slot.card=hand[randi_range(0,hand.size()-1)]
+			slot.target=targets[randi_range(0,targets.size()-1)]
+			slot.evil_change_target(slot.target)
+			print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+			print(slot.card,"  a  ",slot.target)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

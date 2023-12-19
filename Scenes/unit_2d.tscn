@@ -162,3 +162,22 @@ offset = Vector2(0.835, 0)
 
 [node name="EffectContainer" type="Node2D" parent="."]
 position = Vector2(0, 556)
+
+[node name="Mana" type="Node2D" parent="."]
+position = Vector2(-144, 372)
+
+[node name="Mana_BG" type="Sprite2D" parent="Mana"]
+z_index = -1
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_u8rja")
+
+[node name="Mana_Text" type="Label" parent="Mana"]
+z_index = 1
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "123"
+horizontal_alignment = 1

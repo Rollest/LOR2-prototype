@@ -14,6 +14,8 @@ enum KeywordType{
 	COIN_POWER,
 	ARMOR,
 	SPEED,
+	MANA,
+	DRAW,
 }
 func _new(type:KeywordType,val:int,dur:int,trig:int):
 	self.type=type

@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba13bj6s0nseq"]
+[gd_scene load_steps=5 format=3 uid="uid://ba13bj6s0nseq"]
 
 [ext_resource type="Script" path="res://Scripts/Card.gd" id="1_10ehx"]
 [ext_resource type="Texture2D" uid="uid://cqw1wma7o3n8u" path="res://Assets/CardsImages/IMG_1024.PNG" id="2_oxy54"]
+[ext_resource type="FontVariation" uid="uid://besrjkrpnki4h" path="res://Resourses/Fonts/ArgPriht.tres" id="3_gkdfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4usx"]
 
-[node name="Card" type="CharacterBody2D" node_paths=PackedStringArray("countText", "powerText", "baseText")]
+[node name="Card" type="CharacterBody2D" node_paths=PackedStringArray("countText", "powerText", "baseText", "keyText", "manaText")]
 script = ExtResource("1_10ehx")
 countText = NodePath("Sprite3D/Count")
 powerText = NodePath("Sprite3D/Power")
 baseText = NodePath("Sprite3D/Base")
+keyText = NodePath("Sprite3D/Keywords")
+manaText = NodePath("Sprite3D/Mana")
 
 [node name="Sprite3D" type="Sprite2D" parent="."]
 scale = Vector2(0.135, 0.135)
@@ -18,30 +21,47 @@ texture = ExtResource("2_oxy54")
 [node name="Count" type="Label" parent="Sprite3D"]
 modulate = Color(1, 0, 0, 1)
 offset_left = -210.526
-offset_top = 494.737
+offset_top = 377.778
 offset_right = -114.526
-offset_bottom = 574.737
+offset_bottom = 457.778
 scale = Vector2(2, 2)
 theme_override_font_sizes/font_size = 56
 text = "123"
 
 [node name="Power" type="Label" parent="Sprite3D"]
 modulate = Color(1, 0, 0, 1)
-offset_left = 10.5263
-offset_top = 494.737
-offset_right = 106.526
-offset_bottom = 574.737
+offset_left = 37.037
+offset_top = 377.778
+offset_right = 133.037
+offset_bottom = 457.778
 scale = Vector2(2, 2)
 theme_override_font_sizes/font_size = 56
 text = "123"
 
 [node name="Base" type="Label" parent="Sprite3D"]
 modulate = Color(1, 0, 0, 1)
-offset_left = 242.105
-offset_top = 494.737
-offset_right = 338.105
-offset_bottom = 574.737
+offset_left = 259.259
+offset_top = 377.778
+offset_right = 355.259
+offset_bottom = 457.778
 scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 56
+text = "123"
+
+[node name="Keywords" type="Label" parent="Sprite3D"]
+offset_left = -185.0
+offset_top = 541.0
+offset_right = 452.0
+offset_bottom = 756.0
+theme_override_fonts/font = ExtResource("3_gkdfy")
+theme_override_font_sizes/font_size = 46
+text = "1 - aaa 1,1"
+
+[node name="Mana" type="Label" parent="Sprite3D"]
+offset_left = -414.815
+offset_top = 585.185
+offset_right = -318.815
+offset_bottom = 665.185
 theme_override_font_sizes/font_size = 56
 text = "123"
 
