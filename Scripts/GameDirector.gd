@@ -12,6 +12,7 @@ signal unselect(id,event_type)
 @export var cards:Array[CardConfig]
 @export var cardContainer:Node
 @export var scene:Node
+@export var combatConfig: CombatConfig
 var endgameMenu: Node
 var rayCast2D: RayCast2D
 var arcs: Arcs
@@ -19,17 +20,28 @@ var changedSelection: bool = false
 var pressBodyId
 var selectedBody
 var isCardSelected: bool = false
+var global_config: Node
 
 
 var RNG=RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("readyStart")
+	scene = get_node("/root/root")
+	cardContainer = get_node("../CardContainer")
 	arcs = get_node("../ARCS")
 	rayCast2D = get_node("../RayCast2D")
 	rayCast2D.selected.connect(_listener_selected)
 	rayCast2D.unselected.connect(_listener_unselected)
 	selectedBody = get_node("../Pustishka")
 	endgameMenu = get_node("../CanvasLayer/EndgameMenu")
+	global_config = get_node("/root/GlobalConfig")
+	combatConfig = global_config.combatConfig
+	
+	_setup()
+	
+	await get_tree().process_frame
+	
 	var tmp
 	tmp=find_objects_of_type("Slot")
 	for item in tmp:
@@ -37,13 +49,17 @@ func _ready():
 		#print(item.source)
 		#print("---------------------------------------------")
 		item.reset_speed(item.source.speed)
-	tmp=find_objects_of_type("Unit")
-	for unit in tmp:
-		units.append(unit)
-		unit._on_hp_updated()
+	#tmp=find_objects_of_type("Unit")
+	#for unit in tmp:
+	#	units.append(unit)
+	#	unit._on_hp_updated()
 	tmp=find_objects_of_type("Slot")
 	for slot in tmp:
 		slots.append(slot)
+		
+	for enemy in find_objects_of_type("Enemy"):
+		enemy._play_random()
+	print("readyEnd")
 
 
 
@@ -207,6 +223,50 @@ func Turn():
 		endgameMenu._lose()
 	if len(find_objects_of_type("Enemy")) == 0:
 		endgameMenu._win()
+
+
+
+
+func _setup():
+	print("setupStart " , units)
+	
+	arcs.dict_slot_A_B.clear()
+	
+	for unit in find_objects_of_type("Unit"):
+		print(unit)
+		get_parent().remove_child(unit)
+		unit.queue_free()
+		print(is_instance_valid(unit))
+		
+	await get_tree().process_frame
+	var allies_spawns = get_node("../SpawnPoints/Allies").get_children()
+	var enemies_spawns = get_node("../SpawnPoints/Enemies").get_children()
+	
+	var new_node = preload("res://Scenes/unit_2d.tscn")
+	for i in range(0, len(combatConfig.allies)):
+		var new_node2 = new_node.duplicate(true).instantiate()
+		new_node2.basestats = combatConfig.allies[i].duplicate(true)
+		new_node2.name = "Ally" + str(i+1)
+		get_parent().add_child(new_node2)
+		new_node2.global_position = allies_spawns[i].global_position
+		print("Ally" , new_node2)
+		
+	for i in range(0, len(combatConfig.enemies)):
+		var new_node2 = preload("res://Scenes/enemy_2d.tscn").instantiate()
+		new_node2.basestats = combatConfig.enemies[i].duplicate(true)
+		new_node2.name = "Enemy" + str(i+1)
+		
+		get_parent().add_child(new_node2)
+		new_node2.global_position = enemies_spawns[i].global_position
+		print("Enemy" , new_node2)
+		
+	units.clear()
+	for unit in find_objects_of_type("Unit"):
+		units.append(unit)
+		unit._on_hp_updated()
+	print(find_objects_of_type("Unit"))
+	print("setupEnd " , units)
+
 
 
 func FindKeyword(type:KeywordType,unit:Unit):

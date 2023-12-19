@@ -10,15 +10,24 @@ var ally_cards: Array[CardConfig]
 var enemy_cards: Array[CardConfig]
 var ally_cards_rows: Array[Node]
 var enemy_cards_rows: Array[Node]
+var map: Node
+var allies_container: Node
+var enemies_container: Node
+var global_config: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().paused = false
 	click_sound = get_node("ClickSound")
-	allies = get_node("Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer").get_children()
-	enemies = get_node("Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer").get_children()
+	#allies = get_node("Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer").get_children()
+	#enemies = get_node("Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer").get_children()
+	allies_container = get_node("Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer")
+	enemies_container = get_node("Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer")
 	ally_stats_page = get_node("Menu/Allies/UnitStatsPage")
 	enemy_stats_page = get_node("Menu/Enemies/UnitStatsPage")
+	map = get_node("Menu/Center/Map")
+	global_config = get_node("/root/GlobalConfig")
+	for button in map.get_children():
+		button.combat_button_clicked.connect(_listener_combat_button)
 	for row in get_node("Menu/Allies/CardsContainer").get_children():
 		ally_cards_rows.append(row.get_node("MarginContainer/HBoxContainer"))
 	for row in get_node("Menu/Enemies/CardsContainer").get_children():
@@ -36,24 +45,57 @@ func _ready():
 	ally_stats_page.visible = false
 	enemy_stats_page.visible = false
 	
-	for ally in allies:
-		ally.selected_unit.connect(_listener_ally_unit_selected)
-	for enemy in enemies:
-		enemy.selected_unit.connect(_listener_enemy_unit_selected)
-	_listener_ally_unit_selected(allies[0].basestats)
-	_listener_enemy_unit_selected(enemies[0].basestats)
+	#for ally in allies:
+	#	ally.selected_unit.connect(_listener_ally_unit_selected)
+	#for enemy in enemies:
+	#	enemy.selected_unit.connect(_listener_enemy_unit_selected)
+	_combat_button(map.get_children()[0].combatConfig)
+	_ally_unit_selected(allies[0].basestats)
+	_enemy_unit_selected(enemies[0].basestats)
 	
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+func _listener_combat_button(combatConfig: CombatConfig):
+	click_sound.play()
+	_combat_button(combatConfig)
+	
+	
+func _combat_button(combatConfig: CombatConfig):
+	global_config.combatConfig = combatConfig
+	for ally in allies_container.get_children():
+		allies_container.remove_child(ally)
+		ally.queue_free()
+	for ally in combatConfig.allies:
+		var new_node = preload("res://Scenes/unit_combat_menu.tscn").instantiate()
+		new_node.selected_unit.connect(_listener_ally_unit_selected)
+		new_node.basestats = ally.duplicate(true)
+		new_node.name = new_node.basestats.unit_name
+		allies_container.add_child(new_node)
+		allies.clear()
+		allies.append_array(allies_container.get_children())
+		
+	for enemy in enemies_container.get_children():
+		enemies_container.remove_child(enemy)
+		enemy.queue_free()
+	for enemy in combatConfig.enemies:
+		var new_node = preload("res://Scenes/unit_combat_menu.tscn").instantiate()
+		new_node.selected_unit.connect(_listener_enemy_unit_selected)
+		new_node.basestats = enemy.duplicate(true)
+		new_node.name = new_node.basestats.unit_name
+		enemies_container.add_child(new_node)
+		enemies.clear()
+		enemies.append_array(enemies_container.get_children())
+	_ally_unit_selected(allies[0].basestats)
+	_enemy_unit_selected(enemies[0].basestats)
 
 
 func _listener_ally_unit_selected(ally):
 	click_sound.play()
+	_ally_unit_selected(ally)
+	
+	
+func _ally_unit_selected(ally):
 	ally = ally.duplicate(true)
 	ally_stats_page.visible = true
 	ally_stats_page.get_node("UnitAvatar").texture = ally.texture
@@ -80,11 +122,13 @@ func _listener_ally_unit_selected(ally):
 				new_node.name = "ally_card" + str(counter)
 				row.add_child(new_node)
 				break
-	pass
 
 
 func _listener_enemy_unit_selected(enemy):
 	click_sound.play()
+	_enemy_unit_selected(enemy)
+	
+func _enemy_unit_selected(enemy):
 	enemy = enemy.duplicate(true)
 	enemy_stats_page.visible = true
 	enemy_stats_page.get_node("UnitAvatar").texture = enemy.texture

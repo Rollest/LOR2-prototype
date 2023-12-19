@@ -23,7 +23,7 @@ shader_parameter/width = 2.111
 shader_parameter/outline_color = null
 
 [node name="Unit2D" type="CharacterBody2D"]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.35, 0.35)
 script = ExtResource("1_xbs36")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

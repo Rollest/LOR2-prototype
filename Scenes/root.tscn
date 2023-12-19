@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bv4dys5ufh6x"]
+[gd_scene load_steps=25 format=3 uid="uid://bv4dys5ufh6x"]
 
 [ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="2_vtpj6"]
 [ext_resource type="Script" path="res://Scripts/GameDirector.gd" id="3_1a71y"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bfg7x5trq773l" path="res://Assets/white.png" id="9_w7743"]
 [ext_resource type="PackedScene" uid="uid://ba13bj6s0nseq" path="res://Scenes/card2d.tscn" id="10_7u201"]
 [ext_resource type="PackedScene" uid="uid://cow0hcch73mmw" path="res://Scenes/enemy_2d.tscn" id="10_d5xgn"]
+[ext_resource type="Resource" uid="uid://bpvvxipqe2g8x" path="res://Resourses/CombatsConfigs/combat1.tres" id="10_nsjya"]
 [ext_resource type="Script" path="res://Scripts/CardContainer.gd" id="12_hlh61"]
 [ext_resource type="Script" path="res://Scripts/Arcs.gd" id="13_52blp"]
 [ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/player2.tres" id="14_egxjh"]
@@ -29,7 +30,6 @@
 
 [node name="Unit2D" parent="." instance=ExtResource("9_meili")]
 position = Vector2(278, 452)
-scale = Vector2(0.4, 0.4)
 basestats = ExtResource("2_vtpj6")
 
 [node name="Slot" parent="Unit2D" index="1" node_paths=PackedStringArray("source")]
@@ -38,7 +38,6 @@ source = NodePath("..")
 
 [node name="Enemy2D" parent="." instance=ExtResource("10_d5xgn")]
 position = Vector2(1585, 452)
-scale = Vector2(0.4, 0.4)
 basestats = ExtResource("5_ol3o3")
 
 [node name="EnemySlot" parent="Enemy2D" index="1" node_paths=PackedStringArray("source", "target")]
@@ -75,6 +74,7 @@ shape = SubResource("RectangleShape2D_ei2tc")
 script = ExtResource("3_1a71y")
 cardContainer = NodePath("../CardContainer")
 scene = NodePath("..")
+combatConfig = ExtResource("10_nsjya")
 
 [node name="CardContainer" type="Node" parent="." node_paths=PackedStringArray("template", "scene")]
 script = ExtResource("12_hlh61")
@@ -102,7 +102,6 @@ raycast = NodePath("../RayCast2D")
 
 [node name="Unit2D2" parent="." instance=ExtResource("9_meili")]
 position = Vector2(525, 674)
-scale = Vector2(0.4, 0.4)
 basestats = ExtResource("14_egxjh")
 
 [node name="Slot" parent="Unit2D2" index="1" node_paths=PackedStringArray("source")]
@@ -111,7 +110,6 @@ source = NodePath("..")
 
 [node name="Enemy2D2" parent="." instance=ExtResource("10_d5xgn")]
 position = Vector2(1360, 674)
-scale = Vector2(0.4, 0.4)
 basestats = ExtResource("15_uk84v")
 
 [node name="EnemySlot" parent="Enemy2D2" index="1" node_paths=PackedStringArray("source", "target")]
@@ -211,7 +209,7 @@ icon_alignment = 1
 [node name="EndgameMenu" parent="CanvasLayer" instance=ExtResource("21_b6hdc")]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 z_index = -2
 anchors_preset = 15
 anchor_right = 1.0
@@ -219,6 +217,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("21_wqs8d")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Allies" type="Node2D" parent="SpawnPoints"]
+
+[node name="Ally1" type="Node2D" parent="SpawnPoints/Allies"]
+position = Vector2(265, 422)
+
+[node name="Ally2" type="Node2D" parent="SpawnPoints/Allies"]
+position = Vector2(142, 772)
+
+[node name="Ally3" type="Node2D" parent="SpawnPoints/Allies"]
+position = Vector2(464, 601)
+
+[node name="Ally4" type="Node2D" parent="SpawnPoints/Allies"]
+position = Vector2(740, 422)
+
+[node name="Ally5" type="Node2D" parent="SpawnPoints/Allies"]
+position = Vector2(642, 772)
+
+[node name="Enemies" type="Node2D" parent="SpawnPoints"]
+
+[node name="Enemy1" type="Node2D" parent="SpawnPoints/Enemies"]
+position = Vector2(1524, 452)
+
+[node name="Enemy2" type="Node2D" parent="SpawnPoints/Enemies"]
+position = Vector2(1705, 772)
+
+[node name="Enemy3" type="Node2D" parent="SpawnPoints/Enemies"]
+position = Vector2(1391, 611)
+
+[node name="Enemy4" type="Node2D" parent="SpawnPoints/Enemies"]
+position = Vector2(1087, 772)
+
+[node name="Enemy5" type="Node2D" parent="SpawnPoints/Enemies"]
+position = Vector2(1218, 452)
 
 [connection signal="next_turn" from="GUI" to="GameDirector" method="_on_gui_next_turn"]
 [connection signal="selectedUnit" from="GameDirector" to="GUI" method="_on_game_director_selected_unit"]

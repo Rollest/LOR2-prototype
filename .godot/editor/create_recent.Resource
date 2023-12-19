@@ -1,3 +1,4 @@
+CombatConfig
 ShaderMaterial
 FontVariation
 UnitConfig

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxxw5k24d77aq"]
+[gd_scene load_steps=21 format=3 uid="uid://cxxw5k24d77aq"]
 
 [ext_resource type="Texture2D" uid="uid://bobe7373h128k" path="res://Assets/Effects/white1.png" id="1_hwo81"]
 [ext_resource type="Script" path="res://Scripts/CombatMenu.gd" id="1_lh1rh"]
@@ -17,6 +17,9 @@
 [ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="9_iw8da"]
 [ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="10_vrivb"]
 [ext_resource type="Texture2D" uid="uid://bmlvf2gwve66f" path="res://Assets/MenuItems/pngwing.com (1).png" id="12_q2olp"]
+[ext_resource type="Script" path="res://Scenes/CombatButton.gd" id="13_qoruy"]
+[ext_resource type="Resource" uid="uid://bpvvxipqe2g8x" path="res://Resourses/CombatsConfigs/combat1.tres" id="14_gkj2a"]
+[ext_resource type="Resource" uid="uid://blbu5smy78n2w" path="res://Resourses/CombatsConfigs/combat2.tres" id="15_2sc2g"]
 
 [node name="CombatMenu" type="Control"]
 layout_mode = 3
@@ -584,7 +587,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="Menu/Center/Map"]
+[node name="Combat1" type="Button" parent="Menu/Center/Map"]
 layout_mode = 0
 offset_left = 126.0
 offset_top = 324.0
@@ -593,6 +596,20 @@ offset_bottom = 645.0
 scale = Vector2(0.216345, 0.216345)
 icon = ExtResource("12_q2olp")
 flat = true
+script = ExtResource("13_qoruy")
+combatConfig = ExtResource("14_gkj2a")
+
+[node name="Combat2" type="Button" parent="Menu/Center/Map"]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 435.0
+offset_right = 627.0
+offset_bottom = 756.0
+scale = Vector2(0.216345, 0.216345)
+icon = ExtResource("12_q2olp")
+flat = true
+script = ExtResource("13_qoruy")
+combatConfig = ExtResource("15_2sc2g")
 
 [node name="CombatMenuPause" type="Control" parent="."]
 process_mode = 3
@@ -685,5 +702,7 @@ process_mode = 3
 stream = ExtResource("6_rejhn")
 
 [connection signal="pressed" from="Menu/Center/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/Center/Map/Combat1" to="Menu/Center/Map/Combat1" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Center/Map/Combat2" to="Menu/Center/Map/Combat2" method="_on_pressed"]
 [connection signal="pressed" from="CombatMenuPause/VBoxContainer/UnpauseBtn" to="CombatMenuPause" method="_on_unpause_btn_pressed"]
 [connection signal="pressed" from="CombatMenuPause/VBoxContainer/Exit" to="CombatMenuPause" method="_on_exit_pressed"]

@@ -16,7 +16,7 @@ var arcs: Arcs
 
 var RNG=RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _enter_tree():
 	gameDirector = get_node("../../GameDirector")
 	text=get_node("Speed")
 	source = get_parent()

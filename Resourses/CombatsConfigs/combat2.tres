@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CombatConfig" load_steps=5 format=3 uid="uid://blbu5smy78n2w"]
+
+[ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="1_bhoe5"]
+[ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/player2.tres" id="2_s27ik"]
+[ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="4_mrllc"]
+[ext_resource type="Script" path="res://Scripts/CombatConfig.gd" id="5_ppw7p"]
+
+[resource]
+script = ExtResource("5_ppw7p")
+allies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("1_bhoe5"), ExtResource("2_s27ik")])
+enemies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("4_mrllc")])
