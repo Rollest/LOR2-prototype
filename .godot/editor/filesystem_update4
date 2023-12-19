@@ -35,3 +35,4 @@ res://Scripts/GameDirector.gd
 res://Scripts/Keyword.gd
 res://Scripts/CombatMenu.gd
 res://Scripts/Ally.gd
+res://Scripts/card_combat_menu.gd

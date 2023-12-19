@@ -185,11 +185,12 @@ func draw_card():
 			hand.append(draw_pile[index])
 			draw_pile.pop_at(index)
 	
+func regen_mana():
 	print ("getting mana-----------------------------------")
 	var mana_num=mana_recovery
 	var mana_keyword = FindKeyword(KeywordType.MANA)
 	if mana_keyword!=null:
-		mana_num+=draw_keyword.value
+		mana_num+=mana_keyword.value
 		mana_keyword.duration-=1
 		if mana_keyword.duration<=0:
 			DeleteKeyword(KeywordType.MANA)

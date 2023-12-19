@@ -16,5 +16,6 @@ script = ExtResource("1_nyneq")
 count = 5
 power = 10
 base = 4
+mana = 3
 texture = ExtResource("3_0rc3l")
 keywords = Array[ExtResource("1_q2vr2")]([SubResource("Resource_wqbjk")])

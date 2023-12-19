@@ -54,7 +54,7 @@ func _listener_selected(id,type):
 			pass
 func _listener_unselected(id,type):
 	if(id == pressBodyId && type == "press"):
-		if (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("Card") && selectedBody.source.get_type() == "Ally"):
+		if (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("Card") && selectedBody.source.get_type() == "Ally" && selectedBody.source.mana>=pressBodyId.cardConfig.mana):
 			print(instance_from_id(selectedBody.get_instance_id()).card)
 			var slot = instance_from_id(selectedBody.get_instance_id())
 			slot.change_card(instance_from_id(pressBodyId.get_instance_id()))
@@ -129,6 +129,7 @@ func Turn():
 	var combat_slots:Array[Slot]=[]
 	for slot in slots:
 		if !(!slot.target||!slot.card):
+			slot.source.mana-=slot.card.mana
 			combat_slots.append(slot)
 			
 	combat_slots.sort_custom(speedComparison)
@@ -184,6 +185,7 @@ func Turn():
 	
 	for unit in units:
 		unit._update_effects()
+		unit.regen_mana()
 	
 	for ally in find_objects_of_type("Ally"):
 		for slot in ally.slots:
