@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://8tkkaws71mr"]
+
+[ext_resource type="Script" path="res://Scripts/EndgameMenu.gd" id="1_qdlgf"]
+[ext_resource type="Texture2D" uid="uid://bpunl21fktg34" path="res://Assets/MenuItems/IMG_1018.PNG" id="2_y6g0d"]
+[ext_resource type="FontVariation" uid="uid://besrjkrpnki4h" path="res://Resourses/Fonts/ArgPriht.tres" id="3_wwydd"]
+[ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="4_70ola"]
+[ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="5_cblo1"]
+
+[node name="EndgameMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qdlgf")
+
+[node name="DarkOverlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.505882)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.493359
+anchor_top = 0.497222
+anchor_right = 0.493359
+anchor_bottom = 0.497222
+offset_left = -417.0
+offset_top = -648.0
+offset_right = 2315.0
+offset_bottom = 1400.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.315, 0.315)
+texture = ExtResource("2_y6g0d")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -339.0
+offset_top = -195.429
+offset_right = 339.0
+offset_bottom = 102.571
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_wwydd")
+theme_override_font_sizes/font_size = 216
+text = "YOU LOSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -149.0
+offset_right = 1860.0
+offset_bottom = 1199.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.215, 0.215)
+alignment = 1
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_70ola")
+text = "Выйти"
+icon = ExtResource("5_cblo1")
+icon_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

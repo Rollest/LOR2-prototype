@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1702996987
+::res://::1702997447
 ::res://Assets/::1702992502
 card_bg.png::CompressedTexture2D::4065567938700502126::1702992502::1702992502::1::::<><>::
 enemy.png::CompressedTexture2D::5287586455984809592::1702992502::1702992502::1::::<><>::
@@ -60,10 +60,10 @@ IMG_0949.PNG::CompressedTexture2D::5617123119303986559::1702992502::1702992502::
 IMG_0953.PNG::CompressedTexture2D::8368744573009184931::1702992502::1702992502::1::::<><>::
 ::res://Assets/UnitsCombatMenu/::1702992502
 IMG_0949.PNG::CompressedTexture2D::7361507098155921941::1702992502::1702992502::1::::<><>::
-::res://global_src/::1702995145
+::res://global_src/::1702997050
 global_config.gd::GDScript::-1::1702995145::0::1::::<>Node<>::
 save.gd::GDScript::-1::1702995145::0::1::::<>Node<>::
-SAVEFILE.json::JSON::-1::1702995145::0::1::::<><>::
+SAVEFILE.json::JSON::-1::1702997050::0::1::::<><>::
 ::res://Resourses/::1702992502
 ::res://Resourses/Cards/::1702995939
 Card1.tres::Resource/CardConfig::8754462785447038051::1702992570::0::1::::<><>::res://Scripts/CardConfig.gd<>res://Scripts/Keyword.gd<>uid://cqw1wma7o3n8u::::res://Assets/CardsImages/IMG_1024.PNG
@@ -80,8 +80,8 @@ Ancient Medium.ttf::FontFile::9145223015154759071::1702992502::1702992502::1::::
 AncientMed.tres::FontVariation::8617751029564985956::1702992502::0::1::::<><>::uid://d3kaqs5ep63nn
 ArgPriht.tres::FontVariation::2705383671034964033::1702992502::0::1::::<><>::
 ArgPriht.ttf::FontFile::4128945487477439185::1702992502::1702992502::1::::<><>::
-::res://Resourses/shaders/::1702996973
-outline.gdshader::Shader::-1::1702996973::0::1::::<><>::
+::res://Resourses/shaders/::1702997050
+outline.gdshader::Shader::-1::1702997050::0::1::::<><>::
 units_shader.tres::ShaderMaterial::5104007979119646231::1702992570::0::1::::<><>::res://Resourses/shaders/outline.gdshader
 ::res://Resourses/Themes/::1702992502
 menu_buttons_theme.tres::Theme::4895459308968875794::1702992502::0::1::::<><>::
