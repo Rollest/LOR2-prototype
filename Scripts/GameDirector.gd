@@ -217,8 +217,10 @@ func Turn():
 			unit._play_random()
 			#print("random target set")
 	
+	await get_tree().process_frame
 	CheckForDeadUnits(units)
 	print(units)
+	await get_tree().process_frame
 	if len(find_objects_of_type("Ally")) == 0:
 		endgameMenu._lose()
 	if len(find_objects_of_type("Enemy")) == 0:
