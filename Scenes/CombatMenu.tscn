@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cxxw5k24d77aq"]
+[gd_scene load_steps=20 format=3 uid="uid://cxxw5k24d77aq"]
 
 [ext_resource type="Texture2D" uid="uid://bobe7373h128k" path="res://Assets/Effects/white1.png" id="1_hwo81"]
 [ext_resource type="Script" path="res://Scripts/CombatMenu.gd" id="1_lh1rh"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cgkuwp0kt4hjj" path="res://Assets/Units/Allies/IMG_0947.PNG" id="6_7jujl"]
 [ext_resource type="Script" path="res://Scripts/CombatMenuPause.gd" id="6_a64g7"]
 [ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/player2.tres" id="6_lotsb"]
-[ext_resource type="AudioStream" uid="uid://cta2lpeqbsodc" path="res://Assets/Audio/wii-keyboard-click-3.mp3" id="6_rejhn"]
 [ext_resource type="Texture2D" uid="uid://bpunl21fktg34" path="res://Assets/MenuItems/IMG_1018.PNG" id="7_pn4qo"]
 [ext_resource type="PackedScene" uid="uid://ciapukrpvwwr3" path="res://Scenes/card_combat_menu.tscn" id="7_qv6te"]
 [ext_resource type="FontVariation" uid="uid://besrjkrpnki4h" path="res://Resourses/Fonts/ArgPriht.tres" id="8_865jo"]
@@ -696,10 +695,6 @@ theme = ExtResource("9_iw8da")
 text = "Выйти"
 icon = ExtResource("4_xdomq")
 icon_alignment = 1
-
-[node name="ClickSound" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("6_rejhn")
 
 [connection signal="pressed" from="Menu/Center/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Menu/Center/Map/Combat1" to="Menu/Center/Map/Combat1" method="_on_pressed"]

@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgt4nus6ng50i"]
+[gd_scene load_steps=5 format=3 uid="uid://cgt4nus6ng50i"]
 
-[ext_resource type="Texture2D" uid="uid://cmvhfu56jardp" path="res://Assets/Backgrounds/Menus/MainMenuBackground.PNG" id="1_fn8s8"]
+[ext_resource type="Texture2D" uid="uid://cehntyp8eenen" path="res://Assets/Backgrounds/Menus/MainMenuBackground.PNG" id="1_fn8s8"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_fyw6k"]
 [ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="2_sufmp"]
 [ext_resource type="Script" path="res://Scripts/ExitEnsurance.gd" id="4_7enwo"]
-[ext_resource type="AudioStream" uid="uid://do6tbtgibuix4" path="res://Assets/Audio/Music/Now-We-Ride(chosic.com).mp3" id="4_53uht"]
-[ext_resource type="AudioStream" uid="uid://cta2lpeqbsodc" path="res://Assets/Audio/wii-keyboard-click-3.mp3" id="5_xoq2v"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -136,16 +134,6 @@ theme_override_font_sizes/font_size = 316
 text = "Нет"
 icon = ExtResource("2_sufmp")
 icon_alignment = 1
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("4_53uht")
-volume_db = -6.964
-autoplay = true
-
-[node name="ClickSound" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("5_xoq2v")
 
 [connection signal="pressed" from="ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

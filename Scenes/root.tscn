@@ -240,7 +240,7 @@ position = Vector2(642, 772)
 [node name="Enemies" type="Node2D" parent="SpawnPoints"]
 
 [node name="Enemy1" type="Node2D" parent="SpawnPoints/Enemies"]
-position = Vector2(1524, 452)
+position = Vector2(1575, 407)
 
 [node name="Enemy2" type="Node2D" parent="SpawnPoints/Enemies"]
 position = Vector2(1705, 772)
@@ -252,7 +252,7 @@ position = Vector2(1391, 611)
 position = Vector2(1087, 772)
 
 [node name="Enemy5" type="Node2D" parent="SpawnPoints/Enemies"]
-position = Vector2(1218, 452)
+position = Vector2(1218, 422)
 
 [connection signal="next_turn" from="GUI" to="GameDirector" method="_on_gui_next_turn"]
 [connection signal="selectedUnit" from="GameDirector" to="GUI" method="_on_game_director_selected_unit"]

@@ -21,12 +21,12 @@ var pressBodyId
 var selectedBody
 var isCardSelected: bool = false
 var global_config: Node
+var sound: Node
 
 
 var RNG=RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("readyStart")
 	scene = get_node("/root/root")
 	cardContainer = get_node("../CardContainer")
 	arcs = get_node("../ARCS")
@@ -37,6 +37,9 @@ func _ready():
 	endgameMenu = get_node("../CanvasLayer/EndgameMenu")
 	global_config = get_node("/root/GlobalConfig")
 	combatConfig = global_config.combatConfig
+	sound = get_node("/root/Sound")
+	sound.music_player.stream = sound.music_combat
+	sound.music_player.play()
 	
 	_setup()
 	

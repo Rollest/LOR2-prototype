@@ -1,7 +1,7 @@
 extends Control
 
 
-var click_sound: AudioStreamPlayer
+var sound: Node
 var allies: Array[Node]
 var enemies: Array[Node]
 var ally_stats_page: Node
@@ -15,9 +15,10 @@ var allies_container: Node
 var enemies_container: Node
 var global_config: Node
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	click_sound = get_node("ClickSound")
+	sound = get_node("/root/Sound")
 	#allies = get_node("Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer").get_children()
 	#enemies = get_node("Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer").get_children()
 	allies_container = get_node("Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer")
@@ -51,13 +52,15 @@ func _ready():
 	#	enemy.selected_unit.connect(_listener_enemy_unit_selected)
 	_combat_button(map.get_children()[0].combatConfig)
 	_ally_unit_selected(allies[0].basestats)
-	_enemy_unit_selected(enemies[0].basestats)
+	await _enemy_unit_selected(enemies[0].basestats)
+	sound.music_player.stream = sound.music_combat_menu
+	sound.music_player.play()
 	
 	pass # Replace with function body.
 
 
 func _listener_combat_button(combatConfig: CombatConfig):
-	click_sound.play()
+	sound.click_standart_player.play()
 	_combat_button(combatConfig)
 	
 	
@@ -91,7 +94,7 @@ func _combat_button(combatConfig: CombatConfig):
 
 
 func _listener_ally_unit_selected(ally):
-	click_sound.play()
+	sound.click_standart_player.play()
 	_ally_unit_selected(ally)
 	
 	
@@ -125,7 +128,7 @@ func _ally_unit_selected(ally):
 
 
 func _listener_enemy_unit_selected(enemy):
-	click_sound.play()
+	sound.click_standart_player.play()
 	_enemy_unit_selected(enemy)
 	
 func _enemy_unit_selected(enemy):
@@ -160,17 +163,17 @@ func _enemy_unit_selected(enemy):
 	
 func _listener_ally_card_selected(cardConfig):
 	print("ally_card_selected")
-	click_sound.play()
+	sound.click_standart_player.play()
 	pass
 
 
 func _listener_enemy_card_selected(cardConfig):
 	print("enemy_card_selected")
-	click_sound.play()
+	sound.click_standart_player.play()
 	pass
 
 
 func _on_play_pressed():
-	click_sound.play()
-	await click_sound.finished
+	sound.click_start_game_player.play()
+	await sound.click_start_game_player.finished
 	get_tree().change_scene_to_file("res://Scenes/root.tscn")

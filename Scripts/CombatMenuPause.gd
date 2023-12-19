@@ -1,11 +1,11 @@
 extends Control
 
-var click_sound: AudioStreamPlayer
+var sound: Node
 
 func _ready():
 	hide()
 	get_tree().paused = false
-	click_sound = get_node("../ClickSound")
+	sound = get_node("/root/Sound")
 	
 
 func _input(event: InputEvent):
@@ -16,13 +16,12 @@ func _input(event: InputEvent):
 
 
 func _on_unpause_btn_pressed():
-	click_sound.play()
+	sound.click_standart_player.play()
 	get_tree().paused = false
 	visible = false
 
 
 func _on_exit_pressed():
-	click_sound.play()
-	await click_sound.finished
+	sound.click_standart_player.play()
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 	pass # Replace with function body.

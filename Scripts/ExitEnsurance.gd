@@ -1,16 +1,14 @@
 extends Control
 
 
-var click_sound: AudioStreamPlayer
-var music: AudioStreamPlayer
-var base_volume: int
+var sound: Node
+var base_music_volume: float
 
 func _ready():
 	hide()
 	get_tree().paused = false
-	click_sound = get_parent().get_node("ClickSound")
-	music = get_parent().get_node("Music")
-	base_volume = music.volume_db
+	sound = get_node("/root/Sound")
+	base_music_volume = sound.music_player.volume_db
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel"):
@@ -18,11 +16,10 @@ func _input(event: InputEvent):
 		get_tree().paused = new_pause_state
 		visible = new_pause_state
 		if(visible == true):
-			music.volume_db -= 10
+			sound.music_player.volume_db -= 10
 		else:
-			music.volume_db = base_volume
-		click_sound.play()
-		await click_sound.finished
+			sound.music_player.volume_db = base_music_volume
+		sound.click_standart_player.play()
 
 
 func _on_exit_button_pressed():
@@ -33,12 +30,12 @@ func _on_exit_button_pressed():
 func _on_no_pressed():
 	get_tree().paused = false
 	visible = false
-	click_sound.play()
+	sound.click_standart_player.play()
 	pass # Replace with function body.
 
 
 func _on_yes_pressed():
-	click_sound.play()
-	await click_sound.finished
+	sound.click_standart_player.play()
+	await sound.click_standart_player.finished
 	get_tree().quit()
 	pass # Replace with function body.

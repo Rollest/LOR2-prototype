@@ -1,9 +1,10 @@
+PopupMenu
+AudioStreamPlayer
 Node2D
 Label
 Sprite2D
 Button
 Control
-AudioStreamPlayer
 ColorRect
 TextureRect
 VBoxContainer

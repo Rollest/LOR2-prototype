@@ -1,11 +1,13 @@
 extends Control
 
 
-var click_sound: AudioStreamPlayer
+var sound: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	click_sound = get_node("ClickSound")
+	sound = get_node("/root/Sound")
+	sound.music_player.stream = sound.music_menu
+	sound.music_player.play()
 	pass # Replace with function body.
 
 
@@ -15,15 +17,14 @@ func _process(delta):
 
 
 func _on_play_button_pressed():
-	click_sound.play()
-	await click_sound.finished
+	sound.click_standart_player.play()
 	get_tree().change_scene_to_file("res://Scenes/CombatMenu.tscn")
 
 
 func _on_settings_button_pressed():
-	click_sound.play()
+	sound.click_standart_player.play()
 
 
 
 func _on_exit_button_pressed():
-	click_sound.play()
+	sound.click_standart_player.play()
