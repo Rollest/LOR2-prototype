@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1703061864
+::res://::1703068327
 ::res://Assets/::1703060695
 card_bg.png::CompressedTexture2D::4065567938700502126::1702992502::1702992502::1::::<><>::
 enemy.png::CompressedTexture2D::5287586455984809592::1702992502::1702992502::1::::<><>::
@@ -64,12 +64,12 @@ IMG_0949.PNG::CompressedTexture2D::5617123119303986559::1702992502::1702992502::
 IMG_0953.PNG::CompressedTexture2D::8368744573009184931::1702992502::1702992502::1::::<><>::
 ::res://Assets/UnitsCombatMenu/::1702992502
 IMG_0949.PNG::CompressedTexture2D::7361507098155921941::1702992502::1702992502::1::::<><>::
-::res://global_src/::1703061864
+::res://global_src/::1703067304
 cursor.gd::GDScript::-1::1703061456::0::1::::<>Node<>::
 global_config.gd::GDScript::-1::1703008212::0::1::::<>Node<>::
-save.gd::GDScript::-1::1702995145::0::1::::<>Node<>::
+save.gd::GDScript::-1::1703067295::0::1::::<>Node<>::
 sound.gd::GDScript::-1::1703022117::0::1::::<>Node<>::
-Sound.tscn::PackedScene::4786898471075141407::1703061609::0::1::::<><>::res://global_src/sound.gd
+Sound.tscn::PackedScene::4786898471075141407::1703067304::0::1::::<><>::res://global_src/sound.gd
 ::res://Resourses/::1702997861
 ::res://Resourses/Cards/::1703059992
 Card1.tres::Resource/CardConfig::8754462785447038051::1703059992::0::1::::<><>::res://Scripts/CardConfig.gd<>res://Scripts/Keyword.gd<>uid://cqw1wma7o3n8u::::res://Assets/CardsImages/IMG_1024.PNG
@@ -81,16 +81,16 @@ card6.tres::Resource/CardConfig::4099817807699299361::1703059992::0::1::::<><>::
 card7.tres::Resource/CardConfig::6842275866549056521::1703059992::0::1::::<><>::res://Scripts/CardConfig.gd<>uid://bcgndcelh6wtk::::res://Assets/CardsImages/IMG_1097.PNG
 card8.tres::Resource/CardConfig::976551653108961556::1703059992::0::1::::<><>::res://Scripts/CardConfig.gd<>uid://co42rh8jult6::::res://Assets/CardsImages/IMG_1099.PNG
 card9.tres::Resource/CardConfig::5271442855790473985::1703059992::0::1::::<><>::res://Scripts/CardConfig.gd<>uid://c6pgpd4h514bi::::res://Assets/CardsImages/IMG_1100.PNG
-::res://Resourses/CombatsConfigs/::1703059992
-combat1.tres::Resource/CombatConfig::3483921845298999273::1703059992::0::1::::<><>::uid://rprxybbjpds2::::res://Resourses/Units/player1.tres<>res://Scripts/CombatConfig.gd<>uid://dym6fnykrgmsm::::res://Resourses/Units/player2.tres<>uid://dbrvne50pub0::::res://Resourses/Units/enemy1.tres<>uid://dnmku0di7eldk::::res://Resourses/Units/enemy2.tres
-combat2.tres::Resource/CombatConfig::3161831220230474728::1703059992::0::1::::<><>::uid://rprxybbjpds2::::res://Resourses/Units/player1.tres<>uid://dym6fnykrgmsm::::res://Resourses/Units/player2.tres<>uid://dnmku0di7eldk::::res://Resourses/Units/enemy2.tres<>res://Scripts/CombatConfig.gd
+::res://Resourses/CombatsConfigs/::1703063929
+combat1.tres::Resource/CombatConfig::3483921845298999273::1703063925::0::1::::<><>::uid://rprxybbjpds2::::res://Resourses/Units/player1.tres<>res://Scripts/CombatConfig.gd<>uid://dym6fnykrgmsm::::res://Resourses/Units/player2.tres<>uid://dbrvne50pub0::::res://Resourses/Units/enemy1.tres<>uid://dnmku0di7eldk::::res://Resourses/Units/enemy2.tres
+combat2.tres::Resource/CombatConfig::3161831220230474728::1703063929::0::1::::<><>::uid://rprxybbjpds2::::res://Resourses/Units/player1.tres<>uid://dym6fnykrgmsm::::res://Resourses/Units/player2.tres<>uid://dnmku0di7eldk::::res://Resourses/Units/enemy2.tres<>res://Scripts/CombatConfig.gd
 ::res://Resourses/Fonts/::1702992502
 Ancient Medium.ttf::FontFile::9145223015154759071::1702992502::1702992502::1::::<><>::
 AncientMed.tres::FontVariation::8617751029564985956::1702992502::0::1::::<><>::uid://d3kaqs5ep63nn
 ArgPriht.tres::FontVariation::2705383671034964033::1702992502::0::1::::<><>::
 ArgPriht.ttf::FontFile::4128945487477439185::1702992502::1702992502::1::::<><>::
-::res://Resourses/shaders/::1703061609
-outline.gdshader::Shader::-1::1703061609::0::1::::<><>::
+::res://Resourses/shaders/::1703067352
+outline.gdshader::Shader::-1::1703067352::0::1::::<><>::
 units_shader.tres::ShaderMaterial::5104007979119646231::1703059992::0::1::::<><>::res://Resourses/shaders/outline.gdshader
 ::res://Resourses/Themes/::1702992502
 menu_buttons_theme.tres::Theme::4895459308968875794::1702992502::0::1::::<><>::
@@ -99,45 +99,42 @@ enemy1.tres::Resource/UnitConfig::213701289597043027::1703059992::0::1::::<><>::
 enemy2.tres::Resource/UnitConfig::8097133755352787068::1703059992::0::1::::<><>::uid://drqynikbv6dsj::::res://Resourses/Cards/card2.tres<>res://Scripts/UnitConfig.gd<>uid://drh5aaq3yt7pn::::res://Assets/Units/Enemies/IMG_0953.PNG
 player1.tres::Resource/UnitConfig::1225250532457553651::1703059992::0::1::::<><>::res://Scripts/UnitConfig.gd<>uid://dwyyyt3dohhrn::::res://Resourses/Cards/Card1.tres<>uid://drqynikbv6dsj::::res://Resourses/Cards/card2.tres<>uid://drix5kcxxxt1m::::res://Resourses/Cards/card3.tres<>uid://c6sbiaufwmrq2::::res://Resourses/Cards/card4.tres<>uid://cgkuwp0kt4hjj::::res://Assets/Units/Allies/IMG_0947.PNG<>uid://bruj6h0xnus8m::::res://Resourses/Cards/card5.tres<>uid://byn8nu0p45iir::::res://Resourses/Cards/card6.tres<>uid://c4qpjwetbubk8::::res://Resourses/Cards/card7.tres<>uid://n6bwsqssyeoi::::res://Resourses/Cards/card8.tres<>uid://chdr5ncx7tds0::::res://Resourses/Cards/card9.tres
 player2.tres::Resource/UnitConfig::8870458707542262688::1703059992::0::1::::<><>::uid://dwyyyt3dohhrn::::res://Resourses/Cards/Card1.tres<>uid://drqynikbv6dsj::::res://Resourses/Cards/card2.tres<>res://Scripts/UnitConfig.gd<>uid://cig7fvepotg56::::res://Assets/Units/Allies/IMG_0948.PNG
-::res://Saves/::1703061864
-SAVE.json::JSON::-1::1703062027::0::1::::<><>::
-SAVEFILE.json::JSON::-1::1702997050::0::1::::<><>::
-::res://Scenes/::1703061609
-card2d.tscn::PackedScene::2441796888340887256::1703061608::0::1::::<><>::res://Scripts/Card.gd<>uid://cqw1wma7o3n8u::::res://Assets/CardsImages/IMG_1024.PNG<>uid://besrjkrpnki4h::::res://Resourses/Fonts/ArgPriht.tres
-card.tscn::PackedScene::6910572055389084206::1703061608::0::1::::<><>::uid://ba13bj6s0nseq::::res://Scenes/card2d.tscn<>uid://dwyyyt3dohhrn::::res://Resourses/Cards/Card1.tres
-card_combat_menu.tscn::PackedScene::5335299139465717718::1703061609::0::1::::<><>::uid://cqw1wma7o3n8u::::res://Assets/CardsImages/IMG_1024.PNG<>res://Scripts/card_combat_menu.gd<>uid://dwyyyt3dohhrn::::res://Resourses/Cards/Card1.tres
-CombatButton.gd::GDScript::-1::1703000500::0::1::::<>Button<>::
-CombatMenu.tscn::PackedScene::6436055375328482592::1703061609::0::1::::<><>::uid://bobe7373h128k::::res://Assets/Effects/white1.png<>res://Scripts/CombatMenu.gd<>uid://cc6y57ol1egh::::res://Scenes/unit_combat_menu.tscn<>uid://cig7fvepotg56::::res://Assets/Units/Allies/IMG_0948.PNG<>uid://cp4pc78oa2rcy::::res://Assets/MenuItems/Menu Button.PNG<>uid://rprxybbjpds2::::res://Resourses/Units/player1.tres<>uid://cgkuwp0kt4hjj::::res://Assets/Units/Allies/IMG_0947.PNG<>res://Scripts/CombatMenuPause.gd<>uid://dym6fnykrgmsm::::res://Resourses/Units/player2.tres<>uid://bpunl21fktg34::::res://Assets/MenuItems/IMG_1018.PNG<>uid://ciapukrpvwwr3::::res://Scenes/card_combat_menu.tscn<>uid://besrjkrpnki4h::::res://Resourses/Fonts/ArgPriht.tres<>uid://dbrvne50pub0::::res://Resourses/Units/enemy1.tres<>uid://cb0nq8ru70sb7::::res://Resourses/Themes/menu_buttons_theme.tres<>uid://dnmku0di7eldk::::res://Resourses/Units/enemy2.tres<>uid://bmlvf2gwve66f::::res://Assets/MenuItems/pngwing.com (1).png<>res://Scenes/CombatButton.gd<>uid://bpvvxipqe2g8x::::res://Resourses/CombatsConfigs/combat1.tres<>uid://blbu5smy78n2w::::res://Resourses/CombatsConfigs/combat2.tres
+::res://Scenes/::1703067339
+card2d.tscn::PackedScene::2441796888340887256::1703067303::0::1::::<><>::res://Scripts/Card.gd<>uid://cqw1wma7o3n8u::::res://Assets/CardsImages/IMG_1024.PNG<>uid://besrjkrpnki4h::::res://Resourses/Fonts/ArgPriht.tres
+card.tscn::PackedScene::6910572055389084206::1703067303::0::1::::<><>::uid://ba13bj6s0nseq::::res://Scenes/card2d.tscn<>uid://dwyyyt3dohhrn::::res://Resourses/Cards/Card1.tres
+card_combat_menu.tscn::PackedScene::5335299139465717718::1703067304::0::1::::<><>::uid://cqw1wma7o3n8u::::res://Assets/CardsImages/IMG_1024.PNG<>res://Scripts/card_combat_menu.gd<>uid://dwyyyt3dohhrn::::res://Resourses/Cards/Card1.tres
+CombatButton.gd::GDScript::-1::1703066383::0::1::::<>Button<>::
+CombatMenu.tscn::PackedScene::6436055375328482592::1703067304::0::1::::<><>::uid://bobe7373h128k::::res://Assets/Effects/white1.png<>res://Scripts/CombatMenu.gd<>uid://cc6y57ol1egh::::res://Scenes/unit_combat_menu.tscn<>uid://cig7fvepotg56::::res://Assets/Units/Allies/IMG_0948.PNG<>uid://cp4pc78oa2rcy::::res://Assets/MenuItems/Menu Button.PNG<>uid://rprxybbjpds2::::res://Resourses/Units/player1.tres<>uid://cgkuwp0kt4hjj::::res://Assets/Units/Allies/IMG_0947.PNG<>res://Scripts/CombatMenuPause.gd<>uid://dym6fnykrgmsm::::res://Resourses/Units/player2.tres<>uid://bpunl21fktg34::::res://Assets/MenuItems/IMG_1018.PNG<>uid://ciapukrpvwwr3::::res://Scenes/card_combat_menu.tscn<>uid://besrjkrpnki4h::::res://Resourses/Fonts/ArgPriht.tres<>uid://dbrvne50pub0::::res://Resourses/Units/enemy1.tres<>uid://cb0nq8ru70sb7::::res://Resourses/Themes/menu_buttons_theme.tres<>uid://dnmku0di7eldk::::res://Resourses/Units/enemy2.tres<>uid://bmlvf2gwve66f::::res://Assets/MenuItems/pngwing.com (1).png<>res://Scenes/CombatButton.gd<>uid://bpvvxipqe2g8x::::res://Resourses/CombatsConfigs/combat1.tres<>uid://blbu5smy78n2w::::res://Resourses/CombatsConfigs/combat2.tres
 deck_display.tscn::PackedScene::3487136413485865084::1702992502::0::1::::<><>::res://Scripts/DeckDisplay.gd
-effect.tscn::PackedScene::4047327664917462915::1703061608::0::1::::<><>::res://Scripts/Effect.gd<>uid://ch8l3ou6gknri::::res://Assets/Effects/BURN.PNG
-endgame_menu.tscn::PackedScene::69296472944007409::1703061609::0::1::::<><>::res://Scripts/EndgameMenu.gd<>uid://bpunl21fktg34::::res://Assets/MenuItems/IMG_1018.PNG<>uid://besrjkrpnki4h::::res://Resourses/Fonts/ArgPriht.tres<>uid://cb0nq8ru70sb7::::res://Resourses/Themes/menu_buttons_theme.tres<>uid://cp4pc78oa2rcy::::res://Assets/MenuItems/Menu Button.PNG
-enemy_2d.tscn::PackedScene::5802432022782701086::1703061608::0::1::::<><>::res://Scripts/Enemy.gd<>res://Scripts/Slot.gd<>uid://cma8gx362nfhf::::res://Assets/Units/Enemies/IMG_0949.PNG<>uid://bfg7x5trq773l::::res://Assets/white.png<>res://Resourses/shaders/outline.gdshader<>uid://ceklwrfg5dvko::::res://Assets/Slots/EnemySlot.PNG
-grave.tscn::PackedScene::2692385204828014726::1703061609::0::1::::<><>::uid://b5rb2qeb74rau::::res://Assets/MenuItems/IMG_1085.PNG
-gui.tscn::PackedScene::8336187119511532833::1703061608::0::1::::<><>::res://Scripts/GUI.gd<>uid://boa762inxl7lj::::res://Assets/MenuItems/Turn Button.PNG<>res://Scripts/ShowDeck.gd<>uid://bpxgvlds53ht1::::res://Scenes/deck_display.tscn<>uid://y5qrwx66kf27::::res://Assets/MenuItems/Deck Button.PNG<>uid://dwyyyt3dohhrn::::res://Resourses/Cards/Card1.tres<>uid://drqynikbv6dsj::::res://Resourses/Cards/card2.tres
-MainMenu.tscn::PackedScene::5234982694352147506::1703061608::0::1::::<><>::uid://cehntyp8eenen::::res://Assets/Backgrounds/Menus/MainMenuBackground.PNG<>res://Scripts/MainMenu.gd<>uid://cp4pc78oa2rcy::::res://Assets/MenuItems/Menu Button.PNG<>res://Scripts/ExitEnsurance.gd
-root.tscn::PackedScene::115308216402107897::1703061608::0::1::::<><>::uid://rprxybbjpds2::::res://Resourses/Units/player1.tres<>res://Scripts/GameDirector.gd<>uid://dbrvne50pub0::::res://Resourses/Units/enemy1.tres<>uid://dwyyyt3dohhrn::::res://Resourses/Cards/Card1.tres<>uid://drqynikbv6dsj::::res://Resourses/Cards/card2.tres<>uid://dq1d1who1d74p::::res://Scenes/gui.tscn<>res://Scripts/RayCast.gd<>uid://diy7kumo6udta::::res://Scenes/unit_2d.tscn<>uid://bfg7x5trq773l::::res://Assets/white.png<>uid://ba13bj6s0nseq::::res://Scenes/card2d.tscn<>uid://cow0hcch73mmw::::res://Scenes/enemy_2d.tscn<>uid://bpvvxipqe2g8x::::res://Resourses/CombatsConfigs/combat1.tres<>res://Scripts/CardContainer.gd<>res://Scripts/Arcs.gd<>uid://dym6fnykrgmsm::::res://Resourses/Units/player2.tres<>uid://dnmku0di7eldk::::res://Resourses/Units/enemy2.tres<>res://Scripts/Menu.gd<>uid://bpunl21fktg34::::res://Assets/MenuItems/IMG_1018.PNG<>uid://besrjkrpnki4h::::res://Resourses/Fonts/ArgPriht.tres<>uid://cb0nq8ru70sb7::::res://Resourses/Themes/menu_buttons_theme.tres<>uid://cp4pc78oa2rcy::::res://Assets/MenuItems/Menu Button.PNG<>uid://8tkkaws71mr::::res://Scenes/endgame_menu.tscn<>uid://xjesikls6ib2::::res://Assets/Backgrounds/Background2.PNG
+effect.tscn::PackedScene::4047327664917462915::1703067303::0::1::::<><>::res://Scripts/Effect.gd<>uid://ch8l3ou6gknri::::res://Assets/Effects/BURN.PNG
+endgame_menu.tscn::PackedScene::69296472944007409::1703067304::0::1::::<><>::res://Scripts/EndgameMenu.gd<>uid://bpunl21fktg34::::res://Assets/MenuItems/IMG_1018.PNG<>uid://besrjkrpnki4h::::res://Resourses/Fonts/ArgPriht.tres<>uid://cb0nq8ru70sb7::::res://Resourses/Themes/menu_buttons_theme.tres<>uid://cp4pc78oa2rcy::::res://Assets/MenuItems/Menu Button.PNG
+enemy_2d.tscn::PackedScene::5802432022782701086::1703067303::0::1::::<><>::res://Scripts/Enemy.gd<>res://Scripts/Slot.gd<>uid://cma8gx362nfhf::::res://Assets/Units/Enemies/IMG_0949.PNG<>uid://bfg7x5trq773l::::res://Assets/white.png<>res://Resourses/shaders/outline.gdshader<>uid://ceklwrfg5dvko::::res://Assets/Slots/EnemySlot.PNG
+grave.tscn::PackedScene::2692385204828014726::1703067304::0::1::::<><>::uid://b5rb2qeb74rau::::res://Assets/MenuItems/IMG_1085.PNG
+gui.tscn::PackedScene::8336187119511532833::1703067303::0::1::::<><>::res://Scripts/GUI.gd<>uid://boa762inxl7lj::::res://Assets/MenuItems/Turn Button.PNG<>res://Scripts/ShowDeck.gd<>uid://bpxgvlds53ht1::::res://Scenes/deck_display.tscn<>uid://y5qrwx66kf27::::res://Assets/MenuItems/Deck Button.PNG<>uid://dwyyyt3dohhrn::::res://Resourses/Cards/Card1.tres<>uid://drqynikbv6dsj::::res://Resourses/Cards/card2.tres
+MainMenu.tscn::PackedScene::5234982694352147506::1703067339::0::1::::<><>::uid://cehntyp8eenen::::res://Assets/Backgrounds/Menus/MainMenuBackground.PNG<>res://Scripts/MainMenu.gd<>uid://cp4pc78oa2rcy::::res://Assets/MenuItems/Menu Button.PNG<>res://Scripts/ExitEnsurance.gd
+root.tscn::PackedScene::115308216402107897::1703067303::0::1::::<><>::uid://rprxybbjpds2::::res://Resourses/Units/player1.tres<>res://Scripts/GameDirector.gd<>uid://dbrvne50pub0::::res://Resourses/Units/enemy1.tres<>uid://dwyyyt3dohhrn::::res://Resourses/Cards/Card1.tres<>uid://drqynikbv6dsj::::res://Resourses/Cards/card2.tres<>uid://dq1d1who1d74p::::res://Scenes/gui.tscn<>res://Scripts/RayCast.gd<>uid://diy7kumo6udta::::res://Scenes/unit_2d.tscn<>uid://bfg7x5trq773l::::res://Assets/white.png<>uid://ba13bj6s0nseq::::res://Scenes/card2d.tscn<>uid://cow0hcch73mmw::::res://Scenes/enemy_2d.tscn<>uid://bpvvxipqe2g8x::::res://Resourses/CombatsConfigs/combat1.tres<>res://Scripts/CardContainer.gd<>res://Scripts/Arcs.gd<>uid://dym6fnykrgmsm::::res://Resourses/Units/player2.tres<>uid://dnmku0di7eldk::::res://Resourses/Units/enemy2.tres<>res://Scripts/Menu.gd<>uid://bpunl21fktg34::::res://Assets/MenuItems/IMG_1018.PNG<>uid://besrjkrpnki4h::::res://Resourses/Fonts/ArgPriht.tres<>uid://cb0nq8ru70sb7::::res://Resourses/Themes/menu_buttons_theme.tres<>uid://cp4pc78oa2rcy::::res://Assets/MenuItems/Menu Button.PNG<>uid://8tkkaws71mr::::res://Scenes/endgame_menu.tscn<>uid://xjesikls6ib2::::res://Assets/Backgrounds/Background2.PNG
 unit.tscn::PackedScene::3882863363512016655::1702992502::0::1::::<><>::res://Scripts/Ally.gd<>uid://m7ro1bm4ca7h
 unit_2d.tscn::PackedScene::7772279737671541090::1703009209::0::1::::<><>::res://Scripts/Ally.gd<>res://Scripts/Slot.gd<>uid://bfg7x5trq773l
-unit_combat_menu.tscn::PackedScene::146433154399730211::1703061609::0::1::::<><>::res://Scripts/unit_combat_menu.gd
-::res://Scripts/::1703061607
+unit_combat_menu.tscn::PackedScene::146433154399730211::1703067304::0::1::::<><>::res://Scripts/unit_combat_menu.gd
+::res://Scripts/::1703066523
 Ally.gd::GDScript::-1::1702995145::0::1::::Ally<>Unit<>::
 Arcs.gd::GDScript::-1::1703003416::0::1::::Arcs<>Node2D<>::
 Card.gd::GDScript::-1::1702995145::0::1::::Card<>Node2D<>::
 CardConfig.gd::GDScript::-1::1702995145::0::1::::CardConfig<>Resource<>::
 CardContainer.gd::GDScript::-1::1702995145::0::1::::<>Node<>::
 card_combat_menu.gd::GDScript::-1::1702995145::0::1::::<>TextureRect<>::
-CombatConfig.gd::GDScript::-1::1702997828::0::1::::CombatConfig<>Resource<>::
-CombatMenu.gd::GDScript::-1::1703061607::0::1::::<>Control<>::
+CombatConfig.gd::GDScript::-1::1703063911::0::1::::CombatConfig<>Resource<>::
+CombatMenu.gd::GDScript::-1::1703066324::0::1::::<>Control<>::
 CombatMenuPause.gd::GDScript::-1::1703020628::0::1::::<>Control<>::
 DeckDisplay.gd::GDScript::-1::1702995145::0::1::::<>Node<>::
 Effect.gd::GDScript::-1::1702995145::0::1::::Effect<>Node2D<>::
 EndgameMenu.gd::GDScript::-1::1703008454::0::1::::<>Control<>::
 Enemy.gd::GDScript::-1::1702995214::0::1::::Enemy<>Unit<>::
 ExitEnsurance.gd::GDScript::-1::1703020882::0::1::::<>Control<>::
-GameDirector.gd::GDScript::-1::1703059992::0::1::::GameDirector<>Node<>::
+GameDirector.gd::GDScript::-1::1703065879::0::1::::GameDirector<>Node<>::
 GUI.gd::GDScript::-1::1703060383::0::1::::<>CanvasLayer<>::
 Keyword.gd::GDScript::-1::1702995145::0::1::::Keyword<>Resource<>::
-MainMenu.gd::GDScript::-1::1703022486::0::1::::<>Control<>::
+MainMenu.gd::GDScript::-1::1703066523::0::1::::<>Control<>::
 Menu.gd::GDScript::-1::1703021749::0::1::::<>Control<>::
 RayCast.gd::GDScript::-1::1702995145::0::1::::<>RayCast2D<>::
 ShowDeck.gd::GDScript::-1::1703060383::0::1::::<>Button<>::
