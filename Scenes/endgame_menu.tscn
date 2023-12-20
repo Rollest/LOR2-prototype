@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/EndgameMenu.gd" id="1_qdlgf"]
 [ext_resource type="Texture2D" uid="uid://bpunl21fktg34" path="res://Assets/MenuItems/IMG_1018.PNG" id="2_y6g0d"]
-[ext_resource type="FontVariation" uid="uid://besrjkrpnki4h" path="res://Resourses/Fonts/ArgPriht.tres" id="3_wwydd"]
 [ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="4_70ola"]
 [ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="5_cblo1"]
+
+[sub_resource type="FontVariation" id="FontVariation_2m3j5"]
 
 [node name="EndgameMenu" type="Control"]
 process_mode = 3
@@ -55,7 +56,7 @@ offset_right = 339.0
 offset_bottom = 102.571
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_wwydd")
+theme_override_fonts/font = SubResource("FontVariation_2m3j5")
 theme_override_font_sizes/font_size = 216
 text = "YOU LOSE"
 horizontal_alignment = 1

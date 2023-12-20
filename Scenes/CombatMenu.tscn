@@ -11,7 +11,6 @@
 [ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/player2.tres" id="6_lotsb"]
 [ext_resource type="Texture2D" uid="uid://bpunl21fktg34" path="res://Assets/MenuItems/IMG_1018.PNG" id="7_pn4qo"]
 [ext_resource type="PackedScene" uid="uid://ciapukrpvwwr3" path="res://Scenes/card_combat_menu.tscn" id="7_qv6te"]
-[ext_resource type="FontVariation" uid="uid://besrjkrpnki4h" path="res://Resourses/Fonts/ArgPriht.tres" id="8_865jo"]
 [ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/enemy1.tres" id="9_47fu5"]
 [ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="9_iw8da"]
 [ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="10_vrivb"]
@@ -19,6 +18,8 @@
 [ext_resource type="Script" path="res://Scripts/CombatButton.gd" id="13_mcthq"]
 [ext_resource type="Resource" uid="uid://bpvvxipqe2g8x" path="res://Resourses/CombatsConfigs/combat1.tres" id="14_gkj2a"]
 [ext_resource type="Resource" uid="uid://blbu5smy78n2w" path="res://Resourses/CombatsConfigs/combat2.tres" id="15_2sc2g"]
+
+[sub_resource type="FontVariation" id="FontVariation_2m3j5"]
 
 [node name="CombatMenu" type="Control"]
 layout_mode = 3
@@ -145,7 +146,7 @@ offset_top = 75.0
 offset_right = 411.0
 offset_bottom = 122.0
 theme_override_font_sizes/font_size = 31
-text = "Здоровье"
+text = "Health"
 horizontal_alignment = 1
 
 [node name="Stat3Label" type="Label" parent="Menu/Allies/UnitStatsPage"]
@@ -155,7 +156,7 @@ offset_top = 75.0
 offset_right = 628.0
 offset_bottom = 122.0
 theme_override_font_sizes/font_size = 31
-text = "Мана"
+text = "Mana"
 horizontal_alignment = 1
 
 [node name="Stat3" type="Label" parent="Menu/Allies/UnitStatsPage"]
@@ -276,12 +277,12 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Menu/Allies"]
 layout_mode = 0
 offset_left = 276.0
-offset_top = 1.0
+offset_top = 17.0
 offset_right = 451.0
-offset_bottom = 61.0
+offset_bottom = 77.0
 theme_override_colors/font_color = Color(0, 0.313726, 0.984314, 1)
 theme_override_font_sizes/font_size = 41
-text = "СВОИ"
+text = "BOYZ"
 
 [node name="Enemies" type="Control" parent="Menu"]
 layout_mode = 1
@@ -386,7 +387,7 @@ offset_top = 75.0
 offset_right = 411.0
 offset_bottom = 122.0
 theme_override_font_sizes/font_size = 31
-text = "Здоровье"
+text = "Health"
 horizontal_alignment = 1
 
 [node name="Stat3Label" type="Label" parent="Menu/Enemies/UnitStatsPage"]
@@ -396,7 +397,7 @@ offset_top = 75.0
 offset_right = 628.0
 offset_bottom = 122.0
 theme_override_font_sizes/font_size = 31
-text = "Мана"
+text = "Mana"
 horizontal_alignment = 1
 
 [node name="Stat3" type="Label" parent="Menu/Enemies/UnitStatsPage"]
@@ -411,12 +412,12 @@ text = "123"
 [node name="Label" type="Label" parent="Menu/Enemies"]
 layout_mode = 0
 offset_left = 247.0
-offset_top = 1.0
+offset_top = 17.0
 offset_right = 422.0
-offset_bottom = 61.0
+offset_bottom = 77.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
-text = "ЧУШПАНЫ"
+text = "BAD BOYZ"
 
 [node name="CardsContainer" type="GridContainer" parent="Menu/Enemies"]
 self_modulate = Color(1, 1, 1, 0)
@@ -538,8 +539,8 @@ offset_right = 2098.0
 offset_bottom = 733.0
 scale = Vector2(0.241091, 0.241091)
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 336
-text = "РЕЗНЯ"
+theme_override_font_sizes/font_size = 386
+text = "BATTLE"
 icon = ExtResource("4_xdomq")
 icon_alignment = 1
 
@@ -622,7 +623,7 @@ offset_right = 339.0
 offset_bottom = 102.571
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("8_865jo")
+theme_override_fonts/font = SubResource("FontVariation_2m3j5")
 theme_override_font_sizes/font_size = 216
 text = "UNO 2"
 horizontal_alignment = 1

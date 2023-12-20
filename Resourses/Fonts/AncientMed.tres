@@ -1,6 +1,6 @@
 [gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://du1rdobv1duho"]
 
-[ext_resource type="FontFile" uid="uid://d3kaqs5ep63nn" path="res://Resourses/Fonts/Ancient Medium.ttf" id="1_rua3k"]
+[ext_resource type="FontFile" uid="uid://csc6bk0o8yppy" path="res://Resourses/Fonts/Angst.ttf" id="1_ab1uu"]
 
 [resource]
-base_font = ExtResource("1_rua3k")
+base_font = ExtResource("1_ab1uu")

@@ -32,3 +32,7 @@ window/vsync/vsync_mode=2
 [dotnet]
 
 project/assembly_name="Lor 2"
+
+[gui]
+
+theme/custom_font="res://Resourses/Fonts/Cakra-Normal.tres"

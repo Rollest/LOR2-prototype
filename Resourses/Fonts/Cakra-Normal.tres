@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cwwe1baasa3yy"]
+
+[ext_resource type="FontFile" uid="uid://u0s8x2jeb6tf" path="res://Resourses/Fonts/Cakra-Normal.ttf" id="1_8qym6"]
+
+[resource]
+base_font = ExtResource("1_8qym6")
+opentype_features = {
+1667329140: 0
+}

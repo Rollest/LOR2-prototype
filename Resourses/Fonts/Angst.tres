@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://bf0v5nnqwelfd"]
+
+[ext_resource type="FontFile" uid="uid://csc6bk0o8yppy" path="res://Resourses/Fonts/Angst.ttf" id="1_io216"]
+
+[resource]
+base_font = ExtResource("1_io216")
+opentype_features = {
+1667329140: 0
+}

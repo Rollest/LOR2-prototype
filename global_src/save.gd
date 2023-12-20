@@ -11,19 +11,13 @@ func _ready():
 	_load_data_save()
 
 func _load_data_config():
-	var file = FileAccess.open(SAVECONFIG,FileAccess.READ)
+	var file = FileAccess.open(SAVECONFIG,FileAccess.READ_WRITE)
 	if not FileAccess.file_exists(SAVECONFIG):
 		game_data = {
-			"fullscreen_on": false,
-			"vsync_on": false,
-			"display_fps": false,
-			"max_fps": 0,
-			"bloom_on": false,
-			"brightness": 1,
-			"master_vol": -10,
-			"music_vol": -10,
-			"sfx_vol": -10,
-			"mouse_sens": .1,
+			"fullscreen_on": 1,
+			"max_fps": 60,
+			"music_vol": 1,
+			"sfx_vol": 1,
 		}
 		_save_data_config()
 	file.open(SAVECONFIG, FileAccess.READ)
@@ -37,7 +31,7 @@ func _save_data_config():
 	
 	
 func _load_data_save():
-	var file = FileAccess.open(SAVE,FileAccess.READ)
+	var file = FileAccess.open(SAVE,FileAccess.READ_WRITE)
 	if not FileAccess.file_exists(SAVE):
 		save = {
 			"level1": false,
@@ -65,5 +59,17 @@ func _clear():
 		}
 	_save_data_save()
 	_load_data_save()
+	file.close()
+	
+	
+	file = FileAccess.open(SAVECONFIG,FileAccess.WRITE)
+	game_data = {
+			"fullscreen_on": 1,
+			"max_fps": 60,
+			"music_vol": 1,
+			"sfx_vol": 1,
+		}
+	_save_data_config()
+	_load_data_config()
 	file.close()
 		

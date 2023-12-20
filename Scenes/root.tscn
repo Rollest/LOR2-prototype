@@ -18,7 +18,7 @@
 [ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="15_uk84v"]
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="16_ifrwr"]
 [ext_resource type="Texture2D" uid="uid://bpunl21fktg34" path="res://Assets/MenuItems/IMG_1018.PNG" id="18_54lb6"]
-[ext_resource type="FontVariation" uid="uid://besrjkrpnki4h" path="res://Resourses/Fonts/ArgPriht.tres" id="18_ld5rp"]
+[ext_resource type="FontVariation" path="res://Resourses/Fonts/ArgPriht.tres" id="18_ld5rp"]
 [ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="18_ukxrg"]
 [ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="20_xr2x8"]
 [ext_resource type="PackedScene" uid="uid://8tkkaws71mr" path="res://Scenes/endgame_menu.tscn" id="21_b6hdc"]

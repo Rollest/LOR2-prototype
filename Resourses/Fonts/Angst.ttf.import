@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dmfvnx8amwjbj"
-path="res://.godot/imported/ArgPriht.ttf-7a0a137196c2c01e3f01d5fc8dadd1c5.fontdata"
+uid="uid://csc6bk0o8yppy"
+path="res://.godot/imported/Angst.ttf-9e9544ff05d340a4ceb4a3acfcbd6fbd.fontdata"
 
 [deps]
 
-source_file="res://Resourses/Fonts/ArgPriht.ttf"
-dest_files=["res://.godot/imported/ArgPriht.ttf-7a0a137196c2c01e3f01d5fc8dadd1c5.fontdata"]
+source_file="res://Resourses/Fonts/Angst.ttf"
+dest_files=["res://.godot/imported/Angst.ttf-9e9544ff05d340a4ceb4a3acfcbd6fbd.fontdata"]
 
 [params]
 

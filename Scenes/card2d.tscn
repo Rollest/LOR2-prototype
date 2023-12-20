@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/Card.gd" id="1_10ehx"]
 [ext_resource type="Texture2D" uid="uid://cqw1wma7o3n8u" path="res://Assets/CardsImages/IMG_1024.PNG" id="2_oxy54"]
-[ext_resource type="FontVariation" uid="uid://besrjkrpnki4h" path="res://Resourses/Fonts/ArgPriht.tres" id="3_gkdfy"]
+
+[sub_resource type="FontVariation" id="FontVariation_2m3j5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4usx"]
 
@@ -53,7 +54,7 @@ offset_left = -185.0
 offset_top = 541.0
 offset_right = 452.0
 offset_bottom = 756.0
-theme_override_fonts/font = ExtResource("3_gkdfy")
+theme_override_fonts/font = SubResource("FontVariation_2m3j5")
 theme_override_font_sizes/font_size = 46
 text = "1 - aaa 1,1"
 

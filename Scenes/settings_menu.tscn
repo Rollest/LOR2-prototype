@@ -28,11 +28,11 @@ offset_bottom = 432.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Grafisc" type="TabBar" parent="TabContainer"]
+[node name="Graphics" type="TabBar" parent="TabContainer"]
 layout_mode = 2
 tab_alignment = 1
 
-[node name="DisplayLabel" type="Label" parent="TabContainer/Grafisc"]
+[node name="DisplayLabel" type="Label" parent="TabContainer/Graphics"]
 layout_mode = 2
 offset_left = 290.5
 offset_top = 117.0
@@ -41,7 +41,7 @@ offset_bottom = 175.0
 theme_override_font_sizes/font_size = 40
 text = "Display Mode"
 
-[node name="DisplayOption" type="OptionButton" parent="TabContainer/Grafisc"]
+[node name="DisplayOption" type="OptionButton" parent="TabContainer/Graphics"]
 layout_mode = 1
 offset_left = 1127.5
 offset_top = 135.0
@@ -56,7 +56,7 @@ popup/item_1/id = 1
 popup/item_2/text = "Borderless-Windowed"
 popup/item_2/id = 2
 
-[node name="FPSLabel" type="Label" parent="TabContainer/Grafisc"]
+[node name="FPSLabel" type="Label" parent="TabContainer/Graphics"]
 layout_mode = 2
 offset_left = 291.0
 offset_top = 245.0
@@ -66,7 +66,7 @@ theme_override_font_sizes/font_size = 40
 text = "Max FPS"
 horizontal_alignment = 1
 
-[node name="FPSSlider" type="HSlider" parent="TabContainer/Grafisc"]
+[node name="FPSSlider" type="HSlider" parent="TabContainer/Graphics"]
 layout_mode = 0
 offset_left = 1055.5
 offset_top = 273.0
@@ -77,7 +77,7 @@ max_value = 120.0
 value = 60.0
 script = ExtResource("2_gyywf")
 
-[node name="Label" type="Label" parent="TabContainer/Grafisc/FPSSlider"]
+[node name="Label" type="Label" parent="TabContainer/Graphics/FPSSlider"]
 layout_mode = 0
 offset_left = -48.0
 offset_top = -4.0
@@ -125,11 +125,11 @@ offset_right = 1304.5
 offset_bottom = 304.0
 bus_name = "SFX"
 
-[node name="Gmae" type="TabBar" parent="TabContainer"]
+[node name="Game" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Gmae"]
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Game"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,10 +143,10 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 37
 text = "Credits
 Arkhipov M.V. - Design, Coding
-Vasilyev M. . - Coding 
-Udalova P. . - Art, Sound"
+Vasilyev M. - Coding 
+Andreeva P. - Art, Sound"
 
-[node name="Delete Save" type="Button" parent="TabContainer/Gmae"]
+[node name="Delete Save" type="Button" parent="TabContainer/Game"]
 layout_mode = 0
 offset_left = 500.0
 offset_top = 525.0
@@ -171,6 +171,6 @@ offset_bottom = 970.0
 text = "123"
 script = ExtResource("3_qiafr")
 
-[connection signal="item_selected" from="TabContainer/Grafisc/DisplayOption" to="." method="_on_display_option_item_selected"]
-[connection signal="pressed" from="TabContainer/Gmae/Delete Save" to="." method="_on_delete_save_pressed"]
+[connection signal="item_selected" from="TabContainer/Graphics/DisplayOption" to="." method="_on_display_option_item_selected"]
+[connection signal="pressed" from="TabContainer/Game/Delete Save" to="." method="_on_delete_save_pressed"]
 [connection signal="pressed" from="ExitSettings" to="." method="_on_exit_settings_pressed"]
