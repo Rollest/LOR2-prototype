@@ -6,7 +6,10 @@
 script = ExtResource("1_fw7jb")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
 
 [node name="ClickStandartPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="ClickStartGamePlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"

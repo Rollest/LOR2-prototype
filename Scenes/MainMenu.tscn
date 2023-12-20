@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgt4nus6ng50i"]
+[gd_scene load_steps=6 format=3 uid="uid://cgt4nus6ng50i"]
 
 [ext_resource type="Texture2D" uid="uid://cehntyp8eenen" path="res://Assets/Backgrounds/Menus/MainMenuBackground.PNG" id="1_fn8s8"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_fyw6k"]
 [ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="2_sufmp"]
 [ext_resource type="Script" path="res://Scripts/ExitEnsurance.gd" id="4_7enwo"]
+[ext_resource type="PackedScene" uid="uid://dlooo2p1aseb7" path="res://Scenes/settings_menu.tscn" id="5_jbo86"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -134,6 +135,10 @@ theme_override_font_sizes/font_size = 316
 text = "Нет"
 icon = ExtResource("2_sufmp")
 icon_alignment = 1
+
+[node name="SettingsMenu" parent="." instance=ExtResource("5_jbo86")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="ButtonsContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

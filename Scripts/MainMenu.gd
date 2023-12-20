@@ -25,7 +25,8 @@ func _on_play_button_pressed():
 
 func _on_settings_button_pressed():
 	sound.click_standart_player.play()
-	global_save._clear()
+	find_child("SettingsMenu").visible=true
+	#global_save._clear()
 	
 
 

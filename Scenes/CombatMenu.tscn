@@ -16,7 +16,7 @@
 [ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="9_iw8da"]
 [ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="10_vrivb"]
 [ext_resource type="Texture2D" uid="uid://bmlvf2gwve66f" path="res://Assets/MenuItems/pngwing.com (1).png" id="12_q2olp"]
-[ext_resource type="Script" path="res://Scenes/CombatButton.gd" id="13_qoruy"]
+[ext_resource type="Script" path="res://Scripts/CombatButton.gd" id="13_mcthq"]
 [ext_resource type="Resource" uid="uid://bpvvxipqe2g8x" path="res://Resourses/CombatsConfigs/combat1.tres" id="14_gkj2a"]
 [ext_resource type="Resource" uid="uid://blbu5smy78n2w" path="res://Resourses/CombatsConfigs/combat2.tres" id="15_2sc2g"]
 
@@ -371,6 +371,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Stat" type="Label" parent="Menu/Enemies/UnitStatsPage"]
+layout_mode = 0
 offset_left = 304.0
 offset_top = 137.0
 offset_right = 358.0
@@ -379,6 +380,7 @@ theme_override_font_sizes/font_size = 31
 text = "123"
 
 [node name="StatLabel" type="Label" parent="Menu/Enemies/UnitStatsPage"]
+layout_mode = 0
 offset_left = 260.0
 offset_top = 75.0
 offset_right = 411.0
@@ -388,6 +390,7 @@ text = "Здоровье"
 horizontal_alignment = 1
 
 [node name="Stat3Label" type="Label" parent="Menu/Enemies/UnitStatsPage"]
+layout_mode = 0
 offset_left = 477.0
 offset_top = 75.0
 offset_right = 628.0
@@ -397,6 +400,7 @@ text = "Мана"
 horizontal_alignment = 1
 
 [node name="Stat3" type="Label" parent="Menu/Enemies/UnitStatsPage"]
+layout_mode = 0
 offset_left = 523.0
 offset_top = 136.0
 offset_right = 577.0
@@ -553,7 +557,7 @@ offset_bottom = 645.0
 scale = Vector2(0.216345, 0.216345)
 icon = ExtResource("12_q2olp")
 flat = true
-script = ExtResource("13_qoruy")
+script = ExtResource("13_mcthq")
 combatConfig = ExtResource("14_gkj2a")
 
 [node name="Combat2" type="Button" parent="Menu/Center/Map"]
@@ -565,7 +569,7 @@ offset_bottom = 756.0
 scale = Vector2(0.216345, 0.216345)
 icon = ExtResource("12_q2olp")
 flat = true
-script = ExtResource("13_qoruy")
+script = ExtResource("13_mcthq")
 combatConfig = ExtResource("15_2sc2g")
 
 [node name="CombatMenuPause" type="Control" parent="."]
