@@ -8,7 +8,10 @@ signal stop_showing_deck
 var unit:Unit
 var unit_deck:Array[CardConfig]
 var clicks:int=2
+var sound: Node
 
+func _ready():
+	sound = get_node("/root/Sound")
 
 func _on_turn_button_pressed():
 	#print ("trun button pressed")
@@ -17,6 +20,7 @@ func _on_turn_button_pressed():
 
 func _on_show_deck_pressed():
 	#get_tree().paused=true
+	sound.click_standart_player.play()
 	find_child("DeckDisplay").visible=true
 	find_child("DarkOverlay").visible=true
 	if unit_deck!=null:

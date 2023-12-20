@@ -19,6 +19,7 @@ config/icon="res://Assets/icon.svg"
 
 GlobalConfig="*res://global_src/global_config.gd"
 Sound="*res://global_src/Sound.tscn"
+Save="*res://global_src/save.gd"
 
 [display]
 

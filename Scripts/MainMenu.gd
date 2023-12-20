@@ -2,12 +2,14 @@ extends Control
 
 
 var sound: Node
+var global_save: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sound = get_node("/root/Sound")
 	sound.music_player.stream = sound.music_menu
 	sound.music_player.play()
+	global_save = get_node("/root/Save")
 	pass # Replace with function body.
 
 
@@ -23,6 +25,8 @@ func _on_play_button_pressed():
 
 func _on_settings_button_pressed():
 	sound.click_standart_player.play()
+	global_save._clear()
+	
 
 
 

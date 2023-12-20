@@ -16,3 +16,11 @@ func _process(delta):
 func _on_pressed():
 	emit_signal("combat_button_clicked", combatConfig)
 	pass # Replace with function body.
+
+func _is_active(is_active: bool):
+	if is_active:
+		disabled = false
+		modulate = "#ffffff"
+	else:
+		disabled = false
+		modulate = "#ff00ff"

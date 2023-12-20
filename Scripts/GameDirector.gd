@@ -22,6 +22,7 @@ var selectedBody
 var isCardSelected: bool = false
 var global_config: Node
 var sound: Node
+var global_save: Node
 
 
 var RNG=RandomNumberGenerator.new()
@@ -38,6 +39,7 @@ func _ready():
 	global_config = get_node("/root/GlobalConfig")
 	combatConfig = global_config.combatConfig
 	sound = get_node("/root/Sound")
+	global_save = get_node("/root/Save")
 	sound.music_player.stream = sound.music_combat
 	sound.music_player.play()
 	
@@ -227,6 +229,8 @@ func Turn():
 	if len(find_objects_of_type("Ally")) == 0:
 		endgameMenu._lose()
 	if len(find_objects_of_type("Enemy")) == 0:
+		global_save.save[global_config.combatConfig.level] = true
+		global_save._save_data_save()
 		endgameMenu._win()
 
 
@@ -385,6 +389,7 @@ func speedComparison(a, b):
 
 func _on_gui_next_turn():
 	#print("button pressed")
+	sound.click_standart_player.play()
 	Turn()
 
 
