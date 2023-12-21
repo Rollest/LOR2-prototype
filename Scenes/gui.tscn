@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq1d1who1d74p"]
+[gd_scene load_steps=9 format=3 uid="uid://dq1d1who1d74p"]
 
 [ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_71ya4"]
 [ext_resource type="Texture2D" uid="uid://boa762inxl7lj" path="res://Assets/MenuItems/Turn Button.PNG" id="2_0l3nj"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://y5qrwx66kf27" path="res://Assets/MenuItems/Deck Button.PNG" id="3_iavmx"]
 [ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="4_u115p"]
 [ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/card2.tres" id="5_y7tqh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14lef"]
+size = Vector2(1940.29, 747.035)
 
 [node name="GUI" type="CanvasLayer"]
 follow_viewport_enabled = true
@@ -48,6 +51,12 @@ text = "Show deck"
 icon = ExtResource("3_iavmx")
 icon_alignment = 1
 script = ExtResource("2_6bnd3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShowDeck"]
+visible = false
+position = Vector2(970.144, 373.518)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_14lef")
 
 [node name="DeckDisplay" parent="." instance=ExtResource("3_h314s")]
 visible = false

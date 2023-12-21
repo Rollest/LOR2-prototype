@@ -1,3 +1,4 @@
+CollisionShape2D
 TextureRect
 Control
 Label
@@ -22,7 +23,6 @@ TextureButton
 PanelContainer
 Panel
 ScrollContainer
-CollisionShape2D
 ItemList
 VSplitContainer
 CanvasLayer

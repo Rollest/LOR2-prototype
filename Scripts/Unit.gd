@@ -46,6 +46,7 @@ var effect_container: Node2D
 
 func _update_effects():
 	#print("UPDATED EFFECTS")
+	print(self)
 	for n in effect_container.get_children():
 		effect_container.remove_child(n)
 		n.queue_free()
@@ -53,15 +54,13 @@ func _update_effects():
 	for status in statuses:
 		#print(statuses)
 		#print("statusessss")
-		if !effect_container.has_node(status.KeywordType.keys()[status.KeywordType.keys().find(status.type)]):
-			var new_effect = preload("res://Scenes/effect.tscn").instantiate()
-			new_effect.name = status.KeywordType.keys()[status.KeywordType.keys().find(status.type)]
-			effect_container.add_child(new_effect)
-			new_effect._add_timer(status.duration)
-			new_effect._set_effect(status)
-		else:
-			var effect = effect_container.get_node(status.KeywordType.keys()[status.KeywordType.keys().find(status.type)])
-			effect._add_timer(status.duration)
+		var new_effect = preload("res://Scenes/effect.tscn").instantiate()
+		new_effect.name = status.KeywordType.keys()[status.KeywordType.keys().find(status.type)]
+		effect_container.add_child(new_effect)
+		new_effect._add_timer(status.duration,status.value)
+		new_effect._set_effect(status)
+		
+	print (statuses)
 	var counter = 0
 	for effect in effect_container.get_children():
 		if(len(effect_container.get_children())%2==0):

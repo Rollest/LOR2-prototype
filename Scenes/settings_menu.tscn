@@ -74,7 +74,6 @@ offset_top = 259.0
 offset_right = 1279.5
 offset_bottom = 275.0
 scale = Vector2(1.41035, 1.41035)
-min_value = 2.0
 max_value = 120.0
 value = 60.0
 script = ExtResource("2_gyywf")

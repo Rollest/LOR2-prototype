@@ -455,6 +455,7 @@ scale = Vector2(0.395, 0.395)
 texture = ExtResource("7_quism")
 
 [node name="LabelContainer" type="TextureRect" parent="Menu/Background/EnemySide"]
+layout_mode = 0
 offset_left = 172.0
 offset_top = -45.0
 offset_right = 2220.0
@@ -1053,7 +1054,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 theme_override_fonts/font = SubResource("FontVariation_2m3j5")
 theme_override_font_sizes/font_size = 216
-text = "UNO 2"
+text = "OFFENCE"
 horizontal_alignment = 1
 vertical_alignment = 1
 

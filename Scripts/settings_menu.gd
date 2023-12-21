@@ -15,6 +15,7 @@ func _ready():
 	sound = get_node("/root/Sound")
 	
 	_on_display_option_item_selected(global_save.game_data["fullscreen_on"])
+	get_node("TabContainer/Graphics/DisplayOption").selected = global_save.game_data["fullscreen_on"]
 	Engine.max_fps = global_save.game_data["max_fps"]
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),linear_to_db(global_save.game_data["music_vol"]))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),linear_to_db(global_save.game_data["sfx_vol"]))
