@@ -43,10 +43,11 @@ text = "Display Mode"
 
 [node name="DisplayOption" type="OptionButton" parent="TabContainer/Graphics"]
 layout_mode = 1
-offset_left = 1127.5
-offset_top = 135.0
-offset_right = 1252.5
-offset_bottom = 166.0
+offset_left = 995.5
+offset_top = 107.0
+offset_right = 1208.5
+offset_bottom = 138.0
+scale = Vector2(1.72777, 1.72777)
 item_count = 3
 selected = 0
 popup/item_0/text = "Fullscreen"
@@ -68,10 +69,11 @@ horizontal_alignment = 1
 
 [node name="FPSSlider" type="HSlider" parent="TabContainer/Graphics"]
 layout_mode = 0
-offset_left = 1055.5
-offset_top = 273.0
-offset_right = 1335.5
-offset_bottom = 289.0
+offset_left = 999.5
+offset_top = 259.0
+offset_right = 1279.5
+offset_bottom = 275.0
+scale = Vector2(1.41035, 1.41035)
 min_value = 2.0
 max_value = 120.0
 value = 60.0
@@ -80,10 +82,12 @@ script = ExtResource("2_gyywf")
 [node name="Label" type="Label" parent="TabContainer/Graphics/FPSSlider"]
 layout_mode = 0
 offset_left = -48.0
-offset_top = -4.0
+offset_top = -11.3447
 offset_right = -8.0
-offset_bottom = 22.0
+offset_bottom = 14.6553
+scale = Vector2(1.47083, 1.47083)
 text = "123"
+vertical_alignment = 1
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
 visible = false
@@ -156,10 +160,11 @@ text = "Delete Save File"
 
 [node name="ExitSettings" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1717.0
-offset_top = 108.0
-offset_right = 1744.0
-offset_bottom = 139.0
+offset_left = 1684.99
+offset_top = 103.49
+offset_right = 1744.99
+offset_bottom = 134.49
+scale = Vector2(0.982034, 0.982034)
 text = " X "
 
 [node name="FPS" type="Label" parent="."]

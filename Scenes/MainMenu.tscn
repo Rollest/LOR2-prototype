@@ -39,6 +39,7 @@ theme_override_constants/separation = 90
 
 [node name="PlayButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 theme_override_font_sizes/font_size = 321
 text = "ИГРАТЬ"
 icon = ExtResource("2_sufmp")
@@ -46,6 +47,7 @@ icon_alignment = 1
 
 [node name="SettingsButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 theme_override_font_sizes/font_size = 231
 text = "НАСТРОЙКИ"
 icon = ExtResource("2_sufmp")
@@ -53,6 +55,7 @@ icon_alignment = 1
 
 [node name="ExitButton" type="Button" parent="ButtonsContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 theme_override_font_sizes/font_size = 231
 text = "ВЫЙТИ"
 icon = ExtResource("2_sufmp")

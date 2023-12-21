@@ -132,9 +132,9 @@ vertical_alignment = 1
 
 [node name="Stat" type="Label" parent="Menu/Allies/UnitStatsPage"]
 layout_mode = 0
-offset_left = 304.0
+offset_left = 308.0
 offset_top = 137.0
-offset_right = 358.0
+offset_right = 362.0
 offset_bottom = 184.0
 theme_override_font_sizes/font_size = 31
 text = "123"
@@ -161,9 +161,9 @@ horizontal_alignment = 1
 
 [node name="Stat3" type="Label" parent="Menu/Allies/UnitStatsPage"]
 layout_mode = 0
-offset_left = 523.0
+offset_left = 531.0
 offset_top = 136.0
-offset_right = 577.0
+offset_right = 585.0
 offset_bottom = 183.0
 theme_override_font_sizes/font_size = 31
 text = "123"
@@ -373,9 +373,9 @@ vertical_alignment = 1
 
 [node name="Stat" type="Label" parent="Menu/Enemies/UnitStatsPage"]
 layout_mode = 0
-offset_left = 304.0
+offset_left = 308.0
 offset_top = 137.0
-offset_right = 358.0
+offset_right = 362.0
 offset_bottom = 184.0
 theme_override_font_sizes/font_size = 31
 text = "123"
@@ -402,9 +402,9 @@ horizontal_alignment = 1
 
 [node name="Stat3" type="Label" parent="Menu/Enemies/UnitStatsPage"]
 layout_mode = 0
-offset_left = 523.0
+offset_left = 531.0
 offset_top = 136.0
-offset_right = 577.0
+offset_right = 585.0
 offset_bottom = 183.0
 theme_override_font_sizes/font_size = 31
 text = "123"
@@ -538,8 +538,8 @@ offset_top = 61.0
 offset_right = 2098.0
 offset_bottom = 733.0
 scale = Vector2(0.241091, 0.241091)
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 386
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
+theme_override_font_sizes/font_size = 411
 text = "BATTLE"
 icon = ExtResource("4_xdomq")
 icon_alignment = 1
@@ -575,7 +575,6 @@ combatConfig = ExtResource("15_2sc2g")
 
 [node name="CombatMenuPause" type="Control" parent="."]
 process_mode = 3
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -623,6 +622,7 @@ offset_right = 339.0
 offset_bottom = 102.571
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 theme_override_fonts/font = SubResource("FontVariation_2m3j5")
 theme_override_font_sizes/font_size = 216
 text = "UNO 2"
@@ -648,6 +648,7 @@ alignment = 1
 [node name="UnpauseBtn" type="Button" parent="CombatMenuPause/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("9_iw8da")
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 text = "Продолжить"
 icon = ExtResource("4_xdomq")
 icon_alignment = 1
@@ -655,6 +656,7 @@ icon_alignment = 1
 [node name="Exit" type="Button" parent="CombatMenuPause/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("9_iw8da")
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 text = "Выйти"
 icon = ExtResource("4_xdomq")
 icon_alignment = 1

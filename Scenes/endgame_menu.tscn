@@ -56,6 +56,7 @@ offset_right = 339.0
 offset_bottom = 102.571
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 theme_override_fonts/font = SubResource("FontVariation_2m3j5")
 theme_override_font_sizes/font_size = 216
 text = "YOU LOSE"
@@ -81,6 +82,7 @@ alignment = 1
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("4_70ola")
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 text = "Выйти"
 icon = ExtResource("5_cblo1")
 icon_alignment = 1

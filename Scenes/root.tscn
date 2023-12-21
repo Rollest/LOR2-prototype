@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bv4dys5ufh6x"]
+[gd_scene load_steps=24 format=3 uid="uid://bv4dys5ufh6x"]
 
 [ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="2_vtpj6"]
 [ext_resource type="Script" path="res://Scripts/GameDirector.gd" id="3_1a71y"]
@@ -18,7 +18,6 @@
 [ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="15_uk84v"]
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="16_ifrwr"]
 [ext_resource type="Texture2D" uid="uid://bpunl21fktg34" path="res://Assets/MenuItems/IMG_1018.PNG" id="18_54lb6"]
-[ext_resource type="FontVariation" path="res://Resourses/Fonts/ArgPriht.tres" id="18_ld5rp"]
 [ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="18_ukxrg"]
 [ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="20_xr2x8"]
 [ext_resource type="PackedScene" uid="uid://8tkkaws71mr" path="res://Scenes/endgame_menu.tscn" id="21_b6hdc"]
@@ -122,7 +121,6 @@ process_mode = 3
 layer = 3
 
 [node name="Menu" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -170,7 +168,7 @@ offset_right = 339.0
 offset_bottom = 102.571
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("18_ld5rp")
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 theme_override_font_sizes/font_size = 216
 text = "UNO 2"
 horizontal_alignment = 1
@@ -195,6 +193,7 @@ alignment = 1
 [node name="UnpauseBtn" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("18_ukxrg")
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 text = "Продолжить"
 icon = ExtResource("20_xr2x8")
 icon_alignment = 1
@@ -202,6 +201,7 @@ icon_alignment = 1
 [node name="Exit" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("18_ukxrg")
+theme_override_colors/font_color = Color(0.870588, 0.733333, 0.435294, 1)
 text = "Выйти"
 icon = ExtResource("20_xr2x8")
 icon_alignment = 1

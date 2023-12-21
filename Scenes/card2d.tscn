@@ -1,13 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba13bj6s0nseq"]
+[gd_scene load_steps=4 format=3 uid="uid://ba13bj6s0nseq"]
 
 [ext_resource type="Script" path="res://Scripts/Card.gd" id="1_10ehx"]
 [ext_resource type="Texture2D" uid="uid://cqw1wma7o3n8u" path="res://Assets/CardsImages/IMG_1024.PNG" id="2_oxy54"]
 
-[sub_resource type="FontVariation" id="FontVariation_2m3j5"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4usx"]
 
 [node name="Card" type="CharacterBody2D" node_paths=PackedStringArray("countText", "powerText", "baseText", "keyText", "manaText")]
+z_index = 1
 script = ExtResource("1_10ehx")
 countText = NodePath("Sprite3D/Count")
 powerText = NodePath("Sprite3D/Power")
@@ -28,16 +27,20 @@ offset_bottom = 457.778
 scale = Vector2(2, 2)
 theme_override_font_sizes/font_size = 56
 text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Power" type="Label" parent="Sprite3D"]
 modulate = Color(1, 0, 0, 1)
-offset_left = 37.037
+offset_left = 22.2222
 offset_top = 377.778
-offset_right = 133.037
+offset_right = 118.222
 offset_bottom = 457.778
 scale = Vector2(2, 2)
 theme_override_font_sizes/font_size = 56
 text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Base" type="Label" parent="Sprite3D"]
 modulate = Color(1, 0, 0, 1)
@@ -48,23 +51,29 @@ offset_bottom = 457.778
 scale = Vector2(2, 2)
 theme_override_font_sizes/font_size = 56
 text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Keywords" type="Label" parent="Sprite3D"]
-offset_left = -185.0
-offset_top = 541.0
-offset_right = 452.0
-offset_bottom = 756.0
-theme_override_fonts/font = SubResource("FontVariation_2m3j5")
-theme_override_font_sizes/font_size = 46
+offset_left = -207.407
+offset_top = 540.741
+offset_right = 429.593
+offset_bottom = 755.741
+scale = Vector2(1.13534, 1.13534)
+theme_override_font_sizes/font_size = 66
 text = "1 - aaa 1,1"
 
 [node name="Mana" type="Label" parent="Sprite3D"]
-offset_left = -414.815
-offset_top = 585.185
-offset_right = -318.815
-offset_bottom = 665.185
+offset_left = -459.259
+offset_top = 548.148
+offset_right = -363.259
+offset_bottom = 628.148
+scale = Vector2(2.07425, 2.07425)
+theme_override_colors/font_color = Color(0.25098, 0.768627, 1, 1)
 theme_override_font_sizes/font_size = 56
 text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(7.415, 11.719)
