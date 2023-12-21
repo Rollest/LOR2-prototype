@@ -17,10 +17,13 @@ func _on_pressed():
 	emit_signal("combat_button_clicked", combatConfig)
 	pass # Replace with function body.
 
-func _is_active(is_active: bool):
-	if is_active:
+func _is_active(state: int):
+	if state == 0:
+		disabled = true
+		modulate = "#00ffff"
+	elif state == 1:
 		disabled = false
 		modulate = "#ffffff"
-	else:
+	elif state == 2:
 		disabled = false
 		modulate = "#ff00ff"

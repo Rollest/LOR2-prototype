@@ -32,3 +32,9 @@ res://Scenes/endgame_menu.tscn
 res://global_src/Sound.tscn
 res://Scenes/volume_slider.tscn
 res://Scripts/CardContainer.gd
+res://Scripts/CombatConfig.gd
+res://Scripts/GameDirector.gd
+res://Resourses/CombatsConfigs/combat3.tres
+res://Scripts/CombatButton.gd
+res://Scripts/CombatMenu.gd
+res://global_src/save.gd

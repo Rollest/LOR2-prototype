@@ -23,6 +23,7 @@ var isCardSelected: bool = false
 var global_config: Node
 var sound: Node
 var global_save: Node
+var background: TextureRect
 
 
 var RNG=RandomNumberGenerator.new()
@@ -38,8 +39,10 @@ func _ready():
 	endgameMenu = get_node("../CanvasLayer/EndgameMenu")
 	global_config = get_node("/root/GlobalConfig")
 	combatConfig = global_config.combatConfig
+	background = get_node("../Background")
 	sound = get_node("/root/Sound")
 	global_save = get_node("/root/Save")
+	background.texture = combatConfig.level_background
 	sound.music_player.stream = sound.music_combat
 	sound.music_player.play()
 	
@@ -229,7 +232,12 @@ func Turn():
 	if len(find_objects_of_type("Ally")) == 0:
 		endgameMenu._lose()
 	if len(find_objects_of_type("Enemy")) == 0:
-		global_save.save[global_config.combatConfig.level] = true
+		global_save.save[global_config.combatConfig.level] = 2
+		var level = global_config.combatConfig.level
+		var levelnum = level[len(level)-1]
+		var nextlevel = "level" + str(int(levelnum)+1)
+		if global_save.save[nextlevel] != null:
+			global_save.save[nextlevel] = 1
 		global_save._save_data_save()
 		endgameMenu._win()
 

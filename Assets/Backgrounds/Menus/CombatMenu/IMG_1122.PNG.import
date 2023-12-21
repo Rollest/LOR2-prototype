@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc477ganvnbm8"
-path="res://.godot/imported/IMG_0949.PNG-6be20e76314ef99c4f788b3e5e6c3529.ctex"
+uid="uid://bciatshx4rwgp"
+path="res://.godot/imported/IMG_1122.PNG-1cf11e5f2b941fa9655dc4cfe5af59db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UnitsCombatMenu/IMG_0949.PNG"
-dest_files=["res://.godot/imported/IMG_0949.PNG-6be20e76314ef99c4f788b3e5e6c3529.ctex"]
+source_file="res://Assets/Backgrounds/Menus/CombatMenu/IMG_1122.PNG"
+dest_files=["res://.godot/imported/IMG_1122.PNG-1cf11e5f2b941fa9655dc4cfe5af59db.ctex"]
 
 [params]
 

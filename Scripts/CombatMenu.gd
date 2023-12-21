@@ -79,6 +79,7 @@ func _combat_button(combatConfig: CombatConfig):
 		new_node.selected_unit.connect(_listener_ally_unit_selected)
 		new_node.basestats = ally.duplicate(true)
 		new_node.name = new_node.basestats.unit_name
+		new_node.get_node("Container").texture = preload("res://Assets/Backgrounds/Menus/CombatMenu/UnitContainer.PNG")
 		allies_container.add_child(new_node)
 		allies.clear()
 		allies.append_array(allies_container.get_children())
@@ -91,6 +92,7 @@ func _combat_button(combatConfig: CombatConfig):
 		new_node.selected_unit.connect(_listener_enemy_unit_selected)
 		new_node.basestats = enemy.duplicate(true)
 		new_node.name = new_node.basestats.unit_name
+		new_node.get_node("Container").texture = preload("res://Assets/Backgrounds/Menus/CombatMenu/EnemyContainer.PNG")
 		enemies_container.add_child(new_node)
 		enemies.clear()
 		enemies.append_array(enemies_container.get_children())
@@ -178,10 +180,7 @@ func _listener_enemy_card_selected(cardConfig):
 
 func _save_load():
 	for i in range(min(len(map_buttons),len(global_save.save))):
-		if global_save.save[map_buttons[i].combatConfig.level] == true:
-			map_buttons[i]._is_active(false)
-		else:
-			map_buttons[i]._is_active(true)
+		map_buttons[i]._is_active(global_save.save[map_buttons[i].combatConfig.level])
 
 func _on_play_pressed():
 	sound.click_start_game_player.play()

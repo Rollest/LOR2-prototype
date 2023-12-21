@@ -34,10 +34,10 @@ func _load_data_save():
 	var file = FileAccess.open(SAVE,FileAccess.READ_WRITE)
 	if not FileAccess.file_exists(SAVE):
 		save = {
-			"level1": false,
-			"level2": false,
-			"level3": false,
-			"level4": false,
+			"level1": 1,
+			"level2": 0,
+			"level3": 0,
+			"level4": 0,
 		}
 		_save_data_save()
 	file.open(SAVE, FileAccess.READ)
@@ -52,10 +52,10 @@ func _save_data_save():
 func _clear():
 	var file = FileAccess.open(SAVE,FileAccess.WRITE)
 	save = {
-			"level1": false,
-			"level2": false,
-			"level3": false,
-			"level4": false,
+			"level1": 1,
+			"level2": 0,
+			"level3": 0,
+			"level4": 0,
 		}
 	_save_data_save()
 	_load_data_save()

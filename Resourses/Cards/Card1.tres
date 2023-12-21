@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CardConfig" load_steps=5 format=3 uid="uid://dwyyyt3dohhrn"]
+[gd_resource type="Resource" script_class="CardConfig" load_steps=6 format=3 uid="uid://dwyyyt3dohhrn"]
 
 [ext_resource type="Script" path="res://Scripts/CardConfig.gd" id="1_nyneq"]
 [ext_resource type="Script" path="res://Scripts/Keyword.gd" id="1_q2vr2"]
@@ -7,15 +7,22 @@
 [sub_resource type="Resource" id="Resource_wqbjk"]
 script = ExtResource("1_q2vr2")
 type = 0
-value = 999
+value = 1
 duration = 2
+trigger = 1
+
+[sub_resource type="Resource" id="Resource_vfg4i"]
+script = ExtResource("1_q2vr2")
+type = 1
+value = 1
+duration = 10
 trigger = 1
 
 [resource]
 script = ExtResource("1_nyneq")
 count = 5
-power = 10
+power = 2
 base = 4
 mana = 3
 texture = ExtResource("3_0rc3l")
-keywords = Array[ExtResource("1_q2vr2")]([SubResource("Resource_wqbjk")])
+keywords = Array[ExtResource("1_q2vr2")]([SubResource("Resource_wqbjk"), SubResource("Resource_vfg4i")])

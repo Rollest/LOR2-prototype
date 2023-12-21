@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CombatConfig" load_steps=7 format=3 uid="uid://bowpaumpupym7"]
+
+[ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="1_2voyj"]
+[ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/player2.tres" id="2_is1yx"]
+[ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="3_affyo"]
+[ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/enemy1.tres" id="4_4kuvl"]
+[ext_resource type="Texture2D" uid="uid://d34sdonmaqv7w" path="res://Assets/Backgrounds/Background1.PNG" id="5_j3pc0"]
+[ext_resource type="Script" path="res://Scripts/CombatConfig.gd" id="5_ofbim"]
+
+[resource]
+script = ExtResource("5_ofbim")
+allies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("1_2voyj"), ExtResource("2_is1yx"), ExtResource("1_2voyj"), ExtResource("2_is1yx"), ExtResource("2_is1yx")])
+enemies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("3_affyo"), ExtResource("3_affyo"), ExtResource("4_4kuvl"), ExtResource("3_affyo"), ExtResource("4_4kuvl")])
+level = "level3"
+level_background = ExtResource("5_j3pc0")

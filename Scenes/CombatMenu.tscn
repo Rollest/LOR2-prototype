@@ -1,16 +1,23 @@
-[gd_scene load_steps=20 format=3 uid="uid://cxxw5k24d77aq"]
+[gd_scene load_steps=28 format=3 uid="uid://cxxw5k24d77aq"]
 
-[ext_resource type="Texture2D" uid="uid://bobe7373h128k" path="res://Assets/Effects/white1.png" id="1_hwo81"]
 [ext_resource type="Script" path="res://Scripts/CombatMenu.gd" id="1_lh1rh"]
+[ext_resource type="Texture2D" uid="uid://bhxruxipovyr4" path="res://Assets/Backgrounds/Menus/CombatMenu/Background.PNG" id="2_whe6r"]
+[ext_resource type="Texture2D" uid="uid://d2mkgi7ghqahb" path="res://Assets/Backgrounds/Menus/CombatMenu/CardContainer.PNG" id="3_c7cvn"]
 [ext_resource type="PackedScene" uid="uid://cc6y57ol1egh" path="res://Scenes/unit_combat_menu.tscn" id="3_hwli0"]
+[ext_resource type="Texture2D" uid="uid://ryscj6h8e60v" path="res://Assets/Backgrounds/Menus/CombatMenu/BackgroundLeft.PNG" id="4_6nd1j"]
 [ext_resource type="Texture2D" uid="uid://cig7fvepotg56" path="res://Assets/Units/Allies/IMG_0948.PNG" id="4_arvpp"]
 [ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="4_xdomq"]
+[ext_resource type="Texture2D" uid="uid://bciatshx4rwgp" path="res://Assets/Backgrounds/Menus/CombatMenu/IMG_1122.PNG" id="5_fl32c"]
 [ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="5_rbup4"]
 [ext_resource type="Texture2D" uid="uid://cgkuwp0kt4hjj" path="res://Assets/Units/Allies/IMG_0947.PNG" id="6_7jujl"]
 [ext_resource type="Script" path="res://Scripts/CombatMenuPause.gd" id="6_a64g7"]
+[ext_resource type="Texture2D" uid="uid://b0fu7rm8ugcx5" path="res://Assets/Backgrounds/Menus/CombatMenu/IMG_1123.PNG" id="6_jyi04"]
 [ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/player2.tres" id="6_lotsb"]
 [ext_resource type="Texture2D" uid="uid://bpunl21fktg34" path="res://Assets/MenuItems/IMG_1018.PNG" id="7_pn4qo"]
+[ext_resource type="Texture2D" uid="uid://cavdco3k7qp53" path="res://Assets/Backgrounds/Menus/CombatMenu/IMG_1124.PNG" id="7_quism"]
 [ext_resource type="PackedScene" uid="uid://ciapukrpvwwr3" path="res://Scenes/card_combat_menu.tscn" id="7_qv6te"]
+[ext_resource type="Texture2D" uid="uid://mvkkvvyuhjt4" path="res://Assets/Backgrounds/Menus/CombatMenu/IMG_1120.PNG" id="8_4wa3p"]
+[ext_resource type="Texture2D" uid="uid://dtc1ge2kcgkon" path="res://Assets/Backgrounds/Menus/CombatMenu/BackgroundRight.PNG" id="8_tm2in"]
 [ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/enemy1.tres" id="9_47fu5"]
 [ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="9_iw8da"]
 [ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="10_vrivb"]
@@ -18,6 +25,7 @@
 [ext_resource type="Script" path="res://Scripts/CombatButton.gd" id="13_mcthq"]
 [ext_resource type="Resource" uid="uid://bpvvxipqe2g8x" path="res://Resourses/CombatsConfigs/combat1.tres" id="14_gkj2a"]
 [ext_resource type="Resource" uid="uid://blbu5smy78n2w" path="res://Resourses/CombatsConfigs/combat2.tres" id="15_2sc2g"]
+[ext_resource type="Resource" uid="uid://bowpaumpupym7" path="res://Resourses/CombatsConfigs/combat3.tres" id="16_1cknt"]
 
 [sub_resource type="FontVariation" id="FontVariation_2m3j5"]
 
@@ -26,6 +34,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lh1rh")
@@ -39,15 +49,418 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Background" type="TextureRect" parent="Menu"]
-modulate = Color(0, 0.580392, 0.580392, 1)
+[node name="Background" type="Control" parent="Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_hwo81")
+
+[node name="BackgroundTexture" type="TextureRect" parent="Menu/Background"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_whe6r")
+
+[node name="AllieSide" type="Control" parent="Menu/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cards" type="Control" parent="Menu/Background/AllieSide"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CardContainer" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 562.0
+offset_right = 1164.0
+offset_bottom = 2297.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer2" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 562.0
+offset_right = 1291.0
+offset_bottom = 2297.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer3" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 562.0
+offset_right = 1418.0
+offset_bottom = 2297.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer4" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 562.0
+offset_right = 1545.0
+offset_bottom = 2297.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer5" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 562.0
+offset_right = 1672.0
+offset_bottom = 2297.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer6" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 736.0
+offset_right = 1164.0
+offset_bottom = 2471.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer7" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 736.0
+offset_right = 1291.0
+offset_bottom = 2471.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer8" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 736.0
+offset_right = 1418.0
+offset_bottom = 2471.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer9" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 736.0
+offset_right = 1545.0
+offset_bottom = 2471.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer10" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 736.0
+offset_right = 1672.0
+offset_bottom = 2471.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer11" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 910.0
+offset_right = 1164.0
+offset_bottom = 2645.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer12" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 910.0
+offset_right = 1291.0
+offset_bottom = 2645.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer13" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 910.0
+offset_right = 1418.0
+offset_bottom = 2645.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer14" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 910.0
+offset_right = 1545.0
+offset_bottom = 2645.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer15" type="TextureRect" parent="Menu/Background/AllieSide/Cards"]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 910.0
+offset_right = 1672.0
+offset_bottom = 2645.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="BackgroundLeft" type="TextureRect" parent="Menu/Background/AllieSide"]
+z_index = -1
+layout_mode = 1
+offset_left = -188.0
+offset_right = 1860.0
+offset_bottom = 2048.0
+scale = Vector2(0.55, 0.602)
+texture = ExtResource("4_6nd1j")
+expand_mode = 5
+
+[node name="UnitsContainer" type="TextureRect" parent="Menu/Background/AllieSide"]
+layout_mode = 0
+offset_left = -69.0
+offset_right = 1979.0
+offset_bottom = 2048.0
+scale = Vector2(0.395, 0.175)
+texture = ExtResource("5_fl32c")
+
+[node name="UnitInfoContainer" type="TextureRect" parent="Menu/Background/AllieSide"]
+layout_mode = 0
+offset_left = -69.0
+offset_top = 224.0
+offset_right = 1979.0
+offset_bottom = 2272.0
+scale = Vector2(0.395, 0.2)
+texture = ExtResource("6_jyi04")
+
+[node name="CardContainer" type="TextureRect" parent="Menu/Background/AllieSide"]
+z_index = -1
+layout_mode = 0
+offset_left = -69.0
+offset_top = 417.0
+offset_right = 1979.0
+offset_bottom = 2465.0
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("7_quism")
+
+[node name="LabelContainer" type="TextureRect" parent="Menu/Background/AllieSide"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = -45.0
+offset_right = 2220.0
+offset_bottom = 2003.0
+scale = Vector2(0.15201, 0.15201)
+texture = ExtResource("8_4wa3p")
+
+[node name="EnemySide" type="Control" parent="Menu/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1222.0
+offset_right = 1222.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cards" type="Control" parent="Menu/Background/EnemySide"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CardContainer" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 562.0
+offset_right = 1164.0
+offset_bottom = 2297.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer2" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 562.0
+offset_right = 1291.0
+offset_bottom = 2297.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer3" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 562.0
+offset_right = 1418.0
+offset_bottom = 2297.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer4" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 562.0
+offset_right = 1545.0
+offset_bottom = 2297.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer5" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 562.0
+offset_right = 1672.0
+offset_bottom = 2297.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer6" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 736.0
+offset_right = 1164.0
+offset_bottom = 2471.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer7" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 736.0
+offset_right = 1291.0
+offset_bottom = 2471.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer8" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 736.0
+offset_right = 1418.0
+offset_bottom = 2471.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer9" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 736.0
+offset_right = 1545.0
+offset_bottom = 2471.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer10" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 736.0
+offset_right = 1672.0
+offset_bottom = 2471.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer11" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 910.0
+offset_right = 1164.0
+offset_bottom = 2645.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer12" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 910.0
+offset_right = 1291.0
+offset_bottom = 2645.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer13" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 910.0
+offset_right = 1418.0
+offset_bottom = 2645.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer14" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 910.0
+offset_right = 1545.0
+offset_bottom = 2645.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="CardContainer15" type="TextureRect" parent="Menu/Background/EnemySide/Cards"]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 910.0
+offset_right = 1672.0
+offset_bottom = 2645.0
+scale = Vector2(0.0982272, 0.0982272)
+texture = ExtResource("3_c7cvn")
+
+[node name="BackgroundRight" type="TextureRect" parent="Menu/Background/EnemySide"]
+z_index = -1
+layout_mode = 1
+offset_left = -239.0
+offset_right = 1809.0
+offset_bottom = 2048.0
+scale = Vector2(0.55, 0.602)
+texture = ExtResource("8_tm2in")
+expand_mode = 5
+
+[node name="UnitsContainer" type="TextureRect" parent="Menu/Background/EnemySide"]
+layout_mode = 0
+offset_left = -69.0
+offset_right = 1979.0
+offset_bottom = 2048.0
+scale = Vector2(0.395, 0.175)
+texture = ExtResource("5_fl32c")
+
+[node name="UnitInfoContainer" type="TextureRect" parent="Menu/Background/EnemySide"]
+layout_mode = 0
+offset_left = -69.0
+offset_top = 224.0
+offset_right = 1979.0
+offset_bottom = 2272.0
+scale = Vector2(0.395, 0.2)
+texture = ExtResource("6_jyi04")
+
+[node name="CardContainer" type="TextureRect" parent="Menu/Background/EnemySide"]
+z_index = -1
+layout_mode = 0
+offset_left = -69.0
+offset_top = 417.0
+offset_right = 1979.0
+offset_bottom = 2465.0
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("7_quism")
+
+[node name="LabelContainer" type="TextureRect" parent="Menu/Background/EnemySide"]
+offset_left = 172.0
+offset_top = -45.0
+offset_right = 2220.0
+offset_bottom = 2003.0
+scale = Vector2(0.15201, 0.15201)
+texture = ExtResource("8_4wa3p")
 
 [node name="Allies" type="Control" parent="Menu"]
 layout_mode = 1
@@ -124,7 +537,8 @@ stretch_mode = 5
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_top = 18.0
+offset_bottom = 50.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 31
 horizontal_alignment = 1
@@ -364,7 +778,8 @@ stretch_mode = 5
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_top = 18.0
+offset_bottom = 53.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 31
 text = "SHREK's PAGE"
@@ -573,8 +988,21 @@ flat = true
 script = ExtResource("13_mcthq")
 combatConfig = ExtResource("15_2sc2g")
 
+[node name="Combat3" type="Button" parent="Menu/Center/Map"]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 583.0
+offset_right = 482.0
+offset_bottom = 904.0
+scale = Vector2(0.216345, 0.216345)
+icon = ExtResource("12_q2olp")
+flat = true
+script = ExtResource("13_mcthq")
+combatConfig = ExtResource("16_1cknt")
+
 [node name="CombatMenuPause" type="Control" parent="."]
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -664,5 +1092,6 @@ icon_alignment = 1
 [connection signal="pressed" from="Menu/Center/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Menu/Center/Map/Combat1" to="Menu/Center/Map/Combat1" method="_on_pressed"]
 [connection signal="pressed" from="Menu/Center/Map/Combat2" to="Menu/Center/Map/Combat2" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Center/Map/Combat3" to="Menu/Center/Map/Combat3" method="_on_pressed"]
 [connection signal="pressed" from="CombatMenuPause/VBoxContainer/UnpauseBtn" to="CombatMenuPause" method="_on_unpause_btn_pressed"]
 [connection signal="pressed" from="CombatMenuPause/VBoxContainer/Exit" to="CombatMenuPause" method="_on_exit_pressed"]
