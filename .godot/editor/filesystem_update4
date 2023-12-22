@@ -1,6 +1,7 @@
-res://Scenes/root.tscn
+res://Scenes/gui.tscn
 res://Resourses/shaders/outline.gdshader
 res://Resourses/shaders/units_shader.tres
+res://Scripts/settings_menu.gd
 res://Resourses/Cards/Card1.tres
 res://Resourses/Cards/card2.tres
 res://Resourses/Cards/card3.tres
@@ -17,14 +18,15 @@ res://Resourses/Units/player2.tres
 res://Resourses/Units/enemy2.tres
 res://Resourses/CombatsConfigs/combat2.tres
 res://Resourses/CombatsConfigs/combat3.tres
+res://Scripts/CombatButton.gd
+res://Scenes/CombatMenu.tscn
+res://Scenes/root.tscn
 res://Scenes/enemy_2d.tscn
 res://Scenes/unit_2d.tscn
 res://Scenes/card2d.tscn
 res://Scenes/effect.tscn
 res://Scenes/card.tscn
-res://Scenes/gui.tscn
 res://Scenes/MainMenu.tscn
-res://Scenes/CombatMenu.tscn
 res://Scenes/settings_menu.tscn
 res://Scenes/unit_combat_menu.tscn
 res://Scenes/card_combat_menu.tscn
@@ -32,6 +34,5 @@ res://Scenes/endgame_menu.tscn
 res://global_src/Sound.tscn
 res://Scenes/volume_slider.tscn
 res://Scenes/grave.tscn
-res://Scripts/Unit.gd
-res://Scripts/settings_menu.gd
-res://Scripts/GUI.gd
+res://Scripts/CombatMenu.gd
+res://Scripts/CardContainer.gd

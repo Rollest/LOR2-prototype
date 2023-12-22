@@ -30,7 +30,7 @@ func display_cards(cards:Array[CardConfig]):
 
 			var new_node = newcard.instantiate()
 			new_node.cardConfig=card
-			new_node.position = Vector2(900+(offset*c),950)
+			new_node.position = Vector2(850+(offset*c),900)
 			new_node.name="Card"+str(c)
 
 			print(new_node.name)

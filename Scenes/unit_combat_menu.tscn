@@ -14,15 +14,6 @@ expand_mode = 3
 stretch_mode = 5
 script = ExtResource("1_wrs1v")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-flat = true
-
 [node name="Container" type="TextureRect" parent="."]
 z_index = -1
 layout_mode = 0
@@ -32,5 +23,16 @@ offset_right = 2018.0
 offset_bottom = 2045.0
 scale = Vector2(0.107023, 0.107023)
 texture = ExtResource("3_47rr4")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0.384314)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.00012207
+offset_bottom = -0.000106812
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

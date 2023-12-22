@@ -55,7 +55,11 @@ func _ready():
 	#for enemy in enemies:
 	#	enemy.selected_unit.connect(_listener_enemy_unit_selected)
 	_save_load()
-	_combat_button(map.get_children()[0].combatConfig)
+	for i in range(len(map_buttons)-1,-1,-1):
+		if global_save.save[map_buttons[i].combatConfig.level] != 0:
+			_combat_button(map_buttons[i].combatConfig)
+			break
+			
 	_ally_unit_selected(allies[0].basestats)
 	await _enemy_unit_selected(enemies[0].basestats)
 	sound.music_player.stream = sound.music_combat_menu

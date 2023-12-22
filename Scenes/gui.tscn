@@ -55,7 +55,6 @@ script = ExtResource("2_6bnd3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShowDeck"]
 visible = false
 position = Vector2(970.144, 373.518)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_14lef")
 
 [node name="DeckDisplay" parent="." instance=ExtResource("3_h314s")]

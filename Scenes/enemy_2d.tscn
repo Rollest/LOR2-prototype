@@ -36,13 +36,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -908.464
+offset_left = -1031.59
 offset_top = -1024.0
-offset_right = -408.464
+offset_right = -531.585
 offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1, 0.133)
+scale = Vector2(1.35, 0.18)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 value = 43.0
@@ -52,6 +52,7 @@ texture_progress = ExtResource("3_srsv8")
 tint_under = Color(0.172549, 0.172549, 0.172549, 1)
 tint_over = Color(1, 0.356863, 1, 0)
 tint_progress = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="TextureProgressBar" parent="CollisionShape2D/Sprite2D"]
 anchors_preset = 7
@@ -59,13 +60,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -906.554
+offset_left = -1031.58
 offset_top = -1024.0
-offset_right = -406.554
+offset_right = -531.585
 offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1, 0.133)
+scale = Vector2(1.35, 0.181)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 value = 60.0
@@ -97,10 +98,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Damage" type="Label" parent="CollisionShape2D/Sprite2D/ProgressBar"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.612132
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.612132
 anchor_bottom = 0.5
 offset_left = -204.217
 offset_top = 249.996
@@ -114,6 +115,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 15
 text = "-123"
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="EnemySlot" type="CharacterBody2D" parent="."]
 position = Vector2(0, -396)

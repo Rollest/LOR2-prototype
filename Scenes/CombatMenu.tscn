@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cxxw5k24d77aq"]
+[gd_scene load_steps=29 format=3 uid="uid://cxxw5k24d77aq"]
 
 [ext_resource type="Script" path="res://Scripts/CombatMenu.gd" id="1_lh1rh"]
 [ext_resource type="Texture2D" uid="uid://bhxruxipovyr4" path="res://Assets/Backgrounds/Menus/CombatMenu/Background.PNG" id="2_whe6r"]
@@ -21,11 +21,12 @@
 [ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/enemy1.tres" id="9_47fu5"]
 [ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="9_iw8da"]
 [ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="10_vrivb"]
-[ext_resource type="Texture2D" uid="uid://bmlvf2gwve66f" path="res://Assets/MenuItems/pngwing.com (1).png" id="12_q2olp"]
 [ext_resource type="Script" path="res://Scripts/CombatButton.gd" id="13_mcthq"]
 [ext_resource type="Resource" uid="uid://bpvvxipqe2g8x" path="res://Resourses/CombatsConfigs/combat1.tres" id="14_gkj2a"]
 [ext_resource type="Resource" uid="uid://blbu5smy78n2w" path="res://Resourses/CombatsConfigs/combat2.tres" id="15_2sc2g"]
 [ext_resource type="Resource" uid="uid://bowpaumpupym7" path="res://Resourses/CombatsConfigs/combat3.tres" id="16_1cknt"]
+[ext_resource type="Texture2D" uid="uid://b14oipl6yprdb" path="res://Assets/Backgrounds/Menus/CombatMenu/LevelButtons/Open.PNG" id="19_e6peu"]
+[ext_resource type="Texture2D" uid="uid://dj5p2hbk1c2i3" path="res://Assets/Backgrounds/Menus/CombatMenu/LevelButtons/Closed.PNG" id="23_td3hi"]
 
 [sub_resource type="FontVariation" id="FontVariation_2m3j5"]
 
@@ -50,6 +51,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="Background" type="Control" parent="Menu"]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -279,6 +281,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -529,7 +533,7 @@ offset_top = -134.5
 offset_right = 40.0
 offset_bottom = -94.5
 grow_vertical = 2
-scale = Vector2(5.764, 6.958)
+scale = Vector2(5.572, 6.726)
 texture = ExtResource("4_arvpp")
 expand_mode = 3
 stretch_mode = 5
@@ -770,7 +774,7 @@ offset_top = -134.5
 offset_right = 40.0
 offset_bottom = -94.5
 grow_vertical = 2
-scale = Vector2(5.764, 6.958)
+scale = Vector2(5.57223, 6.72651)
 texture = ExtResource("6_7jujl")
 expand_mode = 3
 stretch_mode = 5
@@ -969,10 +973,10 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_left = 126.0
 offset_top = 324.0
-offset_right = 447.0
-offset_bottom = 645.0
-scale = Vector2(0.216345, 0.216345)
-icon = ExtResource("12_q2olp")
+offset_right = 1665.0
+offset_bottom = 1863.0
+scale = Vector2(0.055, 0.055)
+icon = ExtResource("19_e6peu")
 flat = true
 script = ExtResource("13_mcthq")
 combatConfig = ExtResource("14_gkj2a")
@@ -983,8 +987,8 @@ offset_left = 306.0
 offset_top = 435.0
 offset_right = 627.0
 offset_bottom = 756.0
-scale = Vector2(0.216345, 0.216345)
-icon = ExtResource("12_q2olp")
+scale = Vector2(0.055, 0.055)
+icon = ExtResource("19_e6peu")
 flat = true
 script = ExtResource("13_mcthq")
 combatConfig = ExtResource("15_2sc2g")
@@ -995,8 +999,8 @@ offset_left = 161.0
 offset_top = 583.0
 offset_right = 482.0
 offset_bottom = 904.0
-scale = Vector2(0.216345, 0.216345)
-icon = ExtResource("12_q2olp")
+scale = Vector2(0.055, 0.055)
+icon = ExtResource("23_td3hi")
 flat = true
 script = ExtResource("13_mcthq")
 combatConfig = ExtResource("16_1cknt")

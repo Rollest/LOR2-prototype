@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://diy7kumo6udta"]
+[gd_scene load_steps=12 format=3 uid="uid://diy7kumo6udta"]
 
 [ext_resource type="Script" path="res://Scripts/Ally.gd" id="1_xbs36"]
 [ext_resource type="Script" path="res://Scripts/Slot.gd" id="3_i6gb8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://Resourses/shaders/outline.gdshader" id="4_sibhg"]
 [ext_resource type="Texture2D" uid="uid://cgkuwp0kt4hjj" path="res://Assets/Units/Allies/IMG_0947.PNG" id="5_lxyu6"]
 [ext_resource type="Texture2D" uid="uid://w85o0eygibkq" path="res://Assets/Slots/Slot.PNG" id="6_xtjyf"]
+[ext_resource type="Texture2D" uid="uid://dnplxr7m6ewkp" path="res://Assets/AnotherAssets/ManaBackground.PNG" id="7_w8ym3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg2up"]
 size = Vector2(107.429, 78.8685)
@@ -43,13 +44,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -942.715
+offset_left = -1031.59
 offset_top = -1024.0
-offset_right = -442.715
+offset_right = -531.585
 offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1, 0.133)
+scale = Vector2(1.35, 0.18)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 value = 43.0
@@ -67,13 +68,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -942.715
+offset_left = -1031.58
 offset_top = -1024.0
-offset_right = -442.715
+offset_right = -531.585
 offset_bottom = -524.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1, 0.133568)
+scale = Vector2(1.35, 0.181)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 value = 60.0
@@ -105,10 +106,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Damage" type="Label" parent="CollisionShape2D/Sprite2D/ProgressBar"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.612132
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.612132
 anchor_bottom = 0.5
 offset_left = -204.217
 offset_top = 249.996
@@ -165,20 +166,21 @@ offset = Vector2(0.835, 0)
 position = Vector2(0, 556)
 
 [node name="Mana" type="Node2D" parent="."]
-position = Vector2(-144, 372)
+position = Vector2(-174.286, 365.714)
 
 [node name="Mana_BG" type="Sprite2D" parent="Mana"]
 z_index = -1
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_u8rja")
+position = Vector2(-7.42859, -14.8569)
+scale = Vector2(0.0856407, 0.0856407)
+texture = ExtResource("7_w8ym3")
 
 [node name="Mana_Text" type="Label" parent="Mana"]
 z_index = 1
-offset_left = -24.0
-offset_top = -14.8571
-offset_right = 24.0
-offset_bottom = 27.1429
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 33
+offset_left = -33.1429
+offset_top = -26.2857
+offset_right = 35.8571
+offset_bottom = 27.7143
+theme_override_colors/font_color = Color(0, 0, 0.843137, 1)
+theme_override_font_sizes/font_size = 50
 text = "123"
 horizontal_alignment = 1
