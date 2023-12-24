@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://ccf63ndd5havr"]
+
+[ext_resource type="FontFile" uid="uid://cha0o424a6xd" path="res://Resourses/Fonts/Gerhaus.ttf" id="1_6bkyq"]
+
+[resource]
+base_font = ExtResource("1_6bkyq")
+opentype_features = {
+1667329140: 0
+}

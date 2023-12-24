@@ -209,6 +209,7 @@ func Turn():
 
 	for item in slots:
 		item.reset_speed(item.source.speed)
+		item._slot_card()
 	
 	for unit in units:
 		unit._update_effects()
@@ -295,6 +296,7 @@ func FindKeyword(type:KeywordType,unit:Unit):
 
 func Discard(slot:Slot):
 	slot.source.hand.erase(slot.card)
+	slot.card = null
 	if arcs.dict_slot_A_B.has(slot):
 		arcs.dict_slot_A_B.erase(slot)
 

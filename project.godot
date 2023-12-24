@@ -26,8 +26,8 @@ Save="*res://global_src/save.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/borderless=true
-window/stretch/mode="viewport"
-window/vsync/vsync_mode=2
+window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 
 [dotnet]
 
@@ -35,4 +35,4 @@ project/assembly_name="Lor 2"
 
 [gui]
 
-theme/custom_font="res://Resourses/Fonts/Cakra-Normal.tres"
+theme/custom_font="res://Resourses/Fonts/Gerhaus.tres"

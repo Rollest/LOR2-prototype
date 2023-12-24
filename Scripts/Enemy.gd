@@ -33,6 +33,7 @@ func _play_random():
 			slot.card=hand[randi_range(0,hand.size()-1)]
 			slot.target=targets[randi_range(0,targets.size()-1)]
 			slot.evil_change_target(slot.target)
+			slot._slot_card()
 			#print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 			#print(slot.card,"  a  ",slot.target)
 

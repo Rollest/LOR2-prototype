@@ -20,8 +20,8 @@ trigger = 1
 
 [resource]
 script = ExtResource("1_nyneq")
-count = 5
-power = 10
+count = 4
+power = 2
 base = 4
 mana = 0
 texture = ExtResource("3_0rc3l")

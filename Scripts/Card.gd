@@ -11,8 +11,8 @@ var isMouseOn: bool = false
 var isMouseOnPress: bool = false
 var anotherNodeIsMoving:bool = false
 var baseScale:Vector2
+var scaleMultiplier: float
 var baseZ: int
-var startPos: Vector2
 var rayCast2D: RayCast2D
 var gameDirector: GameDirector
 
@@ -30,18 +30,17 @@ func _ready():
 		text+=actual_string
 	keyText.text=text
 	
+	if get_parent() is Slot:
+		scale = transform.get_scale() * 0.3
+		scaleMultiplier = 2
+	else:
+		scaleMultiplier = 1.5
 	baseScale = transform.get_scale()
+	
 	baseZ = z_index
 	get_node("Sprite3D").texture = cardConfig.texture
-	if (get_parent().get_parent().get_node("./RayCast2D")!=null):
-		rayCast2D =get_parent().get_parent().get_node("./RayCast2D")
-	else: rayCast2D =get_parent().get_parent().get_parent().get_node("./RayCast2D")
-
-	#rayCast2D =get_parent().get_parent().get_node("./RayCast2D")
-	startPos = position
-	if (get_parent().get_parent().get_node("./GameDirector")!=null):
-		gameDirector = get_parent().get_parent().get_node("./GameDirector")
-	else: gameDirector = get_parent().get_parent().get_parent().get_node("./GameDirector")
+	rayCast2D = get_node("/root/root/RayCast2D")
+	gameDirector = get_node("/root/root/GameDirector")
 
 	gameDirector.selectedUnit.connect(_listener_select)
 	gameDirector.unselect.connect(_listener_unselect)
@@ -52,10 +51,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (isMouseOn):
-		scale = baseScale * 1.5
+		scale = baseScale * scaleMultiplier
 		z_index += 1
 	elif(isMouseOnPress):
-		scale = baseScale * 1.5
+		scale = baseScale * scaleMultiplier
 		z_index += 1
 	else:
 		if (transform.get_scale()!=baseScale):

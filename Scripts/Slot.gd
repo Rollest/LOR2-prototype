@@ -12,6 +12,7 @@ var isSelected:bool = false
 var baseScale
 var gameDirector: GameDirector
 var arcs: Arcs
+var newcard = preload("res://Scenes/card2d.tscn")
 
 
 var RNG=RandomNumberGenerator.new()
@@ -34,6 +35,26 @@ func _process(delta):
 	source=get_parent()
 	pass
 
+func _slot_card():
+	if card != null:
+		var slot_card = get_node("SlotAction")
+		if slot_card != null:
+			remove_child(slot_card)
+			slot_card.queue_free()
+		print("slotcard +")
+		var new_node = newcard.instantiate()
+		new_node.cardConfig=card.duplicate(true)
+		add_child(new_node)
+		new_node.set_global_position(get_global_position() + Vector2(0,-130))
+		new_node.name="SlotAction"
+	else:
+		print("slotcard -")
+		var slot_card = get_node("SlotAction")
+		if slot_card != null:
+			remove_child(slot_card)
+			slot_card.queue_free()
+
+
 func reset_speed(range:Array[int]):
 	speed=RNG.randi_range(range[0],range[1])
 	pass
@@ -41,6 +62,7 @@ func reset_speed(range:Array[int]):
 func change_card(newcard:Card):
 	card=newcard.cardConfig
 	arcs.dict_slot_A_B[self] = [global_position]
+	_slot_card()
 	pass
 
 func change_target(newTarget):
@@ -50,7 +72,6 @@ func change_target(newTarget):
 		target = newTarget
 	if(target != null):
 		arcs.dict_slot_A_B[self] = [global_position, target.get_node("EnemySlot").global_position,false]
-		#print(arcs.dict_slot_A_B)
 	pass
 
 func evil_change_target(newTarget):
@@ -60,7 +81,6 @@ func evil_change_target(newTarget):
 		target = newTarget
 	if(target != null):
 		arcs.dict_slot_A_B[self] = [global_position, target.get_node("Slot").global_position,false]
-		#print(arcs.dict_slot_A_B)
 	pass
 	
 func selected():
