@@ -65,6 +65,9 @@ func _ready():
 	for slot in tmp:
 		slots.append(slot)
 		
+	for unit in find_objects_of_type("Unit"):
+		for i in range(3):
+			unit.draw_card()
 	for enemy in find_objects_of_type("Enemy"):
 		enemy._play_random()
 	print("readyEnd")
@@ -146,12 +149,7 @@ func Turn():
 	for unit in units:
 		unit.tempHp = int(unit.hp)
 	
-	for item in units:    #card draws
-		#print(item.name)
-		#print(item.statuses)
-		
-		if item.hand.size()<5:
-			item.draw_card()
+	
 		
 	var combat_slots:Array[Slot]=[]
 	for slot in slots:
@@ -222,6 +220,8 @@ func Turn():
 			
 	for unit in units:
 		unit._on_hp_updated()
+		if unit.hand.size()<5:
+			unit.draw_card()
 		if unit is Enemy:
 			unit._play_random()
 			#print("random target set")

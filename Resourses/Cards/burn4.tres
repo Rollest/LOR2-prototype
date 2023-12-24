@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardConfig" load_steps=5 format=3 uid="uid://d2eq0qvnna4no"]
+
+[ext_resource type="Script" path="res://Scripts/Keyword.gd" id="1_3wv40"]
+[ext_resource type="Script" path="res://Scripts/CardConfig.gd" id="2_7823r"]
+[ext_resource type="Texture2D" uid="uid://co42rh8jult6" path="res://Assets/CardsImages/IMG_1099.PNG" id="3_6kdpu"]
+
+[sub_resource type="Resource" id="Resource_ts6yi"]
+script = ExtResource("1_3wv40")
+type = 0
+value = 3
+duration = 1
+trigger = 0
+
+[resource]
+script = ExtResource("2_7823r")
+count = 1
+power = 6
+base = 4
+mana = 0
+texture = ExtResource("3_6kdpu")
+keywords = Array[ExtResource("1_3wv40")]([SubResource("Resource_ts6yi")])

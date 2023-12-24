@@ -31,11 +31,13 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_button_pressed():
+	if get_parent().name == "GridContainerAlly":
+		#list_of_cards.append(cardConfig)
+		if menu._remove_ally_card(self) == true:
+			get_parent().remove_child(self)
+	elif get_parent().name == "GridContainerCardsList":
+		#list_of_cards.remove(cardConfig)
+		menu._add_ally_card(self)
 	emit_signal("selected_card", cardConfig)
-	pass # Replace with function body.

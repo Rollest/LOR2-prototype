@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="UnitConfig" load_steps=5 format=3 uid="uid://dym6fnykrgmsm"]
+[gd_resource type="Resource" script_class="UnitConfig" load_steps=4 format=3 uid="uid://dym6fnykrgmsm"]
 
-[ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="1_jcwu3"]
-[ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/card2.tres" id="2_lj0p7"]
+[ext_resource type="Resource" uid="uid://b2n3mdliuj4hx" path="res://Resourses/Cards/buff9.tres" id="1_qrqub"]
 [ext_resource type="Script" path="res://Scripts/UnitConfig.gd" id="3_ycf2u"]
 [ext_resource type="Texture2D" uid="uid://cig7fvepotg56" path="res://Assets/Units/Allies/IMG_0948.PNG" id="4_h01rt"]
 
@@ -12,8 +11,8 @@ maxHP = 100
 sp = 100
 maxSP = 100
 speed = Array[int]([4, 7])
-deck = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_jcwu3"), ExtResource("1_jcwu3"), ExtResource("2_lj0p7")])
-hand = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_jcwu3")])
+deck = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_qrqub")])
+hand = Array[Resource("res://Scripts/CardConfig.gd")]([])
 mana_max = 3
 mana_recovery = 1
 card_draw = 1

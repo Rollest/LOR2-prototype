@@ -4,18 +4,23 @@ extends Control
 var sound: Node
 var allies: Array[Node]
 var enemies: Array[Node]
+var selected_ally: UnitConfig
+var selected_enemy: UnitConfig
 var ally_stats_page: Node
 var enemy_stats_page: Node
 var ally_cards: Array[CardConfig]
 var enemy_cards: Array[CardConfig]
-var ally_cards_rows: Array[Node]
-var enemy_cards_rows: Array[Node]
 var map: Node
+var cards_list: Node
+var cards_list_container: Node
 var map_buttons: Array[Button]
 var allies_container: Node
 var enemies_container: Node
+var ally_cards_container: Node
+var enemy_cards_container: Node
 var global_config: Node
 var global_save: Node
+var new_card = preload("res://Scenes/card_combat_menu.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,27 +31,24 @@ func _ready():
 	#enemies = get_node("Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer").get_children()
 	allies_container = get_node("Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer")
 	enemies_container = get_node("Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer")
+	ally_cards_container = get_node("Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly")
+	enemy_cards_container = get_node("Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy")
 	ally_stats_page = get_node("Menu/Allies/UnitStatsPage")
 	enemy_stats_page = get_node("Menu/Enemies/UnitStatsPage")
 	map = get_node("Menu/Center/Map")
+	cards_list = get_node("Menu/CardsList")
+	cards_list_container = get_node("Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList")
 	global_config = get_node("/root/GlobalConfig")
+	
 	for button in map.get_children():
 		button.combat_button_clicked.connect(_listener_combat_button)
 		map_buttons.append(button)
-	for row in get_node("Menu/Allies/CardsContainer").get_children():
-		ally_cards_rows.append(row.get_node("MarginContainer/HBoxContainer"))
-	for row in get_node("Menu/Enemies/CardsContainer").get_children():
-		enemy_cards_rows.append(row.get_node("MarginContainer/HBoxContainer"))
-	for row in ally_cards_rows:
-		#ally_cards.append_array(row.get_children())
-		for child in row.get_children():
-			row.remove_child(child)
-			child.queue_free()
-	for row in enemy_cards_rows:
-		#enemy_cards.append_array(row.get_children())
-		for child in row.get_children():
-			row.remove_child(child)
-			child.queue_free()
+	for card in ally_cards_container.get_children():
+		ally_cards_container.remove_child(card)
+		card.queue_free()
+	for card in enemy_cards_container.get_children():
+		enemy_cards_container.remove_child(card)
+		card.queue_free()
 	ally_stats_page.visible = false
 	enemy_stats_page.visible = false
 	
@@ -60,8 +62,6 @@ func _ready():
 			_combat_button(map_buttons[i].combatConfig)
 			break
 			
-	_ally_unit_selected(allies[0].basestats)
-	await _enemy_unit_selected(enemies[0].basestats)
 	sound.music_player.stream = sound.music_combat_menu
 	sound.music_player.play()
 	
@@ -74,6 +74,16 @@ func _listener_combat_button(combatConfig: CombatConfig):
 	
 	
 func _combat_button(combatConfig: CombatConfig):
+	var tmp: Array[UnitConfig]
+	for ally in combatConfig.allies:
+		tmp.append(ally.duplicate(true))
+	combatConfig.allies.clear()
+	combatConfig.allies = tmp
+	var tmp2: Array[UnitConfig]
+	for enemy in combatConfig.enemies:
+		tmp2.append(enemy.duplicate(true))
+	combatConfig.enemies.clear()
+	combatConfig.enemies = tmp2
 	global_config.combatConfig = combatConfig
 	for ally in allies_container.get_children():
 		allies_container.remove_child(ally)
@@ -81,7 +91,7 @@ func _combat_button(combatConfig: CombatConfig):
 	for ally in combatConfig.allies:
 		var new_node = preload("res://Scenes/unit_combat_menu.tscn").instantiate()
 		new_node.selected_unit.connect(_listener_ally_unit_selected)
-		new_node.basestats = ally.duplicate(true)
+		new_node.basestats = ally
 		new_node.name = new_node.basestats.unit_name
 		new_node.get_node("Container").texture = preload("res://Assets/Backgrounds/Menus/CombatMenu/UnitContainer.PNG")
 		allies_container.add_child(new_node)
@@ -94,7 +104,7 @@ func _combat_button(combatConfig: CombatConfig):
 	for enemy in combatConfig.enemies:
 		var new_node = preload("res://Scenes/unit_combat_menu.tscn").instantiate()
 		new_node.selected_unit.connect(_listener_enemy_unit_selected)
-		new_node.basestats = enemy.duplicate(true)
+		new_node.basestats = enemy
 		new_node.name = new_node.basestats.unit_name
 		new_node.get_node("Container").texture = preload("res://Assets/Backgrounds/Menus/CombatMenu/EnemyContainer.PNG")
 		enemies_container.add_child(new_node)
@@ -106,11 +116,12 @@ func _combat_button(combatConfig: CombatConfig):
 
 func _listener_ally_unit_selected(ally):
 	sound.click_standart_player.play()
+	cards_list.visible = true
 	_ally_unit_selected(ally)
 	
 	
 func _ally_unit_selected(ally):
-	ally = ally.duplicate(true)
+	selected_ally = ally
 	ally_stats_page.visible = true
 	ally_stats_page.get_node("UnitAvatar").texture = ally.texture
 	ally_stats_page.get_node("PageLabel").text = ally.unit_name
@@ -118,22 +129,22 @@ func _ally_unit_selected(ally):
 	ally_stats_page.get_node("Stat3").text = str(ally.mana_max)
 	
 	
-	for row in ally_cards_rows:
-		for child in row.get_children():
-			row.remove_child(child)
-			child.queue_free()
+	for card in ally_cards_container.get_children():
+		ally_cards_container.remove_child(card)
+		card.queue_free()
 	ally_cards.clear()
 	ally_cards.append_array(ally.deck)
 	var counter = 0
-	for card in ally_cards:
-		counter += 1
-		for row in ally_cards_rows:
-			if len(row.get_children()) < 5:
-				var new_node = preload("res://Scenes/card_combat_menu.tscn").instantiate()
+	if len(ally_cards) > 0:
+		for card in ally_cards:
+			counter += 1
+			if len(ally_cards_container.get_children()) < 15:
+				var new_node = new_card.duplicate(true).instantiate()
 				new_node.selected_card.connect(_listener_ally_card_selected)
 				new_node.cardConfig = card.duplicate(true)
 				new_node.name = "ally_card" + str(counter)
-				row.add_child(new_node)
+				ally_cards_container.add_child(new_node)
+			else:
 				break
 
 
@@ -142,33 +153,60 @@ func _listener_enemy_unit_selected(enemy):
 	_enemy_unit_selected(enemy)
 	
 func _enemy_unit_selected(enemy):
-	enemy = enemy.duplicate(true)
+	selected_enemy = enemy
+	enemy = enemy
 	enemy_stats_page.visible = true
 	enemy_stats_page.get_node("UnitAvatar").texture = enemy.texture
 	enemy_stats_page.get_node("PageLabel").text = enemy.unit_name
 	enemy_stats_page.get_node("Stat").text = str(enemy.maxHP)
 	enemy_stats_page.get_node("Stat3").text = str(enemy.mana_max)
 	
-	for row in enemy_cards_rows:
-		for child in row.get_children():
-			row.remove_child(child)
-			child.queue_free()
+	for card in enemy_cards_container.get_children():
+		enemy_cards_container.remove_child(card)
+		card.queue_free()
 	enemy_cards.clear()
 	enemy_cards.append_array(enemy.deck)
 	var counter = 0
-	for card in enemy_cards:
-		counter += 1
-		for row in enemy_cards_rows:
-			if row.get_child_count() < 5:
-				var new_node = preload("res://Scenes/card_combat_menu.tscn").instantiate()
+	if len(enemy_cards) > 0:
+		for card in enemy_cards:
+			counter += 1
+			if enemy_cards_container.get_child_count() < 15:
+				var new_node = new_card.duplicate(true).instantiate()
 				new_node.selected_card.connect(_listener_enemy_card_selected)
 				new_node.cardConfig = card.duplicate(true)
 				new_node.name = "enemy_card" + str(counter)
-				row.add_child(new_node)
+				enemy_cards_container.add_child(new_node)
+			else:
 				break
-	pass
+
+
+func _add_ally_card(card:Node):
+	if ally_cards_container.get_child_count() < 15:
+		#cards_list_container.remove_child(card)
+		ally_cards_container.add_child(card.duplicate(true))
+		card.selected_card.connect(_listener_ally_card_selected)
+		#_listener_ally_card_selected(card.cardConfig)
+		selected_ally.deck.append(card.cardConfig.duplicate(true))
+		return true
+	else:
+		return false
+		
+func _remove_ally_card(card:Node):
+	ally_cards_container.remove_child(card)
+	#cards_list_container.add_child(card)
+	card.selected_card.disconnect(_listener_ally_card_selected)
+	_listener_ally_card_selected(card.cardConfig)
+	var tmp: int
+	for c in range(len(selected_ally.deck)-1):
+		if _compare_cards(card.cardConfig,selected_ally.deck[c]) == true:
+			tmp = c
+	if tmp != null:
+		selected_ally.deck.remove_at(tmp)
 	
-	
+func _compare_cards(card1: CardConfig, card2: CardConfig):
+	if card1.count == card2.count && card1.power == card2.power && card1.keywords == card2.keywords && card1.base == card2.base:
+		return true
+	return false
 	
 func _listener_ally_card_selected(cardConfig):
 	print("ally_card_selected")
@@ -188,5 +226,4 @@ func _save_load():
 
 func _on_play_pressed():
 	sound.click_start_game_player.play()
-	await sound.click_start_game_player.finished
 	get_tree().change_scene_to_file("res://Scenes/root.tscn")

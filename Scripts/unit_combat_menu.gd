@@ -8,7 +8,7 @@ signal selected_unit(stats)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	menu = get_node("/root/CombatMenu")
-	stats = basestats.duplicate(true)
+	stats = basestats
 	texture = stats.texture
 	pass # Replace with function body.
 

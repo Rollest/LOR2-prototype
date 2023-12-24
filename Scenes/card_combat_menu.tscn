@@ -2,17 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://cqw1wma7o3n8u" path="res://Assets/CardsImages/IMG_1024.PNG" id="1_i6u4g"]
 [ext_resource type="Script" path="res://Scripts/card_combat_menu.gd" id="2_x65ya"]
-[ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="3_d45ew"]
+[ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/useless/Card1.tres" id="3_v3gy0"]
 
 [node name="CardTexture" type="TextureRect"]
 clip_contents = true
+custom_minimum_size = Vector2(97.176, 150)
 offset_right = 97.0
 offset_bottom = 150.0
 texture = ExtResource("1_i6u4g")
 expand_mode = 3
 stretch_mode = 4
 script = ExtResource("2_x65ya")
-cardConfig = ExtResource("3_d45ew")
+cardConfig = ExtResource("3_v3gy0")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.345098)

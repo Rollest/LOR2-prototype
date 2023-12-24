@@ -3,8 +3,7 @@
 [ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="2_vtpj6"]
 [ext_resource type="Script" path="res://Scripts/GameDirector.gd" id="3_1a71y"]
 [ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/enemy1.tres" id="5_ol3o3"]
-[ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="6_ug7nl"]
-[ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/card2.tres" id="7_ulx04"]
+[ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/useless/card2.tres" id="5_tst1k"]
 [ext_resource type="PackedScene" uid="uid://dq1d1who1d74p" path="res://Scenes/gui.tscn" id="8_gm0w0"]
 [ext_resource type="Script" path="res://Scripts/RayCast.gd" id="8_hdsgx"]
 [ext_resource type="PackedScene" uid="uid://diy7kumo6udta" path="res://Scenes/unit_2d.tscn" id="9_meili"]
@@ -12,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ba13bj6s0nseq" path="res://Scenes/card2d.tscn" id="10_7u201"]
 [ext_resource type="PackedScene" uid="uid://cow0hcch73mmw" path="res://Scenes/enemy_2d.tscn" id="10_d5xgn"]
 [ext_resource type="Resource" uid="uid://bpvvxipqe2g8x" path="res://Resourses/CombatsConfigs/combat1.tres" id="10_nsjya"]
+[ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/useless/Card1.tres" id="12_argm4"]
 [ext_resource type="Script" path="res://Scripts/CardContainer.gd" id="12_hlh61"]
 [ext_resource type="Script" path="res://Scripts/Arcs.gd" id="13_52blp"]
 [ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/player2.tres" id="14_egxjh"]
@@ -40,7 +40,7 @@ position = Vector2(1585, 452)
 basestats = ExtResource("5_ol3o3")
 
 [node name="EnemySlot" parent="Enemy2D" index="1" node_paths=PackedStringArray("source", "target")]
-card = ExtResource("7_ulx04")
+card = ExtResource("5_tst1k")
 source = NodePath("..")
 target = NodePath("../../Unit2D")
 
@@ -77,7 +77,7 @@ combatConfig = ExtResource("10_nsjya")
 
 [node name="CardContainer" type="Node" parent="." node_paths=PackedStringArray("template", "scene")]
 script = ExtResource("12_hlh61")
-cards = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("6_ug7nl"), ExtResource("6_ug7nl"), ExtResource("6_ug7nl")])
+cards = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("12_argm4"), ExtResource("12_argm4"), ExtResource("12_argm4")])
 template = NodePath("Card2")
 scene = NodePath(".")
 width = 550.0
@@ -86,13 +86,13 @@ width = 550.0
 visible = false
 position = Vector2(598, 511)
 scale = Vector2(1.25, 1.25)
-cardConfig = ExtResource("7_ulx04")
+cardConfig = ExtResource("5_tst1k")
 
 [node name="Card3" parent="CardContainer" instance=ExtResource("10_7u201")]
 visible = false
 position = Vector2(416, 511)
 scale = Vector2(1.25, 1.25)
-cardConfig = ExtResource("6_ug7nl")
+cardConfig = ExtResource("12_argm4")
 
 [node name="ARCS" type="Node2D" parent="." node_paths=PackedStringArray("raycast")]
 z_index = 1
@@ -112,7 +112,7 @@ position = Vector2(1360, 674)
 basestats = ExtResource("15_uk84v")
 
 [node name="EnemySlot" parent="Enemy2D2" index="1" node_paths=PackedStringArray("source", "target")]
-card = ExtResource("6_ug7nl")
+card = ExtResource("12_argm4")
 source = NodePath("..")
 target = NodePath("../../Unit2D2")
 

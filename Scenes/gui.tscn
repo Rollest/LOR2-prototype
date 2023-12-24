@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://Scripts/ShowDeck.gd" id="2_6bnd3"]
 [ext_resource type="PackedScene" uid="uid://bpxgvlds53ht1" path="res://Scenes/deck_display.tscn" id="3_h314s"]
 [ext_resource type="Texture2D" uid="uid://y5qrwx66kf27" path="res://Assets/MenuItems/Deck Button.PNG" id="3_iavmx"]
-[ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/Card1.tres" id="4_u115p"]
-[ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/card2.tres" id="5_y7tqh"]
+[ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/useless/Card1.tres" id="6_k5uxg"]
+[ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/useless/card2.tres" id="7_bqu2q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14lef"]
 size = Vector2(1940.29, 747.035)
@@ -60,7 +60,7 @@ shape = SubResource("RectangleShape2D_14lef")
 [node name="DeckDisplay" parent="." instance=ExtResource("3_h314s")]
 visible = false
 offset_right = -1.0
-cards = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("4_u115p"), ExtResource("4_u115p"), ExtResource("5_y7tqh")])
+cards = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("6_k5uxg"), ExtResource("6_k5uxg"), ExtResource("7_bqu2q")])
 hoffset = 150.0
 voffset = 200.0
 

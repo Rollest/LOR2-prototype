@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cxxw5k24d77aq"]
+[gd_scene load_steps=30 format=3 uid="uid://cxxw5k24d77aq"]
 
 [ext_resource type="Script" path="res://Scripts/CombatMenu.gd" id="1_lh1rh"]
 [ext_resource type="Texture2D" uid="uid://bhxruxipovyr4" path="res://Assets/Backgrounds/Menus/CombatMenu/Background.PNG" id="2_whe6r"]
@@ -27,6 +27,7 @@
 [ext_resource type="Resource" uid="uid://bowpaumpupym7" path="res://Resourses/CombatsConfigs/combat3.tres" id="16_1cknt"]
 [ext_resource type="Texture2D" uid="uid://b14oipl6yprdb" path="res://Assets/Backgrounds/Menus/CombatMenu/LevelButtons/Open.PNG" id="19_e6peu"]
 [ext_resource type="Texture2D" uid="uid://dj5p2hbk1c2i3" path="res://Assets/Backgrounds/Menus/CombatMenu/LevelButtons/Closed.PNG" id="23_td3hi"]
+[ext_resource type="Script" path="res://Scripts/CardsList.gd" id="25_21l2k"]
 
 [sub_resource type="FontVariation" id="FontVariation_2m3j5"]
 
@@ -587,112 +588,6 @@ offset_bottom = 183.0
 theme_override_font_sizes/font_size = 31
 text = "123"
 
-[node name="CardsContainer" type="GridContainer" parent="Menu/Allies"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_top = 562.0
-offset_right = 700.0
-offset_bottom = 1080.0
-grow_vertical = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.39
-
-[node name="PanelContainer" type="PanelContainer" parent="Menu/Allies/CardsContainer"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Allies/CardsContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 45
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 45
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Allies/CardsContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="CardTexture" parent="Menu/Allies/CardsContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture2" parent="Menu/Allies/CardsContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture3" parent="Menu/Allies/CardsContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture4" parent="Menu/Allies/CardsContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture5" parent="Menu/Allies/CardsContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="PanelContainer2" type="PanelContainer" parent="Menu/Allies/CardsContainer"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Allies/CardsContainer/PanelContainer2"]
-layout_mode = 2
-theme_override_constants/margin_left = 45
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 45
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Allies/CardsContainer/PanelContainer2/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="CardTexture" parent="Menu/Allies/CardsContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture2" parent="Menu/Allies/CardsContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture3" parent="Menu/Allies/CardsContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture4" parent="Menu/Allies/CardsContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture5" parent="Menu/Allies/CardsContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="PanelContainer3" type="PanelContainer" parent="Menu/Allies/CardsContainer"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Allies/CardsContainer/PanelContainer3"]
-layout_mode = 2
-theme_override_constants/margin_left = 45
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 45
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Allies/CardsContainer/PanelContainer3/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="CardTexture" parent="Menu/Allies/CardsContainer/PanelContainer3/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture2" parent="Menu/Allies/CardsContainer/PanelContainer3/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture3" parent="Menu/Allies/CardsContainer/PanelContainer3/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture4" parent="Menu/Allies/CardsContainer/PanelContainer3/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture5" parent="Menu/Allies/CardsContainer/PanelContainer3/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
 [node name="Label" type="Label" parent="Menu/Allies"]
 layout_mode = 0
 offset_left = 276.0
@@ -702,6 +597,81 @@ offset_bottom = 70.0
 theme_override_colors/font_color = Color(0, 0.313726, 0.984314, 1)
 theme_override_font_sizes/font_size = 41
 text = "BOYZ"
+
+[node name="CardsContainer" type="Panel" parent="Menu/Allies"]
+self_modulate = Color(0.658824, 0.337255, 0, 0)
+layout_mode = 0
+offset_top = 571.0
+offset_right = 685.0
+offset_bottom = 1071.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/Allies/CardsContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Allies/CardsContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="GridContainerAlly" type="GridContainer" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 25
+columns = 5
+
+[node name="CardTexture" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+expand_mode = 4
+
+[node name="CardTexture2" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture3" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture4" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture5" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture6" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture7" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture8" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture9" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture10" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture11" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture12" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture13" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture14" parent="Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly" instance=ExtResource("7_qv6te")]
+layout_mode = 2
 
 [node name="Enemies" type="Control" parent="Menu"]
 layout_mode = 1
@@ -839,110 +809,79 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
 text = "BAD BOYZ"
 
-[node name="CardsContainer" type="GridContainer" parent="Menu/Enemies"]
-self_modulate = Color(1, 1, 1, 0)
+[node name="CardsContainer" type="Panel" parent="Menu/Enemies"]
+self_modulate = Color(0.658824, 0.337255, 0, 0)
 layout_mode = 0
-offset_top = 562.0
-offset_right = 700.0
-offset_bottom = 1080.0
+offset_top = 571.0
+offset_right = 685.0
+offset_bottom = 1071.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/Enemies/CardsContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.39
+horizontal_scroll_mode = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="Menu/Enemies/CardsContainer"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Enemies/CardsContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/Enemies/CardsContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 45
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 45
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Enemies/CardsContainer/PanelContainer/MarginContainer"]
+[node name="GridContainerEnemy" type="GridContainer" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
-theme_override_constants/separation = 30
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 25
+columns = 5
 
-[node name="CardTexture" parent="Menu/Enemies/CardsContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
+[node name="CardTexture" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+expand_mode = 4
 
-[node name="CardTexture2" parent="Menu/Enemies/CardsContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture3" parent="Menu/Enemies/CardsContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture4" parent="Menu/Enemies/CardsContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
-layout_mode = 2
-
-[node name="CardTexture5" parent="Menu/Enemies/CardsContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
+[node name="CardTexture2" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
 layout_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="Menu/Enemies/CardsContainer"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Enemies/CardsContainer/PanelContainer2"]
-layout_mode = 2
-theme_override_constants/margin_left = 45
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 45
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Enemies/CardsContainer/PanelContainer2/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="CardTexture" parent="Menu/Enemies/CardsContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
+[node name="CardTexture3" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
 layout_mode = 2
 
-[node name="CardTexture2" parent="Menu/Enemies/CardsContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
+[node name="CardTexture4" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
 layout_mode = 2
 
-[node name="CardTexture3" parent="Menu/Enemies/CardsContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
+[node name="CardTexture5" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
 layout_mode = 2
 
-[node name="CardTexture4" parent="Menu/Enemies/CardsContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
+[node name="CardTexture6" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
 layout_mode = 2
 
-[node name="CardTexture5" parent="Menu/Enemies/CardsContainer/PanelContainer2/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
+[node name="CardTexture7" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
 layout_mode = 2
 
-[node name="PanelContainer3" type="PanelContainer" parent="Menu/Enemies/CardsContainer"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Enemies/CardsContainer/PanelContainer3"]
-layout_mode = 2
-theme_override_constants/margin_left = 45
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 45
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Enemies/CardsContainer/PanelContainer3/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="CardTexture" parent="Menu/Enemies/CardsContainer/PanelContainer3/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
+[node name="CardTexture8" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
 layout_mode = 2
 
-[node name="CardTexture2" parent="Menu/Enemies/CardsContainer/PanelContainer3/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
+[node name="CardTexture9" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
 layout_mode = 2
 
-[node name="CardTexture3" parent="Menu/Enemies/CardsContainer/PanelContainer3/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
+[node name="CardTexture10" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
 layout_mode = 2
 
-[node name="CardTexture4" parent="Menu/Enemies/CardsContainer/PanelContainer3/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
+[node name="CardTexture11" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
 layout_mode = 2
 
-[node name="CardTexture5" parent="Menu/Enemies/CardsContainer/PanelContainer3/MarginContainer/HBoxContainer" instance=ExtResource("7_qv6te")]
+[node name="CardTexture12" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture13" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture14" parent="Menu/Enemies/CardsContainer/ScrollContainer/MarginContainer/GridContainerEnemy" instance=ExtResource("7_qv6te")]
 layout_mode = 2
 
 [node name="Center" type="Control" parent="Menu"]
@@ -1004,6 +943,107 @@ icon = ExtResource("23_td3hi")
 flat = true
 script = ExtResource("13_mcthq")
 combatConfig = ExtResource("16_1cknt")
+
+[node name="CardsList" type="Control" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 700.0
+offset_top = 475.0
+offset_right = -700.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("25_21l2k")
+
+[node name="Panel" type="Panel" parent="Menu/CardsList"]
+self_modulate = Color(0.658824, 0.337255, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/CardsList/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 27.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu/CardsList/Panel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="GridContainerCardsList" type="GridContainer" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 4
+
+[node name="CardTexture" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+expand_mode = 4
+
+[node name="CardTexture2" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture3" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture4" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture5" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture6" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture7" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture8" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture9" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture10" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture11" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture12" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture13" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CardTexture14" parent="Menu/CardsList/Panel/ScrollContainer/MarginContainer/GridContainerCardsList" instance=ExtResource("7_qv6te")]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Menu/CardsList/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -27.0
+offset_bottom = 27.0
+grow_horizontal = 0
+text = "X"
 
 [node name="CombatMenuPause" type="Control" parent="."]
 process_mode = 3
@@ -1098,5 +1138,6 @@ icon_alignment = 1
 [connection signal="pressed" from="Menu/Center/Map/Combat1" to="Menu/Center/Map/Combat1" method="_on_pressed"]
 [connection signal="pressed" from="Menu/Center/Map/Combat2" to="Menu/Center/Map/Combat2" method="_on_pressed"]
 [connection signal="pressed" from="Menu/Center/Map/Combat3" to="Menu/Center/Map/Combat3" method="_on_pressed"]
+[connection signal="pressed" from="Menu/CardsList/Panel/CloseButton" to="Menu/CardsList" method="_on_close_button_pressed"]
 [connection signal="pressed" from="CombatMenuPause/VBoxContainer/UnpauseBtn" to="CombatMenuPause" method="_on_unpause_btn_pressed"]
 [connection signal="pressed" from="CombatMenuPause/VBoxContainer/Exit" to="CombatMenuPause" method="_on_exit_pressed"]

@@ -10,6 +10,6 @@
 [resource]
 script = ExtResource("5_ofbim")
 allies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("1_2voyj"), ExtResource("2_is1yx"), ExtResource("1_2voyj"), ExtResource("2_is1yx"), ExtResource("2_is1yx")])
-enemies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("3_affyo"), ExtResource("3_affyo"), ExtResource("4_4kuvl"), ExtResource("3_affyo"), ExtResource("4_4kuvl")])
+enemies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("4_4kuvl"), ExtResource("3_affyo"), ExtResource("4_4kuvl"), ExtResource("4_4kuvl"), ExtResource("3_affyo")])
 level = "level3"
 level_background = ExtResource("5_j3pc0")
