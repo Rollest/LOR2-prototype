@@ -9,7 +9,6 @@ func _enter_tree():
 		slots.append(slot)
 
 	
-	
 func _play_random():
 	for slot in slots:
 		slot.target=null
@@ -17,16 +16,10 @@ func _play_random():
 		
 	var root = get_parent()
 	var targets=gameDirector.find_objects_of_type("Ally")
-	#print(basestats)
-	#for t in targets:
-		#print("t ",t)
-	#print(slots)
 	var playable_cards:Array[CardConfig]
 	for card in hand:
 		if mana>card.mana:
 			playable_cards.append(card.duplicate(true))
-	
-	#print(self," playable cards: ",playable_cards)
 			
 	if targets!=null && targets.size()>0 && playable_cards.size()>0:
 		for slot in slots:
@@ -34,10 +27,7 @@ func _play_random():
 			slot.target=targets[randi_range(0,targets.size()-1)]
 			slot.evil_change_target(slot.target)
 			slot._slot_card()
-			#print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-			#print(slot.card,"  a  ",slot.target)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	super(delta)
 

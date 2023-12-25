@@ -11,11 +11,9 @@ func _ready():
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel") && is_active:
 		get_tree().change_scene_to_file("res://Scenes/CombatMenu.tscn")
-	pass
 
 func _on_exit_pressed():
 	get_tree().change_scene_to_file("res://Scenes/CombatMenu.tscn")
-	pass # Replace with function body.
 
 
 func _win():

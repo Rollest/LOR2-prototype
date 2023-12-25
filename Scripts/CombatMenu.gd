@@ -23,12 +23,9 @@ var global_save: Node
 var new_card = preload("res://Scenes/card_combat_menu.tscn")
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	sound = get_node("/root/Sound")
 	global_save = get_node("/root/Save")
-	#allies = get_node("Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer").get_children()
-	#enemies = get_node("Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer").get_children()
 	allies_container = get_node("Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer")
 	enemies_container = get_node("Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer")
 	ally_cards_container = get_node("Menu/Allies/CardsContainer/ScrollContainer/MarginContainer/GridContainerAlly")
@@ -51,21 +48,14 @@ func _ready():
 		card.queue_free()
 	ally_stats_page.visible = false
 	enemy_stats_page.visible = false
-	
-	#for ally in allies:
-	#	ally.selected_unit.connect(_listener_ally_unit_selected)
-	#for enemy in enemies:
-	#	enemy.selected_unit.connect(_listener_enemy_unit_selected)
+
 	_save_load()
 	for i in range(len(map_buttons)-1,-1,-1):
 		if global_save.save[map_buttons[i].combatConfig.level] != 0:
 			_combat_button(map_buttons[i].combatConfig)
 			break
-			
 	sound.music_player.stream = sound.music_combat_menu
 	sound.music_player.play()
-	
-	pass # Replace with function body.
 
 
 func _listener_combat_button(combatConfig: CombatConfig):
@@ -182,10 +172,8 @@ func _enemy_unit_selected(enemy):
 
 func _add_ally_card(card:Node):
 	if ally_cards_container.get_child_count() < 15:
-		#cards_list_container.remove_child(card)
 		ally_cards_container.add_child(card.duplicate(true))
 		card.selected_card.connect(_listener_ally_card_selected)
-		#_listener_ally_card_selected(card.cardConfig)
 		selected_ally.deck.append(card.cardConfig.duplicate(true))
 		return true
 	else:
@@ -193,7 +181,6 @@ func _add_ally_card(card:Node):
 		
 func _remove_ally_card(card:Node):
 	ally_cards_container.remove_child(card)
-	#cards_list_container.add_child(card)
 	card.selected_card.disconnect(_listener_ally_card_selected)
 	_listener_ally_card_selected(card.cardConfig)
 	var tmp: int
@@ -211,13 +198,11 @@ func _compare_cards(card1: CardConfig, card2: CardConfig):
 func _listener_ally_card_selected(cardConfig):
 	print("ally_card_selected")
 	sound.click_standart_player.play()
-	pass
 
 
 func _listener_enemy_card_selected(cardConfig):
 	print("enemy_card_selected")
 	sound.click_standart_player.play()
-	pass
 
 
 func _save_load():

@@ -10,12 +10,6 @@ func _ready():
 	sound.music_player.stream = sound.music_menu
 	sound.music_player.play()
 	global_save = get_node("/root/Save")
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _on_play_button_pressed():
@@ -26,7 +20,6 @@ func _on_play_button_pressed():
 func _on_settings_button_pressed():
 	sound.click_standart_player.play()
 	find_child("SettingsMenu").visible=true
-	#global_save._clear()
 	
 
 

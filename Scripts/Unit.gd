@@ -17,14 +17,10 @@ var mana_max:int
 var mana_recovery:int
 var card_draw:int
 var statuses:Array[Keyword]
-
 var texture: CompressedTexture2D
 var unit_name: String
-
 var isdead:bool
-
 var draw_pile:Array[CardConfig]
-
 var healthBar:TextureProgressBar
 var easedHealthBar:TextureProgressBar
 var shader: ShaderMaterial
@@ -36,24 +32,19 @@ var slots:Array[Slot]
 var gameDirector: GameDirector
 var isMouseOn: bool = false
 var isMouseSelected: bool = false
-
 var baseScale:Vector2
 var random:RandomNumberGenerator = RandomNumberGenerator.new()
-
 var effect_container: Node2D
 @export var effect_offset: int = 100
 
 
+
 func _update_effects():
-	#print("UPDATED EFFECTS")
 	print(self)
 	for n in effect_container.get_children():
 		effect_container.remove_child(n)
 		n.queue_free()
-	#print(statuses)
 	for status in statuses:
-		#print(statuses)
-		#print("statusessss")
 		var new_effect = preload("res://Scenes/effect.tscn").instantiate()
 		new_effect.name = status.KeywordType.keys()[status.KeywordType.keys().find(status.type)]
 		effect_container.add_child(new_effect)
@@ -74,7 +65,6 @@ func add_slot(slot):
 	slots.append(slot)
 
 func die():
-	#print (str(self)+" is ded ---------------------------------------------------------------------------------------------------")
 	isdead=true
 	hp=0
 	var new_node = preload("res://Scenes/grave.tscn").instantiate()
@@ -88,23 +78,18 @@ func die():
 	if get_parent() != null:
 		get_parent().remove_child(self)
 	self.queue_free()
-	
-	#_on_hp_updated()
 
 func take_damage(damage:int):
 	if !isdead:
-		#print (str(self)+" took damage")
 		var total_armor:float=0.0
 		var total_shred:int=0
 		if FindKeyword(KeywordType.SHRED)!=null:
-			for shred in FindKeyword(KeywordType.SHRED):
-				total_shred+=shred.value
-				shred.duration-=1
-				if (shred.duration<=0):
-					shred.value=0
+			total_shred+=FindKeyword(KeywordType.SHRED).value
+			FindKeyword(KeywordType.SHRED).duration-=1
+			if (FindKeyword(KeywordType.SHRED).duration<=0):
+				FindKeyword(KeywordType.SHRED).value=0
 		if FindKeyword(KeywordType.ARMOR)!=null:
-			for armor in FindKeyword(KeywordType.ARMOR):
-				total_armor+=armor.value*0.1
+			total_armor+=FindKeyword(KeywordType.ARMOR).value*0.1
 			
 		hp-=round((1.0-total_armor)*(damage+total_shred))
 		if  hp<=0:
@@ -125,7 +110,6 @@ func take_status(base_status:Keyword):
 
 func deal_damage(cardStats:CardConfig,target:Unit):
 	if !isdead:
-		#print (str(self)+" damaged "+str(target)+" with "+str(cardStats))
 		var card = cardStats.duplicate(true)
 		var total_base_power:int = 0
 		var total_coin_power:int = 0
@@ -145,11 +129,9 @@ func deal_damage(cardStats:CardConfig,target:Unit):
 		if hp>0:	
 		#combine status effects
 			if FindKeyword(KeywordType.FINAL_POWER)!=null:
-				for base in FindKeyword(KeywordType.FINAL_POWER):
-					total_base_power+=base.value
+				total_base_power+=FindKeyword(KeywordType.FINAL_POWER).value
 			if FindKeyword(KeywordType.COIN_POWER)!=null:
-				for coin in FindKeyword(KeywordType.COIN_POWER):
-					total_coin_power+=coin.value
+				total_coin_power+=FindKeyword(KeywordType.COIN_POWER).value
 		#damage calculations
 			damage=card.base+total_base_power
 			for i in range(0,card.count):
@@ -157,13 +139,12 @@ func deal_damage(cardStats:CardConfig,target:Unit):
 				target.take_damage(damage)
 			
 				for effect in card.keywords:
-					if effect.trigger == i+1:
+					if effect.trigger == i:
 						target.take_status(effect)
 						
 		else: die()
 
 func draw_card():
-	#print("drawing------------------------------------")
 	var draw_num=card_draw
 	var draw_keyword = FindKeyword(KeywordType.DRAW)
 	if draw_keyword!=null:
@@ -185,7 +166,6 @@ func draw_card():
 			draw_pile.pop_at(index)
 	
 func regen_mana():
-	#print ("getting mana-----------------------------------")
 	var mana_num=mana_recovery
 	var mana_keyword = FindKeyword(KeywordType.MANA)
 	if mana_keyword!=null:
@@ -197,10 +177,9 @@ func regen_mana():
 	if (mana<0):mana=0
 	if (mana>mana_max):mana=mana_max
 
-	# Called when the node enters the scene tree for the first time.
+
 func _enter_tree():
 	stats=basestats.duplicate(true)
-	#print(stats)
 	hp= stats.hp
 	tempHp = hp
 	maxHP=stats.maxHP
@@ -223,7 +202,6 @@ func _enter_tree():
 		draw_pile.append(card)
 	
 	for slot in find_children("Slot"):
-		#slot.source = self
 		add_slot(slot)
 	healthBar = get_node("CollisionShape2D/Sprite2D/ProgressBar")
 	easedHealthBar = get_node("CollisionShape2D/Sprite2D/EasedProgressBar")
@@ -237,15 +215,9 @@ func _enter_tree():
 	get_node("CollisionShape2D").get_node("Sprite2D").texture = texture
 	gameDirector.selectedUnit.connect(_listener_selected)
 	gameDirector.unselect.connect(_listener_unselected)
-	#gameDirector.unselected.connect(_listener_unselected)
-	#tween.tween_property(healthBar,"value",hp,0.4)
-	#print(self)
-	#print(slots)
 
 
-	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#healthBar.value = float(hp)/float(maxHP)*100
 	if hp <=0:
 		await die()
 	pass
@@ -280,7 +252,6 @@ enum KeywordType{
 }
 	
 func _listener_selected(id,type):
-	#print(id,"  ",get_instance_id(), "  ", type)
 	if(id == self):
 		if(type == "motion"): 
 			_mouse_on()
@@ -296,8 +267,9 @@ func _listener_selected(id,type):
 			_mouse_off()
 		elif(type == "press"):
 			_mouse_on_unpressed()
+
+
 func _listener_unselected(id,type):
-	#print(id,"  ",cardBody2D.get_instance_id())
 	if(id == self || type == "all"):
 		if(type == "motion"): 
 			_mouse_off()
@@ -308,25 +280,19 @@ func _listener_unselected(id,type):
 		
 func _mouse_on():
 	isMouseOn = true
-	#print("mouse_on")
 	
 func _mouse_off():
 	isMouseOn = false
-	#print("mouse_off")
 
 func _mouse_on_pressed():
-	#isMouseOn = true
 	isMouseSelected = true
 	shader.set_shader_parameter("width", 13)
 	scale = baseScale * 1.2
-	#print("mouse_on_press")
 
 func _mouse_on_unpressed():
-	#isMouseOn = true
 	scale = baseScale
 	shader.set_shader_parameter("width", 0.0)
 	isMouseSelected = false
-	#print("mouse_on_unpress")
 	
 func _on_hp_updated():
 	healthBar.value = float(hp)/float(maxHP)*100
@@ -342,8 +308,7 @@ func _on_hp_updated():
 	else:
 		damageText.set("theme_override_colors/font_color", Color(255,0,0,0))
 		damageText.set("theme_override_colors/font_shadow_color", Color(0,0,0,0))
-	
-	pass
+
 
 func get_type():
 	return "Unit"

@@ -53,24 +53,19 @@ func _ready():
 	var tmp
 	tmp=find_objects_of_type("Slot")
 	for item in tmp:
-		#print(item)
-		#print(item.source)
-		#print("---------------------------------------------")
 		item.reset_speed(item.source.speed)
-	#tmp=find_objects_of_type("Unit")
-	#for unit in tmp:
-	#	units.append(unit)
-	#	unit._on_hp_updated()
+	
 	tmp=find_objects_of_type("Slot")
+	
 	for slot in tmp:
 		slots.append(slot)
 		
 	for unit in find_objects_of_type("Unit"):
 		for i in range(3):
 			unit.draw_card()
+	
 	for enemy in find_objects_of_type("Enemy"):
 		enemy._play_random()
-	print("readyEnd")
 
 
 
@@ -84,19 +79,14 @@ func _listener_selected(id,type):
 func _listener_unselected(id,type):
 	if(id == pressBodyId && type == "press"):
 		if (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("Card") && selectedBody.source.get_type() == "Ally" && selectedBody.source.mana>=pressBodyId.cardConfig.mana):
-			#print(instance_from_id(selectedBody.get_instance_id()).card)
 			var slot = instance_from_id(selectedBody.get_instance_id())
 			slot.change_card(instance_from_id(pressBodyId.get_instance_id()))
-			#print(instance_from_id(selectedBody.get_instance_id()).card)
 			isCardSelected = true
 			pass
 		elif (selectedBody != null && selectedBody.to_string().contains("Slot") && pressBodyId.to_string().contains("EnemySlot") && isCardSelected == true):
-			#print(instance_from_id(selectedBody.get_instance_id()).target)
 			var enemy_slot = instance_from_id(pressBodyId.get_instance_id())
 			enemy_slot.selected()
 			instance_from_id(selectedBody.get_instance_id()).change_target(instance_from_id(pressBodyId.get_instance_id()).get_parent())
-				
-			#print(instance_from_id(selectedBody.get_instance_id()).target)
 			isCardSelected = false
 			pass
 		else:
@@ -110,7 +100,6 @@ func _listener_unselected(id,type):
 			if(selectedBody.to_string().contains("Pustishka")):
 				emit_signal("unselect",id,"all")
 				cardContainer.unselect()
-				#print("unselect")
 				pass
 			if(selectedBody.has_method("selected")):
 				selectedBody.selected()
@@ -141,14 +130,9 @@ func _process(delta):
 	pass
 
 func Turn():
-	#print("######################################")
-	#print("new turn")
-	#print("######################################\n")
-	#setup
 	CheckForDeadUnits(units)
 	for unit in units:
 		unit.tempHp = int(unit.hp)
-	
 	
 		
 	var combat_slots:Array[Slot]=[]
@@ -176,11 +160,9 @@ func Turn():
 			break
 		if flag==false:   # onesided damage at the end
 			for slot in combat_slots:
-				#print (str(slot.source)+" attacks "+str(slot.target))
 				if !slot.source.isdead:
 					slot.source.deal_damage(slot.card,slot.target)
 					Discard(slot)
-				#print(slot.target.hp)
 			break
 		for unit in units:
 			unit._update_effects()
@@ -191,11 +173,7 @@ func Turn():
 			for burn in FindKeyword(KeywordType.BURN,item): #process burns
 				item.hp-=burn.value
 		
-		#print(item," oiuytr")
 		var removethemkeywords:Array[Keyword]
-		#print(item.statuses," poiuytrs")
-		#for i in item.statuses:
-			#print(i.type," ",i.duration)
 			
 		for keyword in item.statuses: #status decrement
 			if ((keyword.type!=1) and (keyword.type!=2)):
@@ -224,7 +202,6 @@ func Turn():
 			unit.draw_card()
 		if unit is Enemy:
 			unit._play_random()
-			#print("random target set")
 	
 	await get_tree().process_frame
 	CheckForDeadUnits(units)
@@ -301,14 +278,9 @@ func Discard(slot:Slot):
 		arcs.dict_slot_A_B.erase(slot)
 
 func Clash(slot1:Slot,slot2:Slot):
-	#print("############################")
-	#print(str(slot1.source) +" vs "+str(slot2.source))
-	#print("clash "+str(slot1)+" "+str(slot2)) ############create card buffers to modify during clash
 
 	var first = slot1.card.duplicate(true)
-	#first.setvalues(slot1.card.count,slot1.card.power,slot1.card.base)
 	var second = slot2.card.duplicate(true)
-	#second.setvalues(slot2.card.count,slot2.card.power,slot2.card.base)
 
 	while (first.count>0 && second.count>0):  #######calculate clash results
 		var total_base_power1=0
@@ -348,8 +320,6 @@ func Clash(slot1:Slot,slot2:Slot):
 		if slot2.target!=null:
 			slot2.source.deal_damage(second,slot2.target)
 
-	#print(slot1.target.hp)
-	#print(slot2.target.hp)
 
 
 func CheckForDeadUnits(units:Array[Unit]):
@@ -398,7 +368,6 @@ func speedComparison(a, b):
 
 
 func _on_gui_next_turn():
-	#print("button pressed")
 	sound.click_standart_player.play()
 	Turn()
 

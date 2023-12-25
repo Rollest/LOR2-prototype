@@ -4,7 +4,6 @@ var list_of_cards: Array[CardConfig]
 var grid_container: Node
 var new_card = preload("res://Scenes/card_combat_menu.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false
 	list_of_cards = get_node("/root/GlobalConfig").list_cards
@@ -16,12 +15,6 @@ func _ready():
 		var new_node = new_card.duplicate(true).instantiate()
 		new_node.cardConfig = config
 		grid_container.add_child(new_node)
-	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _on_close_button_pressed():

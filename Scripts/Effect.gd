@@ -17,12 +17,7 @@ func _ready():
 	powerlabel.text=str(0)
 	if get_parent() is Card:
 		label.visible = false
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _add_timer(time: int,power:int):
@@ -51,10 +46,4 @@ func _set_effect(keyword: Keyword):
 			if keyword.value>0:
 				sprite.texture = load("res://Assets/Effects/SPEED_UP.PNG")
 			else : sprite.texture = load("res://Assets/Effects/SPEED_DOWN.PNG")
-			sprite.texture = load("res://Assets/Effects/white1.png")
-		#keyword.KeywordType.MANA:
-		#	sprite.texture = load("res://Assets/Effects/white1.png")
-		#keyword.KeywordType.DRAW:
-		#	sprite.texture = load("res://Assets/Effects/white1.png")
-		
 		

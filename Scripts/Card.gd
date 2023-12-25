@@ -17,7 +17,6 @@ var rayCast2D: RayCast2D
 var gameDirector: GameDirector
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	countText.text = str(cardConfig.count)
 	powerText.text = str(cardConfig.power)
@@ -48,7 +47,7 @@ func _ready():
 	rayCast2D.unselected.connect(_listener_unselected)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	if (isMouseOn):
 		scale = baseScale * scaleMultiplier
@@ -65,14 +64,12 @@ func _process(delta):
 
 
 func _listener_selected(id,type):
-	#print(id,"  ",get_instance_id())
 	if(id == self):
 		if(type == "motion"): 
 			_mouse_on()
 	elif(id != self && type == "press"):
 		anotherNodeIsMoving = true
 func _listener_unselected(id,type):
-	#print(id,"  ",get_instance_id())
 	if(id == self):
 		if(type == "motion"):
 			_mouse_off()
@@ -80,7 +77,6 @@ func _listener_unselected(id,type):
 		anotherNodeIsMoving = false
 		
 func _listener_select(id,type):
-	#print(id,"  ",get_instance_id())
 	if(id == self):
 		if(type == "press"):
 			_mouse_on_pressed()

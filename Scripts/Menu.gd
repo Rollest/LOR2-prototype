@@ -29,4 +29,3 @@ func _on_unpause_btn_pressed():
 func _on_exit_pressed():
 	sound.music_player.stream = sound.music_menu
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
-	pass # Replace with function body.

@@ -4,7 +4,6 @@ class_name Slot
 	
 var text:Label
 @export var speed:int
-
 @export var card:CardConfig
 @export var source:Unit
 @export var target:Unit
@@ -13,9 +12,9 @@ var baseScale
 var gameDirector: GameDirector
 var arcs: Arcs
 var newcard = preload("res://Scenes/card2d.tscn")
-
-
 var RNG=RandomNumberGenerator.new()
+
+
 # Called when the node enters the scene tree for the first time.
 func _enter_tree():
 	gameDirector = get_node("../../GameDirector")
@@ -23,11 +22,9 @@ func _enter_tree():
 	source = get_parent()
 	arcs = get_node("../../ARCS")
 	baseScale = transform.get_scale()
-	#gameDirector.selectedUnit.connect(selected)
 	gameDirector.unselect.connect(unselect)
 	if(target && target.get_node("Slot")):
 		arcs.dict_slot_A_B[self] = [global_position, target.get_node("Slot").global_position, false]
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -85,16 +82,13 @@ func evil_change_target(newTarget):
 	
 func selected():
 	isSelected = !isSelected
-	print("SELECTED SLOT")
 	if(isSelected):
 		scale = baseScale * 1.2
-		
 	else:
 		scale = baseScale
 		
 func unselect(id = 0, type = " "):
 	isSelected = false
-	print("UNSELECTED SLOT")
 	scale = baseScale
 	if arcs.dict_slot_A_B.has(self) && len(arcs.dict_slot_A_B.get(self))<2:
 		arcs.dict_slot_A_B.erase(self)

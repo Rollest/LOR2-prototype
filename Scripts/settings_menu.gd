@@ -19,11 +19,6 @@ func _ready():
 	Engine.max_fps = global_save.game_data["max_fps"]
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),linear_to_db(global_save.game_data["music_vol"]))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"),linear_to_db(global_save.game_data["sfx_vol"]))
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _on_delete_save_pressed():

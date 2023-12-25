@@ -126,7 +126,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Slot" type="CharacterBody2D" parent="."]
-position = Vector2(0, -396)
+position = Vector2(0, -445)
 scale = Vector2(5, 5)
 script = ExtResource("3_i6gb8")
 
@@ -138,9 +138,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -22.5143
+offset_top = -12.8
 offset_right = 20.0
-offset_bottom = 3.4857
+offset_bottom = 15.2
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -151,13 +151,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slot"]
-position = Vector2(0, -12.3521)
 scale = Vector2(1.6397, 1.6397)
 shape = SubResource("RectangleShape2D_rcxrk")
 
 [node name="Sprite2D" type="Sprite2D" parent="Slot"]
 material = SubResource("ShaderMaterial_42q37")
-position = Vector2(-5.78165e-06, -12.2065)
 scale = Vector2(0.034, 0.034)
 texture = ExtResource("6_xtjyf")
 offset = Vector2(0.835, 0)

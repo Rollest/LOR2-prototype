@@ -8,12 +8,8 @@ var vector_to: Vector2
 var list_from = Array()
 var list_to = Array()
 var dict_slot_A_B = {}
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(raycast.position != prevPos):
 		queue_redraw()
@@ -44,7 +40,6 @@ func _draw():
 		if(len(i)>2 and i[2] == true):
 			color = Color(1.0,0.0,1.0)
 		var A = i[0]
-		#draw_circle(A,3,color)
 		var B
 		if(len(i)>1):
 			B = i[1]

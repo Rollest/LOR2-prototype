@@ -6,19 +6,10 @@ extends Node
 @export var columns:int
 @export var hoffset:float
 @export var voffset:float
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	
-	pass # Replace with function body.
+
 
 func _enter_tree():
 	scene=get_parent()
-	#display_cards(cards)
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
 static func delete_children(node):
 	for n in node.get_children():
@@ -44,11 +35,9 @@ func display_cards(cards:Array[CardConfig]):
 			print(new_node.name)
 			add_child(new_node)
 			c+=1
-	pass
 
 func unselect():
 	delete_children(self)
-	pass
 
 
 func _on_show_deck_pressed():
@@ -58,4 +47,3 @@ func _on_show_deck_pressed():
 func _on_gui_stop_showing_deck():
 	delete_children(self)
 	self.visible=false
-	pass # Replace with function body.

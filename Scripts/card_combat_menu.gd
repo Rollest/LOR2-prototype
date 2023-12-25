@@ -9,7 +9,7 @@ var keyLabel:Label
 var manaLabel:Label
 
 signal selected_card(cardConfig)
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	menu = get_node("/root/CombatMenu")
 	texture = cardConfig.texture
@@ -28,16 +28,13 @@ func _ready():
 		text+=actual_string
 	keyLabel.text=text
 	manaLabel.text = str(cardConfig.mana)
-	pass # Replace with function body.
 
 
 
 func _on_button_pressed():
 	if get_parent().name == "GridContainerAlly":
-		#list_of_cards.append(cardConfig)
 		if menu._remove_ally_card(self) == true:
 			get_parent().remove_child(self)
 	elif get_parent().name == "GridContainerCardsList":
-		#list_of_cards.remove(cardConfig)
 		menu._add_ally_card(self)
 	emit_signal("selected_card", cardConfig)
