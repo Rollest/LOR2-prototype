@@ -12,7 +12,7 @@ func _ready():
 	closed_button = preload("res://Assets/Backgrounds/Menus/CombatMenu/LevelButtons/Closed.PNG")
 	open_button = preload("res://Assets/Backgrounds/Menus/CombatMenu/LevelButtons/Open.PNG")
 	complete_button = preload("res://Assets/Backgrounds/Menus/CombatMenu/LevelButtons/Complete.PNG")
-
+	set("theme_override_colors/icon_disabled_color",Color(1, 1, 1, 1))
 
 func _on_pressed():
 	emit_signal("combat_button_clicked", combatConfig)
