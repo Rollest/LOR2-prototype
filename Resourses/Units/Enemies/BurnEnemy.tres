@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="UnitConfig" load_steps=13 format=3 uid="uid://bxdfxnsh42rah"]
+
+[ext_resource type="Resource" uid="uid://i2k1tkg1bx1s" path="res://Resourses/Cards/burn0.tres" id="1_8oc8l"]
+[ext_resource type="Resource" uid="uid://b7nq7sqdf4hhh" path="res://Resourses/Cards/burn1.tres" id="2_qlajh"]
+[ext_resource type="Script" path="res://Scripts/UnitConfig.gd" id="3_gbsvx"]
+[ext_resource type="Resource" uid="uid://broag6w0w2dl3" path="res://Resourses/Cards/burn2.tres" id="3_nnauf"]
+[ext_resource type="Resource" uid="uid://bhup6wrr6mtqj" path="res://Resourses/Cards/burn3.tres" id="4_sasxk"]
+[ext_resource type="Texture2D" uid="uid://cma8gx362nfhf" path="res://Assets/Units/Enemies/IMG_0949.PNG" id="4_w8rsv"]
+[ext_resource type="Resource" uid="uid://d2eq0qvnna4no" path="res://Resourses/Cards/burn4.tres" id="5_66uho"]
+[ext_resource type="Resource" uid="uid://dbxug85phhj17" path="res://Resourses/Cards/burn5.tres" id="6_xeu66"]
+[ext_resource type="Resource" uid="uid://chjgy54wkxqjx" path="res://Resourses/Cards/burn6.tres" id="7_6su5e"]
+[ext_resource type="Resource" uid="uid://cahyaov7rgo0t" path="res://Resourses/Cards/burn7.tres" id="8_v11h3"]
+[ext_resource type="Resource" uid="uid://bhax1lv5pferc" path="res://Resourses/Cards/burn8.tres" id="9_3pdyr"]
+[ext_resource type="Resource" uid="uid://cs05rp6mhrbln" path="res://Resourses/Cards/burn9.tres" id="10_w4wsn"]
+
+[resource]
+script = ExtResource("3_gbsvx")
+hp = 130
+maxHP = 130
+sp = 100
+maxSP = 100
+speed = Array[int]([3, 7])
+deck = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_8oc8l"), ExtResource("2_qlajh"), ExtResource("3_nnauf"), ExtResource("4_sasxk"), ExtResource("5_66uho"), ExtResource("6_xeu66"), ExtResource("7_6su5e"), ExtResource("8_v11h3"), ExtResource("9_3pdyr"), ExtResource("10_w4wsn")])
+hand = Array[Resource("res://Scripts/CardConfig.gd")]([])
+mana_max = 3
+mana_recovery = 1
+card_draw = 1
+status = Array[Resource("res://Scripts/Keyword.gd")]([])
+texture = ExtResource("4_w8rsv")
+unit_name = "Люпин Поджигатель"

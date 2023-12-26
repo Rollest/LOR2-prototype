@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="UnitConfig" load_steps=13 format=3 uid="uid://d2knw4ticcu75"]
+
+[ext_resource type="Resource" uid="uid://dj1fwbh0sv8kr" path="res://Resourses/Cards/shred0.tres" id="1_cd1kw"]
+[ext_resource type="Resource" uid="uid://c71jqxy31i0ee" path="res://Resourses/Cards/shred1.tres" id="2_8ada1"]
+[ext_resource type="Resource" uid="uid://r2ou0fb5aqdp" path="res://Resourses/Cards/shred2.tres" id="3_2erj0"]
+[ext_resource type="Script" path="res://Scripts/UnitConfig.gd" id="3_vx14h"]
+[ext_resource type="Texture2D" uid="uid://cma8gx362nfhf" path="res://Assets/Units/Enemies/IMG_0949.PNG" id="4_07djj"]
+[ext_resource type="Resource" uid="uid://bmqq2l2lt41dy" path="res://Resourses/Cards/shred3.tres" id="4_hrivb"]
+[ext_resource type="Resource" uid="uid://ck08mvg4o0kpn" path="res://Resourses/Cards/shred4.tres" id="5_bwxkf"]
+[ext_resource type="Resource" uid="uid://buwnqyr5gpf65" path="res://Resourses/Cards/shred5.tres" id="6_xrbjv"]
+[ext_resource type="Resource" uid="uid://cjfp3kynv8bl5" path="res://Resourses/Cards/shred6.tres" id="7_y5533"]
+[ext_resource type="Resource" uid="uid://b8btp1m8uj3bb" path="res://Resourses/Cards/shred7.tres" id="8_jta1a"]
+[ext_resource type="Resource" uid="uid://c34lud10fkg34" path="res://Resourses/Cards/shred8.tres" id="9_jy302"]
+[ext_resource type="Resource" uid="uid://dlcair7lv8n7n" path="res://Resourses/Cards/shred9.tres" id="10_mtyib"]
+
+[resource]
+script = ExtResource("3_vx14h")
+hp = 100
+maxHP = 100
+sp = 100
+maxSP = 100
+speed = Array[int]([1, 10])
+deck = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_cd1kw"), ExtResource("2_8ada1"), ExtResource("3_2erj0"), ExtResource("4_hrivb"), ExtResource("5_bwxkf"), ExtResource("6_xrbjv"), ExtResource("7_y5533"), ExtResource("8_jta1a"), ExtResource("9_jy302"), ExtResource("10_mtyib")])
+hand = Array[Resource("res://Scripts/CardConfig.gd")]([])
+mana_max = 2
+mana_recovery = 2
+card_draw = 1
+status = Array[Resource("res://Scripts/Keyword.gd")]([])
+texture = ExtResource("4_07djj")
+unit_name = "Люпин Острый"

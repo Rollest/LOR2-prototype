@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="CombatConfig" load_steps=5 format=3 uid="uid://bpvvxipqe2g8x"]
 
-[ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="1_w35eq"]
+[ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/Allies/player1.tres" id="1_wd0lv"]
 [ext_resource type="Script" path="res://Scripts/CombatConfig.gd" id="1_yiqb3"]
-[ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/enemy1.tres" id="3_dh0ru"]
+[ext_resource type="Resource" uid="uid://bxdfxnsh42rah" path="res://Resourses/Units/Enemies/BurnEnemy.tres" id="2_wppgi"]
 [ext_resource type="Texture2D" uid="uid://xjesikls6ib2" path="res://Assets/Backgrounds/Background2.PNG" id="5_38ldn"]
 
 [resource]
 script = ExtResource("1_yiqb3")
-allies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("1_w35eq")])
-enemies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("3_dh0ru")])
+allies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("1_wd0lv")])
+enemies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("2_wppgi")])
 level = "level1"
 level_background = ExtResource("5_38ldn")

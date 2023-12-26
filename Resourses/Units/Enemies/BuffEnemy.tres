@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="UnitConfig" load_steps=13 format=3 uid="uid://bnvsrc5o7mdot"]
+
+[ext_resource type="Resource" uid="uid://dx7ptdlcginfo" path="res://Resourses/Cards/buff0.tres" id="1_ydwrx"]
+[ext_resource type="Resource" uid="uid://85kycsqqomw5" path="res://Resourses/Cards/buff1.tres" id="2_cecp2"]
+[ext_resource type="Resource" uid="uid://b4010gmbv7lh5" path="res://Resourses/Cards/buff2.tres" id="3_f4dms"]
+[ext_resource type="Script" path="res://Scripts/UnitConfig.gd" id="3_xgdsm"]
+[ext_resource type="Resource" uid="uid://kyaut2g04e5r" path="res://Resourses/Cards/buff3.tres" id="4_6aibp"]
+[ext_resource type="Texture2D" uid="uid://cma8gx362nfhf" path="res://Assets/Units/Enemies/IMG_0949.PNG" id="4_6r3cb"]
+[ext_resource type="Resource" uid="uid://7e0xyj2np1jx" path="res://Resourses/Cards/buff4.tres" id="5_o1a1u"]
+[ext_resource type="Resource" uid="uid://ce1mn35e6h8ee" path="res://Resourses/Cards/buff5.tres" id="6_j1v8c"]
+[ext_resource type="Resource" uid="uid://ccngmr530b8ht" path="res://Resourses/Cards/buff6.tres" id="7_2lw62"]
+[ext_resource type="Resource" uid="uid://bgvkmdnw0xaih" path="res://Resourses/Cards/buff7.tres" id="8_xx7pp"]
+[ext_resource type="Resource" uid="uid://d1aq8s40b7kgc" path="res://Resourses/Cards/buff8.tres" id="9_w3jrh"]
+[ext_resource type="Resource" uid="uid://b2n3mdliuj4hx" path="res://Resourses/Cards/buff9.tres" id="10_ru64i"]
+
+[resource]
+script = ExtResource("3_xgdsm")
+hp = 110
+maxHP = 110
+sp = 100
+maxSP = 100
+speed = Array[int]([2, 5])
+deck = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_ydwrx"), ExtResource("2_cecp2"), ExtResource("3_f4dms"), ExtResource("4_6aibp"), ExtResource("5_o1a1u"), ExtResource("6_j1v8c"), ExtResource("7_2lw62"), ExtResource("8_xx7pp"), ExtResource("9_w3jrh"), ExtResource("10_ru64i")])
+hand = Array[Resource("res://Scripts/CardConfig.gd")]([])
+mana_max = 4
+mana_recovery = 1
+card_draw = 1
+status = Array[Resource("res://Scripts/Keyword.gd")]([])
+texture = ExtResource("4_6r3cb")
+unit_name = "Люпин Помогатор"

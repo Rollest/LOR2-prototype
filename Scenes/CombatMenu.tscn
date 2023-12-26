@@ -8,23 +8,23 @@
 [ext_resource type="Texture2D" uid="uid://cig7fvepotg56" path="res://Assets/Units/Allies/IMG_0948.PNG" id="4_arvpp"]
 [ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="4_xdomq"]
 [ext_resource type="Texture2D" uid="uid://bciatshx4rwgp" path="res://Assets/Backgrounds/Menus/CombatMenu/IMG_1122.PNG" id="5_fl32c"]
-[ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="5_rbup4"]
 [ext_resource type="Texture2D" uid="uid://cgkuwp0kt4hjj" path="res://Assets/Units/Allies/IMG_0947.PNG" id="6_7jujl"]
 [ext_resource type="Script" path="res://Scripts/CombatMenuPause.gd" id="6_a64g7"]
 [ext_resource type="Texture2D" uid="uid://b0fu7rm8ugcx5" path="res://Assets/Backgrounds/Menus/CombatMenu/IMG_1123.PNG" id="6_jyi04"]
-[ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/player2.tres" id="6_lotsb"]
 [ext_resource type="Texture2D" uid="uid://bpunl21fktg34" path="res://Assets/MenuItems/IMG_1018.PNG" id="7_pn4qo"]
 [ext_resource type="Texture2D" uid="uid://cavdco3k7qp53" path="res://Assets/Backgrounds/Menus/CombatMenu/IMG_1124.PNG" id="7_quism"]
 [ext_resource type="PackedScene" uid="uid://ciapukrpvwwr3" path="res://Scenes/card_combat_menu.tscn" id="7_qv6te"]
 [ext_resource type="Texture2D" uid="uid://mvkkvvyuhjt4" path="res://Assets/Backgrounds/Menus/CombatMenu/IMG_1120.PNG" id="8_4wa3p"]
 [ext_resource type="Texture2D" uid="uid://dtc1ge2kcgkon" path="res://Assets/Backgrounds/Menus/CombatMenu/BackgroundRight.PNG" id="8_tm2in"]
-[ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/enemy1.tres" id="9_47fu5"]
 [ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="9_iw8da"]
-[ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="10_vrivb"]
+[ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/Allies/player1.tres" id="12_6kyol"]
 [ext_resource type="Script" path="res://Scripts/CombatButton.gd" id="13_mcthq"]
+[ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/Allies/player2.tres" id="13_o2vdh"]
 [ext_resource type="Resource" uid="uid://bpvvxipqe2g8x" path="res://Resourses/CombatsConfigs/combat1.tres" id="14_gkj2a"]
 [ext_resource type="Resource" uid="uid://blbu5smy78n2w" path="res://Resourses/CombatsConfigs/combat2.tres" id="15_2sc2g"]
+[ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/Test/enemy1.tres" id="15_bc5tv"]
 [ext_resource type="Resource" uid="uid://bowpaumpupym7" path="res://Resourses/CombatsConfigs/combat3.tres" id="16_1cknt"]
+[ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/Test/enemy2.tres" id="16_6vcpt"]
 [ext_resource type="Texture2D" uid="uid://dooqmi7fyksrb" path="res://Assets/Backgrounds/Menus/CombatMenu/LevelButtons/Open.PNG" id="19_e6peu"]
 [ext_resource type="Texture2D" uid="uid://p6sdqbn4oa84" path="res://Assets/Backgrounds/Menus/CombatMenu/LevelButtons/Complete.PNG" id="19_ss7uc"]
 [ext_resource type="Texture2D" uid="uid://b0ulg14bqvskt" path="res://Assets/Backgrounds/Menus/CombatMenu/LevelButtons/Closed.PNG" id="23_td3hi"]
@@ -495,27 +495,27 @@ theme_override_constants/separation = 5
 [node name="Texture" parent="Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_hwli0")]
 layout_mode = 2
 texture = ExtResource("4_arvpp")
-basestats = ExtResource("5_rbup4")
+basestats = ExtResource("12_6kyol")
 
 [node name="Texture2" parent="Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_hwli0")]
 layout_mode = 2
 texture = ExtResource("4_arvpp")
-basestats = ExtResource("6_lotsb")
+basestats = ExtResource("13_o2vdh")
 
 [node name="Texture3" parent="Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_hwli0")]
 layout_mode = 2
 texture = ExtResource("4_arvpp")
-basestats = ExtResource("5_rbup4")
+basestats = ExtResource("12_6kyol")
 
 [node name="Texture4" parent="Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_hwli0")]
 layout_mode = 2
 texture = ExtResource("4_arvpp")
-basestats = ExtResource("6_lotsb")
+basestats = ExtResource("13_o2vdh")
 
 [node name="Texture5" parent="Menu/Allies/UnitsContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_hwli0")]
 layout_mode = 2
 texture = ExtResource("4_arvpp")
-basestats = ExtResource("5_rbup4")
+basestats = ExtResource("12_6kyol")
 
 [node name="UnitStatsPage" type="Panel" parent="Menu/Allies"]
 self_modulate = Color(1, 1, 1, 0)
@@ -705,27 +705,27 @@ theme_override_constants/separation = 5
 [node name="Texture" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_hwli0")]
 layout_mode = 2
 texture = ExtResource("4_arvpp")
-basestats = ExtResource("9_47fu5")
+basestats = ExtResource("15_bc5tv")
 
 [node name="Texture2" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_hwli0")]
 layout_mode = 2
 texture = ExtResource("4_arvpp")
-basestats = ExtResource("10_vrivb")
+basestats = ExtResource("16_6vcpt")
 
 [node name="Texture3" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_hwli0")]
 layout_mode = 2
 texture = ExtResource("4_arvpp")
-basestats = ExtResource("9_47fu5")
+basestats = ExtResource("15_bc5tv")
 
 [node name="Texture4" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_hwli0")]
 layout_mode = 2
 texture = ExtResource("4_arvpp")
-basestats = ExtResource("10_vrivb")
+basestats = ExtResource("16_6vcpt")
 
 [node name="Texture5" parent="Menu/Enemies/UnitsContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_hwli0")]
 layout_mode = 2
 texture = ExtResource("4_arvpp")
-basestats = ExtResource("9_47fu5")
+basestats = ExtResource("15_bc5tv")
 
 [node name="UnitStatsPage" type="Panel" parent="Menu/Enemies"]
 self_modulate = Color(1, 1, 1, 0)

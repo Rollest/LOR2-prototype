@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="CombatConfig" load_steps=6 format=3 uid="uid://blbu5smy78n2w"]
+[gd_resource type="Resource" script_class="CombatConfig" load_steps=7 format=3 uid="uid://blbu5smy78n2w"]
 
-[ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="1_bhoe5"]
-[ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/player2.tres" id="2_s27ik"]
-[ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="4_mrllc"]
+[ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/Allies/player1.tres" id="1_bhoe5"]
+[ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/Allies/player2.tres" id="2_s27ik"]
+[ext_resource type="Resource" uid="uid://bnvsrc5o7mdot" path="res://Resourses/Units/Enemies/BuffEnemy.tres" id="3_clmwc"]
+[ext_resource type="Resource" uid="uid://ba2to6id547vb" path="res://Resourses/Units/Enemies/PoizonEnemy.tres" id="4_e2y0w"]
 [ext_resource type="Texture2D" uid="uid://cqnh6rfaomvm7" path="res://Assets/Backgrounds/Background3.PNG" id="4_mwvec"]
 [ext_resource type="Script" path="res://Scripts/CombatConfig.gd" id="5_ppw7p"]
 
 [resource]
 script = ExtResource("5_ppw7p")
 allies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("1_bhoe5"), ExtResource("2_s27ik")])
-enemies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("4_mrllc"), ExtResource("4_mrllc")])
+enemies = Array[Resource("res://Scripts/UnitConfig.gd")]([ExtResource("3_clmwc"), ExtResource("4_e2y0w")])
 level = "level2"
 level_background = ExtResource("4_mwvec")

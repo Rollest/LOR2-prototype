@@ -1,8 +1,8 @@
 [gd_scene load_steps=24 format=3 uid="uid://bv4dys5ufh6x"]
 
-[ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/player1.tres" id="2_vtpj6"]
+[ext_resource type="Resource" uid="uid://rprxybbjpds2" path="res://Resourses/Units/Allies/player1.tres" id="2_jeinr"]
 [ext_resource type="Script" path="res://Scripts/GameDirector.gd" id="3_1a71y"]
-[ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/enemy1.tres" id="5_ol3o3"]
+[ext_resource type="Resource" uid="uid://dbrvne50pub0" path="res://Resourses/Units/Test/enemy1.tres" id="4_untko"]
 [ext_resource type="Resource" uid="uid://drqynikbv6dsj" path="res://Resourses/Cards/useless/card2.tres" id="5_tst1k"]
 [ext_resource type="PackedScene" uid="uid://dq1d1who1d74p" path="res://Scenes/gui.tscn" id="8_gm0w0"]
 [ext_resource type="Script" path="res://Scripts/RayCast.gd" id="8_hdsgx"]
@@ -14,9 +14,9 @@
 [ext_resource type="Resource" uid="uid://dwyyyt3dohhrn" path="res://Resourses/Cards/useless/Card1.tres" id="12_argm4"]
 [ext_resource type="Script" path="res://Scripts/CardContainer.gd" id="12_hlh61"]
 [ext_resource type="Script" path="res://Scripts/Arcs.gd" id="13_52blp"]
-[ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/player2.tres" id="14_egxjh"]
-[ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/enemy2.tres" id="15_uk84v"]
+[ext_resource type="Resource" uid="uid://dym6fnykrgmsm" path="res://Resourses/Units/Allies/player2.tres" id="15_06bba"]
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="16_ifrwr"]
+[ext_resource type="Resource" uid="uid://dnmku0di7eldk" path="res://Resourses/Units/Test/enemy2.tres" id="16_ts4he"]
 [ext_resource type="Texture2D" uid="uid://bpunl21fktg34" path="res://Assets/MenuItems/IMG_1018.PNG" id="18_54lb6"]
 [ext_resource type="Theme" uid="uid://cb0nq8ru70sb7" path="res://Resourses/Themes/menu_buttons_theme.tres" id="18_ukxrg"]
 [ext_resource type="Texture2D" uid="uid://cp4pc78oa2rcy" path="res://Assets/MenuItems/Menu Button.PNG" id="20_xr2x8"]
@@ -29,7 +29,7 @@
 
 [node name="Unit2D" parent="." instance=ExtResource("9_meili")]
 position = Vector2(278, 452)
-basestats = ExtResource("2_vtpj6")
+basestats = ExtResource("2_jeinr")
 
 [node name="Slot" parent="Unit2D" index="1" node_paths=PackedStringArray("source")]
 speed = 1
@@ -37,7 +37,7 @@ source = NodePath("..")
 
 [node name="Enemy2D" parent="." instance=ExtResource("10_d5xgn")]
 position = Vector2(1585, 452)
-basestats = ExtResource("5_ol3o3")
+basestats = ExtResource("4_untko")
 
 [node name="EnemySlot" parent="Enemy2D" index="1" node_paths=PackedStringArray("source", "target")]
 card = ExtResource("5_tst1k")
@@ -101,7 +101,7 @@ raycast = NodePath("../RayCast2D")
 
 [node name="Unit2D2" parent="." instance=ExtResource("9_meili")]
 position = Vector2(525, 674)
-basestats = ExtResource("14_egxjh")
+basestats = ExtResource("15_06bba")
 
 [node name="Slot" parent="Unit2D2" index="1" node_paths=PackedStringArray("source")]
 speed = 1
@@ -109,7 +109,7 @@ source = NodePath("..")
 
 [node name="Enemy2D2" parent="." instance=ExtResource("10_d5xgn")]
 position = Vector2(1360, 674)
-basestats = ExtResource("15_uk84v")
+basestats = ExtResource("16_ts4he")
 
 [node name="EnemySlot" parent="Enemy2D2" index="1" node_paths=PackedStringArray("source", "target")]
 card = ExtResource("12_argm4")

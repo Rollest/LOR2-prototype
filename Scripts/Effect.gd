@@ -46,4 +46,6 @@ func _set_effect(keyword: Keyword):
 			if keyword.value>0:
 				sprite.texture = load("res://Assets/Effects/SPEED_UP.PNG")
 			else : sprite.texture = load("res://Assets/Effects/SPEED_DOWN.PNG")
-		
+		_:
+			print("default effect")
+			visible = false

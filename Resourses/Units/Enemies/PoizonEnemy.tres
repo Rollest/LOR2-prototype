@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="UnitConfig" load_steps=13 format=3 uid="uid://ba2to6id547vb"]
+
+[ext_resource type="Resource" uid="uid://bjwunneprwreu" path="res://Resourses/Cards/poison0.tres" id="1_2cefv"]
+[ext_resource type="Resource" uid="uid://dtlcw6gybdsc0" path="res://Resourses/Cards/poison3.tres" id="1_ugetn"]
+[ext_resource type="Resource" uid="uid://cyambl3xmyffb" path="res://Resourses/Cards/poison1.tres" id="2_uyfv5"]
+[ext_resource type="Script" path="res://Scripts/UnitConfig.gd" id="3_o7841"]
+[ext_resource type="Resource" uid="uid://dpbrgaxdhcwpg" path="res://Resourses/Cards/poison2.tres" id="3_qt3v0"]
+[ext_resource type="Resource" uid="uid://b3500dmadwjsc" path="res://Resourses/Cards/poison4.tres" id="5_da5bw"]
+[ext_resource type="Resource" uid="uid://cmoa5dukw7kot" path="res://Resourses/Cards/poison5.tres" id="6_mchoj"]
+[ext_resource type="Resource" uid="uid://bo2i1iff3jd2l" path="res://Resourses/Cards/poison6.tres" id="7_7260r"]
+[ext_resource type="Resource" uid="uid://beej2eknbap5m" path="res://Resourses/Cards/poison7.tres" id="8_bm71i"]
+[ext_resource type="Resource" uid="uid://chr10kndyo8qk" path="res://Resourses/Cards/poison8.tres" id="9_1upau"]
+[ext_resource type="Resource" uid="uid://dp723bnppxspm" path="res://Resourses/Cards/poison9.tres" id="10_epyqt"]
+[ext_resource type="Texture2D" uid="uid://drh5aaq3yt7pn" path="res://Assets/Units/Enemies/IMG_0953.PNG" id="12_e78fh"]
+
+[resource]
+script = ExtResource("3_o7841")
+hp = 100
+maxHP = 100
+sp = 100
+maxSP = 100
+speed = Array[int]([3, 6])
+deck = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_2cefv"), ExtResource("2_uyfv5"), ExtResource("3_qt3v0"), ExtResource("1_ugetn"), ExtResource("5_da5bw"), ExtResource("6_mchoj"), ExtResource("7_7260r"), ExtResource("8_bm71i"), ExtResource("9_1upau"), ExtResource("10_epyqt")])
+hand = Array[Resource("res://Scripts/CardConfig.gd")]([])
+mana_max = 3
+mana_recovery = 2
+card_draw = 1
+status = Array[Resource("res://Scripts/Keyword.gd")]([])
+texture = ExtResource("12_e78fh")
+unit_name = "Тенебрис Ядовитый"

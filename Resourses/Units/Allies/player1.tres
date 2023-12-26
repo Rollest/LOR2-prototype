@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitConfig" load_steps=4 format=3 uid="uid://rprxybbjpds2"]
+
+[ext_resource type="Resource" uid="uid://7e0xyj2np1jx" path="res://Resourses/Cards/buff4.tres" id="1_hfasw"]
+[ext_resource type="Script" path="res://Scripts/UnitConfig.gd" id="2_kiddn"]
+[ext_resource type="Texture2D" uid="uid://cgkuwp0kt4hjj" path="res://Assets/Units/Allies/IMG_0947.PNG" id="3_pwfsh"]
+
+[resource]
+script = ExtResource("2_kiddn")
+hp = 100
+maxHP = 100
+sp = 100
+maxSP = 100
+speed = Array[int]([4, 7])
+deck = Array[Resource("res://Scripts/CardConfig.gd")]([ExtResource("1_hfasw")])
+hand = Array[Resource("res://Scripts/CardConfig.gd")]([])
+mana_max = 3
+mana_recovery = 1
+card_draw = 1
+status = Array[Resource("res://Scripts/Keyword.gd")]([])
+texture = ExtResource("3_pwfsh")
+unit_name = "Руфус"

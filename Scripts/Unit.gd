@@ -40,7 +40,6 @@ var effect_container: Node2D
 
 
 func _update_effects():
-	print(self)
 	for n in effect_container.get_children():
 		effect_container.remove_child(n)
 		n.queue_free()
@@ -51,13 +50,15 @@ func _update_effects():
 		new_effect._add_timer(status.duration,status.value)
 		new_effect._set_effect(status)
 		
-	print (statuses)
 	var counter = 0
+	print(effect_container.get_children())
 	for effect in effect_container.get_children():
-		if(len(effect_container.get_children())%2==0):
-			effect.global_position = Vector2((effect_container.global_position.x - (effect_offset * len(effect_container.get_children())/2)) + counter * effect_offset,effect_container.global_position.y)
 		if(len(effect_container.get_children())==1):
 			effect.global_position = Vector2(effect_container.global_position.x, effect_container.global_position.y)
+		elif(len(effect_container.get_children())%2==0):
+			effect.global_position = Vector2((effect_container.global_position.x - (effect_offset * len(effect_container.get_children())/2)) + counter * effect_offset,effect_container.global_position.y)
+		elif(len(effect_container.get_children())%2==1):
+			effect.global_position = Vector2((effect_container.global_position.x - (effect_offset * len(effect_container.get_children())/2)) + counter * effect_offset,effect_container.global_position.y)
 		counter += 1
 
 
